@@ -8,7 +8,7 @@
                 <a href="#/mine/logon">账户密码登录</a>
             </li>
             <li>
-                <a href="#/mine/register">手机动态密码登录</a>
+                <a href="#/mine/logonphone">手机动态密码登录</a>
             </li>
         </ul>
     </nav>

@@ -6,7 +6,7 @@ import Mine from '../components/Mine.vue'
 import ShopList from '../components/Shoplist.vue'
 import ShopDetail from '../components/ShopDetail.vue'
 import Logon from '../components/Logon.vue'
-import Register from '../components/Register.vue'
+import LogonPhone from '../components/LogonPhone.vue'
 
 Vue.use(Router)
 
@@ -42,9 +42,9 @@ export default new Router({
         name: 'Logon',
         component: Logon
       },{
-        path: '/mine/register',
-        name: 'Register',
-        component: Register
+        path: '/mine/logonphone',
+        name: 'LogonPhone',
+        component: LogonPhone
       }]
     }
   ]

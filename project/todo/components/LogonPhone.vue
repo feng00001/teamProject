@@ -8,18 +8,18 @@
                 <a href="#/mine/logon">账户密码登录</a>
             </li>
             <li class="active">
-                <a href="#/mine/register">手机动态密码登录</a>
+                <a href="#/mine/logonphone">手机动态密码登录</a>
             </li>
         </ul>
     </nav>
     <div class="inputtext">
         <div class="formgroup">
             <label><span>手机号</span></label>
-            <input type="text" placeholder="请输入账号" />
+            <input type="text" placeholder="请输入手机号" />
         </div>
         <div class="checkgroup">
             <label><span>验证码</span></label>
-            <input type="text" placeholder="请输入密码" />
+            <input type="text" placeholder="请输入短信验证码" />
             <button>获取短信验证码</button>
         </div>
     </div>
