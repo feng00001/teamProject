@@ -16,9 +16,9 @@ export const state = {
   // 单个shop信息
   shopDetail: {},
   // 测试用
-  testImg: 'assets/imgs/1.jpg',
+  testImg: ['assets/imgs/logo.png','assets/imgs/11.jpg','assets/imgs/nav.png','assets/imgs/2.jpg']
   // 高洋用 begin
-  gyimg: []
+  // gyimg: []
   // 高洋用 end
 
 }
