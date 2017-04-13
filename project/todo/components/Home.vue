@@ -3,7 +3,7 @@
 <template>
   <div>
     <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" :ref="$store.state.loadmore">
-    <img :src="$store.state.testImg"/>
+    <!-- <img :src="$store.state.testImg"/> -->
     <transition :name="$store.state.transitionName">
       <router-view class="child-view"></router-view>
     </transition>
