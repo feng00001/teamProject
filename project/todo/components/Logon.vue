@@ -134,7 +134,7 @@ export default {
     }
     .container .btngroup button {
         background: #e6133c;
-        width: 6.9rem;
+        width: 7.1rem;
         height: 0.8rem;
         border: 0;
         border-radius: 0.1rem;

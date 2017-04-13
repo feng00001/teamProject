@@ -1,16 +1,16 @@
 <!-- <style src="todomvc-app-css/index.css"></style> -->
 
 <template>
-	<div class="container">
-    <div class="head">
-        <div class="logo">
-            <i></i>
-            登录
-        </div>
-        <a href="javascript:;" class="regis">注册</a>
-    </div>
-    <router-view></router-view>
-  </div>
+<div class="container">
+	<div class="head">
+	    <div class="logo">
+	        <i></i>
+	        登录
+	    </div>
+	    <a href="#/register" class="regis">注册</a>
+	</div>
+	<router-view></router-view>
+</div>
 </template>
 
 <script>

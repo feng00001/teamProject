@@ -7,6 +7,8 @@ import ShopList from '../components/Shoplist.vue'
 import ShopDetail from '../components/ShopDetail.vue'
 import Logon from '../components/Logon.vue'
 import LogonPhone from '../components/LogonPhone.vue'
+import Register from '../components/Register.vue'
+import MySelf from '../components/MySelf.vue'
 
 Vue.use(Router)
 
@@ -46,6 +48,16 @@ export default new Router({
         name: 'LogonPhone',
         component: LogonPhone
       }]
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
+    },
+    {
+      path: '/myself',
+      name: 'MySelf',
+      component: MySelf
     }
   ]
 })
