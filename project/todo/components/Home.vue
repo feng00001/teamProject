@@ -62,6 +62,7 @@ export default {
   ul{
     display: flex;
     flex-direction: row;
+    width: 7.5rem;
   }
   ul li{
     padding: 10px 20px
