@@ -20,7 +20,9 @@ export const state = {
   // 高洋用 begin
   // gyimg: []
   // 高洋用 end
-
+  // 王春园用 begin
+  userphone: 'assets/imgs/userphone.png'
+  // 王春园用 end
 }
 
 // 这里对state进行操作，对state的操作最好放在这里，不要私自动用state
