@@ -50,7 +50,8 @@
   <body>
     <div id="app"></div>
     <script type="text/javascript">
-      
+      var rem = document.documentElement.clientWidth/7.5
+      document.getElementsByTagName('html')[0].style.fontSize = rem +'px';
     </script>
     <script src="/__build__/shared.js"></script>
     <script src="/__build__/todo.js"></script>
