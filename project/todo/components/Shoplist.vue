@@ -1,19 +1,18 @@
-<!-- <style src="todomvc-app-css/index.css"></style> -->
-
 <template>
   <div>
   	<h1>Shoplist</h1>
   	<input type="text" ref="ipt"/>
   	<button @click="searchByName">Search</button>
   	<button @click="insertVal">Insert</button>
-    <!-- <button @click="selectAll">查询</button> -->
     <ul>
     	<li v-for="item in $store.state.shoplist"><a :href="'#/detail/'+item.shopid">{{item.shopname}}</a><span @click="deleteById(item.shopid)">删除</span></li>
     </ul>
+    <bottom-nav></bottom-nav>
   </div>
 </template>
 
 <script>
+import BottomNav from './BottomNav.vue'
 import {mapMutations, mapActions} from 'vuex'
 import $ from 'jquery'
 
@@ -77,7 +76,10 @@ export default {
 		...mapActions([
 		  
 		])
-	}
+	},
+    components: {
+  	  BottomNav
+    }
 }
 </script>
 <style type="text/css" scoped>

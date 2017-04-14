@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Disciver from '../components/Discover.vue'
+import Home from '../components/Home.vue'
+import Classify from '../components/Classify.vue'
 import Order from '../components/Order.vue'
 import Mine from '../components/Mine.vue'
 import ShopList from '../components/Shoplist.vue'
@@ -11,19 +12,27 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'ShopList',
-      component: ShopList,
+      path: '/index',
+      name: 'Home',
+      component: Home,
+      redirect: '/shopList',
+      children: [
+        {
+          path: '/shopList',
+          name: 'ShopList',
+          component: ShopList
+        },
+        {
+          path: '/detail/:shopId',
+          name: 'ShopDetail',
+          component: ShopDetail
+        }
+      ]
     },
     {
-      path: '/detail/:shopid',
-      name: 'ShopDetail',
-      component: ShopDetail
-    },
-    {
-      path: '/discover',
-      name: 'Discover',
-      component: Disciver
+      path: '/classify',
+      name: 'Classify',
+      component: Classify
     },
     {
       path: '/order',
@@ -33,7 +42,11 @@ export default new Router({
     {
       path: '/mine',
       name: 'Mine',
-      component: Mine
+      component: Mine,
+    },
+    {
+      path: '*',
+      redirect: '/shopList'
     }
   ]
 })

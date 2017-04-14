@@ -1,5 +1,3 @@
-<!-- <style src="todomvc-app-css/index.css"></style> -->
-
 <template>
   <div>
   	<h1>ShopDetail <a href="#/"> Back</a></h1>
