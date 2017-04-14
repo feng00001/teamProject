@@ -156,6 +156,12 @@ export default {
 			background: "url('assets/imgs/mybg.jpg') no-repeat",
 			backgroundSize: "cover"
 		})
+		$(".mymenu .detailpower ul li i").each(function(index){
+			$(this).css({
+				background: "url('assets/imgs/myselficon/icon"+index+".png') no-repeat",
+				backgroundSize: "cover"
+			})
+		})
 	},
 	methods: {
 
@@ -291,9 +297,11 @@ export default {
 		padding-top: 0.45rem;
 	}
 	.container .mymenu .detailpower ul li i {
-		width: 1.5rem;
+		width: 0.8rem;
 		height: 0.7rem;
 		display: block;
+		margin-left: auto;
+		margin-right: auto;
 	}
 	.container .mybg {
 		height: 1.5rem;
