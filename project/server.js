@@ -5,6 +5,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware')
 const WebpackConfig = require('./webpack.config')
 
 const index = require('./expressrouter/index')
+const mine = require('./expressrouter/mine')
 
 const app = express()
 const compiler = webpack(WebpackConfig)
@@ -20,6 +21,8 @@ app.use(webpackDevMiddleware(compiler, {
 app.use(webpackHotMiddleware(compiler))
 
 app.use('/exp',index)
+
+app.use('/exp/mine',mine)
 
 app.use(express.static(__dirname))
 

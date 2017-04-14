@@ -15,7 +15,7 @@
     <div class="inputtext">
         <div class="formgroup">
             <label><span>帐号</span></label>
-            <input type="text" placeholder="请输入账号" />
+            <input type="text" placeholder="请输入账号" @blur="checkuser" ref="username"/>
         </div>
         <div class="formgroup">
             <label><span>密码</span></label>
@@ -30,16 +30,33 @@
     <div class="btngroup">
         <button>登录</button>
     </div>
+    <infomsg v-if="$store.state.mineMsg"></infomsg>
   </div>
 </template>
 
 <script>
 import { mapMutations, mapActions} from 'vuex'
+import $ from 'jquery'
+import infomsg from './InfoMsg.vue'
 
 export default {
   methods: {
-    
-  }
+    checkuser(){
+        let username = this.$refs.username.value;
+        $.ajax({
+            url: "/exp/mine/checkuser",
+            data: {
+                username: username
+            },
+            success: function(data){
+                
+            }
+        })
+    }
+  },
+    components: {
+        infomsg
+    }
 }
 </script>
 <style scoped>

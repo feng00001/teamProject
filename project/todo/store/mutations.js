@@ -22,6 +22,7 @@ export const state = {
   // 高洋用 end
   // 王春园用 begin
   userphone: 'assets/imgs/userphone.png',
+  mineMsg: "",
   // 王春园用 end
   // 韩旭 begin
   classifyImg: ['http://k21.iblimg.com/prd/images/category/2016/09/进口面膜.jpg','assets/imgs/search.png'],
@@ -41,7 +42,12 @@ export const mutations = {
   },
   setIsHide(state) {
     state.isHide = state.isHide === "none" ? "block" : "none"
+  },
+  // 王春园 begin
+  setMineMsg(state, arg) {
+    state.mineMsg = arg;
   }
+  // 王春园 end
 }
 
 export const actions = {
