@@ -1,5 +1,3 @@
-<!-- <style src="todomvc-app-css/index.css"></style> -->
-
 <template>
 <div class="container">
 	<div class="head">
@@ -9,16 +7,21 @@
 	    </div>
 	    <a href="#/register" class="regis">注册</a>
 	</div>
+	<bottom-nav></bottom-nav>
 	<router-view></router-view>
 </div>
 </template>
 
 <script>
+import BottomNav from './BottomNav.vue'
 import { mapMutations, mapActions} from 'vuex'
 
 export default {
   methods: {
     
+  },
+  components: {
+  	BottomNav
   }
 }
 </script>

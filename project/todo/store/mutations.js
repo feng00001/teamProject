@@ -15,6 +15,7 @@ export const state = {
   shoplist: [],
   // 单个shop信息
   shopDetail: {},
+  classifyImg: ['http://k21.iblimg.com/prd/images/category/2016/09/进口面膜.jpg','assets/images/search.png'],
   // 测试用
   testImg: ['assets/imgs/logo.png','assets/imgs/11.jpg','assets/imgs/nav.png','assets/imgs/2.jpg'],
   // 高洋用 begin

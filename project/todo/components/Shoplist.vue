@@ -253,16 +253,19 @@
 			</li>
 		</ul>
 	</div>
+	<bottom-nav></bottom-nav>
   </div>
 </template>
 
 <script>
+import BottomNav from './BottomNav.vue'
 import {mapMutations, mapActions} from 'vuex'
 import $ from 'jquery'
 import { Swipe, SwipeItem} from 'mint-ui'
 var obj = {};
 obj[Swipe.name]= Swipe;
 obj[SwipeItem.name]= SwipeItem;
+obj.BottomNav= BottomNav
 export default {
 	// 页面加载完成后调用，
 	mounted (){
@@ -635,7 +638,6 @@ export default {
 .shopList #like ul{
 	width: 7.5rem;
 	overflow: hidden;
-	padding:0 .2rem;
 	margin-top: .1rem;
 }
 .shopList #like ul li{
