@@ -50,9 +50,17 @@ module.exports = {
 		pool.getConnection(function(err, connection) {
 			// 获取前台页面传过来的参数
 			var param = req.query || req.params;
+			var ret = null;
+			console.log("s:"+req.session.checkcode)
+			console.log("r:"+param.chart)
+			if(req.session.checkcode.toUpperCase()!==param.chart.toUpperCase()){
+				ret = "您输入的验证码不正确"
+				util.jsonWrite(res, ret);
+				return;
+			}
 			// 建立连接，向表中插入值
 			connection.query($sql.sqlMine02, [param.username, param.password], function(err, result) {
-				var ret = null;
+				
 				if(err) {
 					ret = "注册失败，请联系管理员"
 				}

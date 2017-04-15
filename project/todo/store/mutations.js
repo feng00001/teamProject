@@ -32,7 +32,7 @@ export const state = {
   phonenum: null,
   chart: null,
   password: null,
-  userinfo: null,
+  userinfo: {},
   // 王春园用 end
   // 韩旭 begin
   classifyImg: ['http://k21.iblimg.com/prd/images/category/2016/09/进口面膜.jpg','assets/imgs/search.png'],

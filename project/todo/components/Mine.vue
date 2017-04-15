@@ -1,13 +1,14 @@
 <template>
 <div class="container">
 	<div class="head">
+		<a href="#/"><i class="iconfont">&#x3484;</i></a>
 	    <div class="logo">
+	    	
 	        <i></i>
 	        登录
 	    </div>
 	    <a href="#/register" class="regis">注册</a>
 	</div>
-	<bottom-nav></bottom-nav>
 	<router-view></router-view>
 </div>
 </template>
@@ -41,8 +42,12 @@ export default {
 		line-height: 0.9rem;
 		background: #fff;
 	}
+	.container .head a{
+		padding-left: 0.2rem;
+	}
 	.container .head .logo {
 		position: absolute;
+		top: 0;
 		left: 2.75rem;
 		width: 2rem;
 		text-align: center;
@@ -52,6 +57,7 @@ export default {
 		margin-right: auto;
 		font-size: 0.3rem;
 	}
+
 	.container .head .regis {
 		float: right;
 		padding-right: 0.25rem;

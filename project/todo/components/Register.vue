@@ -3,6 +3,7 @@
 <template>
   <div class="container">
     <div class="head">
+        <a href="#/mine"><i class="iconfont">&#x3484;</i></a>
         <div class="logo">
             <i></i>
             注册
@@ -13,10 +14,10 @@
             <label><span>手机号</span></label>
             <input type="text" placeholder="请输入手机号" ref="phonenum" v-model="$store.state.phonenum"/>
         </div>
-        <div class="formgroup">
+        <div class="chartgroup">
             <label><span>图形码</span></label>
             <input type="text" placeholder="请输入右侧验证码" ref="chart" v-model="$store.state.chart"/>
-            <img src=""/>
+            <img src="/exp/util/createcode" @click="changechart" ref="chartimg" />
         </div>
         <div class="checkgroup">
             <label><span>验证码</span></label>
@@ -120,8 +121,10 @@ export default {
                     }
                 })
             }
-        })
-        
+        })   
+    },
+    changechart () {
+        this.$refs.chartimg.src = this.$refs.chartimg.src + "?" +Math.random()
     }
   },
   computed: {
@@ -155,8 +158,12 @@ export default {
         line-height: 0.9rem;
         background: #fff;
     }
+    .container .head a{
+        padding-left: 0.2rem;
+    }
     .container .head .logo {
         position: absolute;
+        top: 0;
         left: 2.75rem;
         width: 2rem;
         text-align: center;
@@ -265,6 +272,43 @@ export default {
         border: 0;
     }
     .container .inputtext .checkgroup button {
+        float: right;
+        width: 2.5rem;
+        height: 1rem;
+        background: #e6133c;
+        border: 0;
+        color: #fff;
+    }
+    .container .inputtext .chartgroup {
+        position: relative;
+        height: 1rem;
+        border-bottom: 0.025rem solid #dedede;
+    }
+    .container .inputtext .chartgroup label {
+        position: absolute;
+        left: 0;
+        width: 1.5rem;
+        height: 1rem;
+        line-height: 1rem;
+        font-size: 0.28rem;
+        background: #fff;
+    }
+    .container .inputtext .chartgroup label span {
+        display: block;
+        margin-left: 0.2rem;
+    }
+    .container .inputtext .chartgroup input {
+        position: absolute;
+        left: 1.5rem;
+        width: 4rem;
+        height: 1rem;
+        border: 0;
+    }
+    .container .inputtext .chartgroup img {
+        float: right;
+        margin-top: 0.1rem;
+    }
+    .container .inputtext .chartgroup button {
         float: right;
         width: 2.5rem;
         height: 1rem;
