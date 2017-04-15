@@ -16,7 +16,13 @@ export const state = {
   // 单个shop信息
   shopDetail: {},
   // 测试用
-  testImg: ['assets/imgs/logo.png','assets/imgs/11.jpg','assets/imgs/nav.png','assets/imgs/2.jpg'],
+  testImg: ['assets/imgs/shopList/logo.png','assets/imgs/shopList/11.jpg',
+            'assets/imgs/shopList/nav.png','assets/imgs/shopList/2.jpg',
+            'assets/imgs/shopList/totop.png','assets/imgs/shopList/n2.png',
+            'assets/imgs/shopList/n3.png','assets/imgs/shopList/n4.png',
+            'assets/imgs/shopList/n5.png','assets/imgs/shopList/n6.png',
+            'assets/imgs/shopList/n7.png','assets/imgs/shopList/n8.png',
+            'assets/imgs/shopList/n9.png','assets/imgs/shopList/n10.png',],
   // 高洋用 begin
   // gyimg: []
   // 高洋用 end
