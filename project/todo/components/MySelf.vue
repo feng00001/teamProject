@@ -37,23 +37,23 @@
 		<div class="detaillist">
 			<ul>
 				<li>
-					<i></i>
+					<i class="iconfont">&#xe604;</i>
 					<span>待付款</span>
 				</li>
 				<li>
-					<i></i>
+					<i class="iconfont">&#xe66c;</i>
 					<span>待发货</span>
 				</li>
 				<li>
-					<i></i>
+					<i class="iconfont">&#xe7a1;</i>
 					<span>待收货</span>
 				</li>
 				<li>
-					<i></i>
+					<i class="iconfont">&#xe646;</i>
 					<span>待评价</span>
 				</li>
 				<li>
-					<i></i>
+					<i class="iconfont">&#xe606;</i>
 					<span>退换\售后</span>
 				</li>
 			</ul>
@@ -268,8 +268,11 @@ export default {
 	}
 	.container .mymenu .detaillist ul li i {
 		display: block;
-		width: 20%;
+		width: 1rem;
 		height: 1rem;
+		line-height: 1rem;
+		margin: 0 auto;
+		font-size: 0.6rem;
 	}
 	.container .mymenu .detailblock {
 		height: 1.4rem;
