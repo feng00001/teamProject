@@ -17,12 +17,15 @@ import BottomNav from './BottomNav.vue'
 import { mapMutations, mapActions} from 'vuex'
 
 export default {
-  methods: {
-    
-  },
-  components: {
-  	BottomNav
-  }
+	mounted() {
+		this.$store.commit('setMineMsg',null)
+	},
+	methods: {
+
+	},
+	components: {
+		BottomNav
+	}
 }
 </script>
 <style scoped>

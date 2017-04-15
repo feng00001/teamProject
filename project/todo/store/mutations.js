@@ -23,6 +23,10 @@ export const state = {
   // 王春园用 begin
   userphone: 'assets/imgs/userphone.png',
   mineMsg: "",
+  phonenum: null,
+  chart: null,
+  password: null,
+  userinfo: null,
   // 王春园用 end
   // 韩旭 begin
   classifyImg: ['http://k21.iblimg.com/prd/images/category/2016/09/进口面膜.jpg','assets/imgs/search.png'],
@@ -46,6 +50,10 @@ export const mutations = {
   // 王春园 begin
   setMineMsg(state, arg) {
     state.mineMsg = arg;
+  },
+  setUserinfo(state, arg) {
+    console.log("a:"+arg)
+    state.userinfo = arg;
   }
   // 王春园 end
 }

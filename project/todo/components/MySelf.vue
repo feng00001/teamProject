@@ -11,7 +11,7 @@
 				<img :src="$store.state.userphone"/>
 			</div>
 			<div class="usertitle">
-				<p>15241470870</p>
+				<p>{{$store.state.userinfo.username}}</p>
 				<span>百联通 普通会员</span>
 			</div>
 		</div>
@@ -139,15 +139,18 @@
 			<li><p>i百联中心</p></li>
 		</ul>
 	</div>
+	<bottom-nav></bottom-nav>
 </div>
 </template>
 
 <script>
 import { mapMutations, mapActions} from 'vuex'
 import $ from 'jquery'
+import BottomNav from './BottomNav.vue'
 
 export default {
 	mounted(){
+		var that = this;
 		$(".head").css({
 			background: "url('assets/imgs/myselfbg.png') no-repeat",
 			backgroundSize: "cover"
@@ -162,9 +165,18 @@ export default {
 				backgroundSize: "cover"
 			})
 		})
+		$.ajax({
+			url: "/exp/mine/userinit",
+			success: function(data) {
+				that.$store.commit('setUserinfo',data[0])
+			}
+		})
 	},
 	methods: {
 
+	},
+	components: {
+		BottomNav
 	}
 }
 </script>

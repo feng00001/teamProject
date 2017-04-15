@@ -4,7 +4,7 @@
     	<router-link to="/shopList" tag="li" active-class="special">HomePage</router-link>
     	<router-link to="/classify" tag="li" active-class="special">Classify</router-link>
     	<router-link to="/order" tag="li" active-class="special">Order</router-link>
-    	<router-link to="/mine" tag="li" active-class="special">Mine</router-link>
+    	<router-link to="/myself" tag="li" active-class="special">Mine</router-link>
     </ul>
   </div>
 </template>

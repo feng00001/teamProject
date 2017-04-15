@@ -1,4 +1,5 @@
 const express = require('express')
+const cookieParser = require('cookie-parser')
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
@@ -8,6 +9,7 @@ const index = require('./expressrouter/index')
 const mine = require('./expressrouter/mine')
 
 const app = express()
+app.use(cookieParser())
 const compiler = webpack(WebpackConfig)
 
 app.use(webpackDevMiddleware(compiler, {

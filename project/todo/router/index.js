@@ -10,10 +10,11 @@ import Logon from '../components/Logon.vue'
 import LogonPhone from '../components/LogonPhone.vue'
 import Register from '../components/Register.vue'
 import MySelf from '../components/MySelf.vue'
+import util from '../../../util/common.js'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/index',
@@ -74,3 +75,21 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  // alert(sessionStorage.getItem('accessToken'))
+  //    console.log(to);
+    console.log(!util.getCookie("user") || util.getCookie("user")=='undefined')
+  if ((to.path==='/myself')&&(!util.getCookie("user") || util.getCookie("user")=='undefined')) {
+    console.log(1)
+    console.log(to.path)
+    next({
+      path: '/mine'
+    })
+  } else {
+    console.log(2)
+    next()
+  }
+})
+
+export default router

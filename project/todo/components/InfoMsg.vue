@@ -1,6 +1,6 @@
 <template>
   <div class="msg">
-    <span>您的用户名已存在</span>
+    <span>{{$store.state.mineMsg}}</span>
   </div>
 </template>
 
@@ -10,7 +10,14 @@ import { mapMutations, mapActions} from 'vuex'
 export default {
   name: 'infomsg',
   methods: {
-    
+    clearMsg (that,callback) {
+        setTimeout(function(){
+            that.$store.commit('setMineMsg')
+            if(callback){
+              callback();
+            }
+        },1500)
+    }
   }
 }
 </script>
