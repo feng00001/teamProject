@@ -1,5 +1,6 @@
 <template>
 <div class="container">
+	
 	<div class="head">
 		<a href="#/"><i class="iconfont">&#x3484;</i></a>
 	    <div class="logo">
@@ -9,7 +10,9 @@
 	    </div>
 	    <a href="#/register" class="regis">注册</a>
 	</div>
+	<transition name="fade-mine" mode="out-in">
 	<router-view></router-view>
+	</transition>
 </div>
 </template>
 
@@ -30,7 +33,12 @@ export default {
 }
 </script>
 <style scoped>
-
+	.fade-mine-enter-active, .fade-leave-active {
+	  transition: opacity .5s
+	}
+	.fade-mine-enter, .fade-leave-active {
+	  opacity: 0
+	}
 	.container {
 		width: 7.5rem;
 	}

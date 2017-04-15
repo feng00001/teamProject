@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
   	<h1>Order</h1>
     <bottom-nav></bottom-nav>
   </div>
@@ -18,3 +18,8 @@ export default {
   }
 }
 </script>
+<style>
+	.container {
+		
+	}
+</style>

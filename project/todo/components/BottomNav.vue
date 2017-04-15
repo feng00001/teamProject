@@ -22,6 +22,7 @@ export default {
 
 
 <style scoped>
+
   #bottom .special {
     background: red;
   }
@@ -35,6 +36,7 @@ export default {
   width:100%;
   border-top:0.01rem solid #ccc;
   background: white;
+  z-index: 1000
 }
 #bottom li{
   flex:1;
