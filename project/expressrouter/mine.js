@@ -13,6 +13,11 @@ router.get('/logon', function(req, res, next) {
   	testdao.selectUser(req, res, next);
 });
 
+/* GET 手机登陆. */
+router.get('/logonphone', function(req, res, next) {
+  	testdao.selectUserPhone(req, res, next);
+});
+
 /* GET 注册. */
 router.get('/register', function(req, res, next) {
   	testdao.insertUser(req, res, next);

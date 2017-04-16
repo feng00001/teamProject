@@ -22,7 +22,7 @@
         <div class="checkgroup">
             <label><span>验证码</span></label>
             <input type="text" placeholder="请输入短信验证码" />
-            <button>获取短信验证码</button>
+            <button @click="getshortmsg">获取短信验证码</button>
         </div>
     </div>
     <div class="inputtext">
@@ -48,6 +48,7 @@
 import { mapMutations, mapActions} from 'vuex'
 import $ from 'jquery'
 import infomsg from './InfoMsg.vue'
+import {send_sms} from '../../../util/shortMsg'
 
 export default {
   methods: {
