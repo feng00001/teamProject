@@ -4,7 +4,7 @@
   <div class="shopBuy">
 	<header>
 		<i class="iconfont l">&#x3484;</i>
-		<h1 class="l">天天抢购</h1>
+		<h1 class="l">北大荒 秋田小町 第二件1折</h1>
 		<i class="iconfont r dot">&#xe660;</i>
 	</header>
 	<div class="list">
@@ -27,28 +27,7 @@
 		</ul>
 	</div>
 	<nav>
-		<ul>
-			<li>
-				<p>00:00</p>
-				<p>已开抢</p>
-			</li>
-			<li>
-				<p>06:00</p>
-				<p>已开抢</p>
-			</li>
-			<li>
-				<p>10:00</p>
-				<p>已开抢</p>
-			</li>
-			<li>
-				<p>15:00</p>
-				<p>已开抢</p>
-			</li>
-			<li>
-				<p>21:00</p>
-				<p>已开抢</p>
-			</li>
-		</ul>
+		<img :src="$store.state.testImg[1]">
 	</nav>
 	<section>
 		<ul>
@@ -231,24 +210,14 @@ header h1{
 	font-size: .42rem;
 }
 nav{
-	height: 1.2rem;
-	background: #333;
-}
-nav ul{
+	height: 3.6rem;
 	width: 7.5rem;
-	height: 1.2rem;
+	box-sizing: border-box;
+	padding:0 .2rem;
 }
-nav ul li{
-    position: relative;
-    width: 20%;
-    padding: 0.2rem 0;
-    text-align: center;
-    color: #fff;
-    float: left;
-    z-index: 10; 
-}
-nav ul li p{
-	line-height: .4rem;
+nav img{
+	height: 3.5rem;
+	width: 7.1rem;
 }
 section{
 	overflow: hidden;
