@@ -341,9 +341,6 @@ export default {
 }
 .shopList header{
 	height: 0.9rem;
-	/*position: fixed;
-	top:0;
-	left: 0;*/
 	padding-top: 0.1rem;
 	background: #f4f4f4;
 }

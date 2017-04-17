@@ -5,19 +5,20 @@
   		<input type="text" placeholder="搜索你想找的商品"/>
   		<img :src="$store.state.classifyImg[1]">
   		<span>
-  			<p>...</p>
-  			<ul>
-  				<li>首页</li>
-  				<li>搜索</li>
-  				<li>分类</li>
-  				<li>购物车</li>
-  				<li>我的</li>
+  			<p @touchend="switchoverNav" v-if="$store.state.isHide==='none'">...</p>
+  			<p @touchend="switchoverNav" v-else>x</p>
+  			<ul ref="nav" :style="{display:$store.state.isHide}">
+  				<router-link to="/shopList" tag="li" active-class="special"><i>1</i><b>首页</b></router-link>
+		    	<router-link to="/classify" tag="li" active-class="special"><i>1</i><b>搜索</b></router-link>
+		    	<router-link to="/classify" tag="li" active-class="special"><i>1</i><b>分类</b></router-link>
+		    	<router-link to="/order" tag="li" active-class="special"><i>1</i><b>购物车</b></router-link>
+		    	<router-link to="/mine" tag="li" active-class="special"><i>1</i><b>我的</b></router-link>
   			</ul>
   		</span>
   	</div>
   	<div id="content1">
 			 <div class="left">
-				<ol>
+				<ol @touchend="changeUl">
 					<li>百联进口</li>
 					<li>生鲜食品</li>
 					<li>食品粮油</li>
@@ -43,10 +44,10 @@
 			<div class="goodsinfo">
 				<p class="nav">进口美容护理</p>
 				<ul>
-					<li>
-						<img :src="$store.state.classifyImg[0]"/>
+					<router-link to="/slotList" tag="li">
+		  				<img :src="$store.state.classifyImg[0]"/>
 						<p>进口乳液／面霜</p>
-					</li>
+		        	</router-link>
 					<li>
 						<img :src="$store.state.classifyImg[0]"/>
 						<p>进口乳液／面霜</p>
@@ -353,7 +354,12 @@ import $ from 'jquery'
 
 export default {
   methods: {
-    
+    switchoverNav () {
+    	this.$store.commit('setIsHide')
+    },
+    changeUl () {
+    	
+    }
   },
   components: {
   	BottomNav
@@ -363,10 +369,10 @@ export default {
 
 <style scoped>
     #header{
-    	height:.8rem;
+    	padding:.3rem 0;
+    	overflow: hidden;
     }
     #header input{
-    	margin-top: .1rem;
 	    height: .6rem;
 	    line-height: .6rem;
 	    border-bottom: 1px solid #ddd;
@@ -375,26 +381,61 @@ export default {
 	    border-radius: .1rem;
 	    width: 65%;
 	    margin-left: .3rem;
-	    padding-left:.3rem
+	    padding-left:.3rem;
+	    background:#fff;
     }
     #header img{
     	position: absolute;
     	left:0.25rem;
-    	top:.3rem;
+    	top:.2rem;
     }
     #header span{
     	position: absolute;
     	right:0.35rem;
     	top:.1rem;
+    	
+    }
+    #header span ul::after{
+    	display: block;
+    	content:"";
+    	border-bottom:.15rem solid rgba(0,0,0,.8);
+    	border-left:.15rem solid white;
+    	border-right:.15rem solid white;
+    	position: absolute;
+    	right:.38rem;
+    	top:-.15rem;
+    }
+    #header span p{
     	font-size:38px;
+    	position: absolute;
+    	left:-0.5rem;
+    	top:-0.35rem;
     }
     #header span ul{
     	position: absolute;
-    	width:6.5rem;
-    	left:-6.5rem;
+    	width:7.5rem;
+    	left:-7.15rem;
+    	top:1.1rem;
+    	border-bottom: 0.05rem solid #fe8477;
+        background-color: rgba(0,0,0,.8);
+        display: none;
     }
     #header span ul li{
     	float:left;
+    	width:20%;
+    }
+    #header span ul li i{
+    	height:.5rem;
+    	padding:0 .3rem;
+    	line-height: .5rem;
+    }
+    #header span ul li b{
+    	height:.5rem;
+    	line-height: .5rem;
+    	padding:0 .3rem;
+    	display: block;
+    	color:white;
+    	font-weight: 100;
     }
 	#content1{
 		display: flex;
@@ -405,8 +446,8 @@ export default {
 		height: 12rem;
 	}
 	#content1 .left{
-		width: 20%;
-	    background: red;
+		width: 25%;
+	    background: #eee;
 	    overflow: auto;
 	}
 	#content1 .left ol{
@@ -415,29 +456,30 @@ export default {
 		flex-direction: column;
 	}
 	#content1 .left ol li{
-		border-bottom:1px solid yellow;
+		border-bottom:1px solid #ddd;
+		border-right:1px solid #ddd;
 		height:1rem;
 		line-height:1rem;
 		text-align:center;
-		font-size:18px;
-		width:100%;
+		font-size:14px;
+		width:99%;
 	}
 	#content1 .goodsinfo{
-		width: 80%;
-	    background: yellow;
+		width: 75%;
+	    background: #fff;
 	    overflow: auto;
 	}
 	
 	#content1 .goodsinfo ul{
-		width:100%;
-		display: flex;
-		flex-direction: row;
-    	flex-wrap: wrap;
+		width: 99%;
+	    display: flex;
+	    flex-direction: row;
+	    flex-wrap: wrap;
+	    padding-left: .2rem;
 	}
 	#content1 .goodsinfo ul li{
 		height:2rem;
-		width:1.5rem;
-		padding-left:.3rem;
+		width:1.7rem;
 	}
 	#content1 .goodsinfo ul li img{
 		padding:.2rem;
@@ -445,9 +487,10 @@ export default {
     	height: .9rem;
 	}
 	#content1 .goodsinfo ul li p{
-		width: 1.5rem;
+		width: 1.7rem;
     	height: .7rem;
     	line-height: .7rem;
+    	font-size:12px;
 	}
 	#content1 .goodsinfo p.nav{
 		margin: .1rem 0;

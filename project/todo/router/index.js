@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../components/Home.vue'
 import Classify from '../components/Classify.vue'
-import Order from '../components/Order.vue'
+import Cart from '../components/Cart.vue'
 import Mine from '../components/Mine.vue'
 import ShopList from '../components/Shoplist.vue'
 import ShopDetail from '../components/ShopDetail.vue'
@@ -10,7 +10,7 @@ import Logon from '../components/Logon.vue'
 import LogonPhone from '../components/LogonPhone.vue'
 import Register from '../components/Register.vue'
 import MySelf from '../components/MySelf.vue'
-
+import SlotList from '../components/SlotList.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -39,9 +39,14 @@ export default new Router({
       component: Classify
     },
     {
-      path: '/order',
-      name: 'Order',
-      component: Order
+      path: '/slotList',
+      name: 'SlotList',
+      component: SlotList
+    },
+    {
+      path: '/cart',
+      name: 'Cart',
+      component: Cart
     },
     {
       path: '/mine',
@@ -68,7 +73,7 @@ export default new Router({
       name: 'MySelf',
       component: MySelf
     },
-     {
+    {
       path: '*',
       redirect: '/shopList'
     }

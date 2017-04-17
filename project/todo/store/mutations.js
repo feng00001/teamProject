@@ -26,7 +26,12 @@ export const state = {
   // 韩旭 begin
   classifyImg: ['http://k21.iblimg.com/prd/images/category/2016/09/进口面膜.jpg','assets/imgs/search.png'],
   isHide: 'none',
-  cartImg: 'http://m.bl.com/h5-web/ui/h5resource/css/i/h5-cart-img_r2_c2.png'
+  isSure: 'none',
+  cartImg: 'http://m.bl.com/h5-web/ui/h5resource/css/i/h5-cart-img_r2_c2.png',
+  isTop: false,
+  isDown: true,
+  slotListImg: 'http://m.bl.com/h5-web/ui/newH5resource/css/i/icon-close.png',
+  slotList: {}
   //韩旭 
 }
 
@@ -41,6 +46,14 @@ export const mutations = {
   },
   setIsHide(state) {
     state.isHide = state.isHide === "none" ? "block" : "none"
+  },
+  setIsSure (state) {
+    state.isTop = !state.isTop
+    state.isDown = !state.isDown
+    state.isSure = state.isSure === "none" ? "block" : "none"
+  },
+  setSlotList (state, test) {
+    state.slotList = test
   }
 }
 
