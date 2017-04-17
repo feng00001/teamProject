@@ -16,12 +16,23 @@ export const state = {
   // 单个shop信息
   shopDetail: {},
   // 测试用
-  testImg: ['assets/imgs/logo.png','assets/imgs/11.jpg','assets/imgs/nav.png','assets/imgs/2.jpg'],
+  testImg: ['assets/imgs/shopList/logo.png','assets/imgs/shopList/11.jpg',
+            'assets/imgs/shopList/nav.png','assets/imgs/shopList/2.jpg',
+            'assets/imgs/shopList/totop.png','assets/imgs/shopList/n2.png',
+            'assets/imgs/shopList/n3.png','assets/imgs/shopList/n4.png',
+            'assets/imgs/shopList/n5.png','assets/imgs/shopList/n6.png',
+            'assets/imgs/shopList/n7.png','assets/imgs/shopList/n8.png',
+            'assets/imgs/shopList/n9.png','assets/imgs/shopList/n10.png',],
   // 高洋用 begin
   // gyimg: []
   // 高洋用 end
   // 王春园用 begin
   userphone: 'assets/imgs/userphone.png',
+  mineMsg: "",
+  phonenum: null,
+  chart: null,
+  password: null,
+  userinfo: {},
   // 王春园用 end
   // 韩旭 begin
   classifyImg: ['http://k21.iblimg.com/prd/images/category/2016/09/进口面膜.jpg','assets/imgs/search.png'],
@@ -47,6 +58,7 @@ export const mutations = {
   setIsHide(state) {
     state.isHide = state.isHide === "none" ? "block" : "none"
   },
+<<<<<<< HEAD
   setIsSure (state) {
     state.isTop = !state.isTop
     state.isDown = !state.isDown
@@ -54,7 +66,17 @@ export const mutations = {
   },
   setSlotList (state, test) {
     state.slotList = test
+=======
+  // 王春园 begin
+  setMineMsg(state, arg) {
+    state.mineMsg = arg;
+  },
+  setUserinfo(state, arg) {
+    console.log("a:"+arg)
+    state.userinfo = arg;
+>>>>>>> 9cec102a19ce3f190f383047effa74a3aa18acbd
   }
+  // 王春园 end
 }
 
 export const actions = {

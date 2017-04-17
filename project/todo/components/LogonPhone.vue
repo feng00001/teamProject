@@ -15,7 +15,7 @@
     <div class="inputtext">
         <div class="formgroup">
             <label><span>手机号</span></label>
-            <input type="text" placeholder="请输入手机号" />
+            <input type="text" placeholder="请输入手机号" ref="username"/>
         </div>
         <div class="checkgroup">
             <label><span>验证码</span></label>
@@ -28,17 +28,35 @@
         <span>两周内免登陆</span>
     </div>
     <div class="btngroup">
-        <button>登录</button>
+        <button @click="logonphone">登录</button>
     </div>
+    <infomsg v-if="$store.state.mineMsg"></infomsg>
   </div>
 </template>
 
 <script>
 import { mapMutations, mapActions} from 'vuex'
+import $ from 'jquery'
+import infomsg from './InfoMsg.vue'
 
 export default {
   methods: {
-    
+    logonphone() {
+        var that = this;
+        $.ajax({
+            type: "GET",
+            url: "/exp/mine/logonphone",
+            data: {
+                username: this.$refs.username.value
+            },
+            success: function(data) {
+                that.$store.commit('setMineMsg', "登陆成功,正在为您跳转。。。")
+                infomsg.methods.clearMsg(that,function(){
+                    location.href = "#/myself"
+                })
+            }
+        })
+    }
   }
 }
 </script>

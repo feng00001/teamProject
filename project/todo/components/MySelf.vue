@@ -11,7 +11,7 @@
 				<img :src="$store.state.userphone"/>
 			</div>
 			<div class="usertitle">
-				<p>15241470870</p>
+				<p>{{$store.state.userinfo.username}}</p>
 				<span>百联通 普通会员</span>
 			</div>
 		</div>
@@ -37,23 +37,23 @@
 		<div class="detaillist">
 			<ul>
 				<li>
-					<i></i>
+					<i class="iconfont">&#xe604;</i>
 					<span>待付款</span>
 				</li>
 				<li>
-					<i></i>
+					<i class="iconfont">&#xe66c;</i>
 					<span>待发货</span>
 				</li>
 				<li>
-					<i></i>
+					<i class="iconfont">&#xe7a1;</i>
 					<span>待收货</span>
 				</li>
 				<li>
-					<i></i>
+					<i class="iconfont">&#xe646;</i>
 					<span>待评价</span>
 				</li>
 				<li>
-					<i></i>
+					<i class="iconfont">&#xe606;</i>
 					<span>退换\售后</span>
 				</li>
 			</ul>
@@ -139,15 +139,18 @@
 			<li><p>i百联中心</p></li>
 		</ul>
 	</div>
+	<bottom-nav></bottom-nav>
 </div>
 </template>
 
 <script>
 import { mapMutations, mapActions} from 'vuex'
 import $ from 'jquery'
+import BottomNav from './BottomNav.vue'
 
 export default {
 	mounted(){
+		var that = this;
 		$(".head").css({
 			background: "url('assets/imgs/myselfbg.png') no-repeat",
 			backgroundSize: "cover"
@@ -162,9 +165,18 @@ export default {
 				backgroundSize: "cover"
 			})
 		})
+		$.ajax({
+			url: "/exp/mine/userinit",
+			success: function(data) {
+				that.$store.commit('setUserinfo',data[0])
+			}
+		})
 	},
 	methods: {
 
+	},
+	components: {
+		BottomNav
 	}
 }
 </script>
@@ -256,8 +268,11 @@ export default {
 	}
 	.container .mymenu .detaillist ul li i {
 		display: block;
-		width: 20%;
+		width: 1rem;
 		height: 1rem;
+		line-height: 1rem;
+		margin: 0 auto;
+		font-size: 0.6rem;
 	}
 	.container .mymenu .detailblock {
 		height: 1.4rem;

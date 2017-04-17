@@ -16,3 +16,7 @@
 1.ReferenceError: $ is not defined {stack: (...), message: "$ is not defined"}
 答: 没有导入jquery,需要在用到jquery的位置导入import $ from 'jquery'
 2.数据库查询返回默认是数组，如果只是想要单条数据的json格式需要data[0]取一下
+
+各模块规则：
+Mine：
+1.检测用户名是否重复，返回ret，1：不重复，0：重复

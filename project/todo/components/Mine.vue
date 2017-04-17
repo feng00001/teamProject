@@ -1,14 +1,18 @@
 <template>
 <div class="container">
+	
 	<div class="head">
+		<a href="#/"><i class="iconfont">&#x3484;</i></a>
 	    <div class="logo">
+	    	
 	        <i></i>
 	        登录
 	    </div>
 	    <a href="#/register" class="regis">注册</a>
 	</div>
-	<bottom-nav></bottom-nav>
+	<transition name="fade-mine" mode="out-in">
 	<router-view></router-view>
+	</transition>
 </div>
 </template>
 
@@ -17,16 +21,24 @@ import BottomNav from './BottomNav.vue'
 import { mapMutations, mapActions} from 'vuex'
 
 export default {
-  methods: {
-    
-  },
-  components: {
-  	BottomNav
-  }
+	mounted() {
+		this.$store.commit('setMineMsg',null)
+	},
+	methods: {
+
+	},
+	components: {
+		BottomNav
+	}
 }
 </script>
 <style scoped>
-
+	.fade-mine-enter-active, .fade-leave-active {
+	  transition: opacity .5s
+	}
+	.fade-mine-enter, .fade-leave-active {
+	  opacity: 0
+	}
 	.container {
 		width: 7.5rem;
 	}
@@ -38,8 +50,12 @@ export default {
 		line-height: 0.9rem;
 		background: #fff;
 	}
+	.container .head a{
+		padding-left: 0.2rem;
+	}
 	.container .head .logo {
 		position: absolute;
+		top: 0;
 		left: 2.75rem;
 		width: 2rem;
 		text-align: center;
@@ -49,6 +65,7 @@ export default {
 		margin-right: auto;
 		font-size: 0.3rem;
 	}
+
 	.container .head .regis {
 		float: right;
 		padding-right: 0.25rem;

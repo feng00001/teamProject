@@ -15,11 +15,11 @@
     <div class="inputtext">
         <div class="formgroup">
             <label><span>帐号</span></label>
-            <input type="text" placeholder="请输入账号" />
+            <input type="text" placeholder="请输入账号" ref="username"/>
         </div>
         <div class="formgroup">
             <label><span>密码</span></label>
-            <input type="text" placeholder="请输入密码" />
+            <input type="text" placeholder="请输入密码" ref="password"/>
         </div>
     </div>
     <div class="setoption">
@@ -28,18 +28,56 @@
         <a class="forget" href="javascript:;">忘记密码？</a>
     </div>
     <div class="btngroup">
-        <button>登录</button>
+        <button @click="checkuser">登录</button>
     </div>
+    <infomsg v-if="$store.state.mineMsg"></infomsg>
   </div>
 </template>
 
 <script>
 import { mapMutations, mapActions} from 'vuex'
+import $ from 'jquery'
+import infomsg from './InfoMsg.vue'
 
 export default {
   methods: {
-    
-  }
+    checkuser(){
+        var that = this;
+        let username = this.$refs.username.value;
+        let password = this.$refs.password.value;
+        if(!username){
+            this.$store.commit('setMineMsg', "用户名不能为空")
+            infomsg.methods.clearMsg(that)
+            return;
+        }
+        if(!password){
+            this.$store.commit('setMineMsg', "密码不能为空")
+            infomsg.methods.clearMsg(that)
+            return;
+        }
+        $.ajax({
+            url: "/exp/mine/logon",
+            data: {
+                username: username,
+                password: password
+            },
+            success: function(data){
+                if(data){
+                    that.$store.commit('setMineMsg', data)
+                    infomsg.methods.clearMsg(that)
+                }else{
+                    that.$store.commit('setMineMsg', "登陆成功,正在为您跳转。。。")
+                    infomsg.methods.clearMsg(that,function(){
+                        location.href = "#/myself"
+                    })
+                }
+            }
+        })
+    }
+  },
+    components: {
+        infomsg
+    }
 }
 </script>
 <style scoped>

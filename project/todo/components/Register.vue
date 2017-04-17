@@ -3,6 +3,7 @@
 <template>
   <div class="container">
     <div class="head">
+        <a href="#/mine"><i class="iconfont">&#x3484;</i></a>
         <div class="logo">
             <i></i>
             注册
@@ -11,44 +12,138 @@
     <div class="inputtext">
         <div class="formgroup">
             <label><span>手机号</span></label>
-            <input type="text" placeholder="请输入手机号" />
+            <input type="text" placeholder="请输入手机号" ref="phonenum" v-model="$store.state.phonenum"/>
         </div>
-        <div class="formgroup">
+        <div class="chartgroup">
             <label><span>图形码</span></label>
-            <input type="text" placeholder="请输入右侧验证码" />
-            <img src=""/>
+            <input type="text" placeholder="请输入右侧验证码" ref="chart" v-model="$store.state.chart"/>
+            <img src="/exp/util/createcode" @click="changechart" ref="chartimg" />
         </div>
         <div class="checkgroup">
             <label><span>验证码</span></label>
             <input type="text" placeholder="请输入短信验证码" />
-            <button>获取短信验证码</button>
+            <button @click="getshortmsg">获取短信验证码</button>
         </div>
     </div>
     <div class="inputtext">
         <div class="formgroup">
             <label><span>设置密码</span></label>
-            <input type="text" placeholder="6-20位数字，字母组合" />
+            <input type="text" placeholder="6-20位数字，字母组合" ref="password" v-model="$store.state.password"/>
         </div>
     </div>
     <div class="setoption">
         <span>注册即视为您阅读并同意《用户协议》</span>
     </div>
     <div class="btngroup">
-        <button disabled="true">立即注册</button>
+        <button :disabled="changeval" @click="register">立即注册</button>
     </div>
     <div class="tologon">
         <a href="#/mine/logon">已有账户？直接登录</a>
     </div>
+    <infomsg v-if="$store.state.mineMsg"></infomsg>
   </div>
 </template>
 
 <script>
 import { mapMutations, mapActions} from 'vuex'
+import $ from 'jquery'
+import infomsg from './InfoMsg.vue'
+import {send_sms} from '../../../util/shortMsg'
 
 export default {
   methods: {
-    
-  }
+    checkuser () {
+        var that = this;
+        let phonenum = this.$refs.phonenum.value;
+        $.ajax({
+            url: "/exp/mine/checkuser",
+            data: {
+                username: phonenum
+            },
+            success: function(data){
+                if(data) {
+                    this.$store.commit('setMineMsg', "请填写正确的手机号码")
+                    infomsg.methods.clearMsg(that)
+                    return;
+                }
+            }
+        })
+
+    },
+    register () {
+        var that = this;
+        let phonenum = this.$refs.phonenum.value;
+        let chart = this.$refs.chart.value;
+        // let vrcode = this.$refs.vrcode.value;
+        let password = this.$refs.password.value;
+        // 手机号码正则表达式
+        let phonenumReg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/
+        // 密码正则表达式 6-20位数字字母组合
+        let passwordReg = /^(?!\D+$)(?![^a-zA-Z]+$)\S{6,20}$/; 
+        if(!phonenumReg.test(phonenum)){
+            this.$store.commit('setMineMsg', "请填写正确的手机号码")
+            infomsg.methods.clearMsg(this)
+            return;
+        }
+        if(!passwordReg.test(password)){
+            this.$store.commit('setMineMsg', "密码需要6-20位数字和字母组合")
+            infomsg.methods.clearMsg(this)
+            return;
+        }
+        $.ajax({
+            url: "/exp/mine/checkuser",
+            data: {
+                username: phonenum
+            },
+            success: function(data){
+                if(data) {
+                    that.$store.commit('setMineMsg', data)
+                    infomsg.methods.clearMsg(that)
+                    return;
+                }
+                $.ajax({
+                    url: "/exp/mine/register",
+                    data: {
+                        username: phonenum,
+                        password: password,
+                        chart: chart
+                    },
+                    success: function(data){
+                        console.log(data)
+                        if(data){
+                            that.$store.commit('setMineMsg', data)
+                            infomsg.methods.clearMsg(that)
+                        }else{
+                            that.$store.commit('setMineMsg', "注册成功,正在为您跳转。。。")
+                            infomsg.methods.clearMsg(that,function(){
+                                location.href = "#/myself"
+                            })
+                        }
+                    }
+                })
+            }
+        })   
+    },
+    changechart () {
+        this.$refs.chartimg.src = this.$refs.chartimg.src + "?" +Math.random()
+    }
+  },
+  computed: {
+    changeval () {
+        let flag = true;
+        let phonenum = this.$store.state.phonenum;
+        let chart = this.$store.state.chart;
+        // let vrcode = this.$refs.vrcode.value;
+        let password = this.$store.state.password;
+        if(phonenum&&chart&&password){
+            flag = false;
+        }
+        return flag;
+    }
+  },
+  components: {
+    infomsg
+  } 
 }
 </script>
 <style scoped>
@@ -64,8 +159,12 @@ export default {
         line-height: 0.9rem;
         background: #fff;
     }
+    .container .head a{
+        padding-left: 0.2rem;
+    }
     .container .head .logo {
         position: absolute;
+        top: 0;
         left: 2.75rem;
         width: 2rem;
         text-align: center;
@@ -174,6 +273,43 @@ export default {
         border: 0;
     }
     .container .inputtext .checkgroup button {
+        float: right;
+        width: 2.5rem;
+        height: 1rem;
+        background: #e6133c;
+        border: 0;
+        color: #fff;
+    }
+    .container .inputtext .chartgroup {
+        position: relative;
+        height: 1rem;
+        border-bottom: 0.025rem solid #dedede;
+    }
+    .container .inputtext .chartgroup label {
+        position: absolute;
+        left: 0;
+        width: 1.5rem;
+        height: 1rem;
+        line-height: 1rem;
+        font-size: 0.28rem;
+        background: #fff;
+    }
+    .container .inputtext .chartgroup label span {
+        display: block;
+        margin-left: 0.2rem;
+    }
+    .container .inputtext .chartgroup input {
+        position: absolute;
+        left: 1.5rem;
+        width: 4rem;
+        height: 1rem;
+        border: 0;
+    }
+    .container .inputtext .chartgroup img {
+        float: right;
+        margin-top: 0.1rem;
+    }
+    .container .inputtext .chartgroup button {
         float: right;
         width: 2.5rem;
         height: 1rem;

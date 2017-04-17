@@ -1,12 +1,21 @@
 const express = require('express')
+const cookieParser = require('cookie-parser')
+const session = require('express-session');
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const WebpackConfig = require('./webpack.config')
 
 const index = require('./expressrouter/index')
+const mine = require('./expressrouter/mine')
+const util = require('./expressrouter/util')
 
 const app = express()
+app.use(cookieParser())
+app.use(session({
+	secret: 'nsessionid'
+}));
+
 const compiler = webpack(WebpackConfig)
 
 app.use(webpackDevMiddleware(compiler, {
@@ -19,7 +28,11 @@ app.use(webpackDevMiddleware(compiler, {
 
 app.use(webpackHotMiddleware(compiler))
 
-app.use('/exp',index)
+app.use("/exp/util", util)
+
+app.use('/exp', index)
+
+app.use('/exp/mine', mine)
 
 app.use(express.static(__dirname))
 
