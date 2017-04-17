@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../components/Home.vue'
+import Classifyslot from '../components/Classifyslot.vue'
 import Classify from '../components/Classify.vue'
 import Cart from '../components/Cart.vue'
 import Mine from '../components/Mine.vue'
@@ -37,14 +38,22 @@ const router = new Router({
       ]
     },
     {
-      path: '/classify',
-      name: 'Classify',
-      component: Classify
-    },
-    {
-      path: '/slotList',
-      name: 'SlotList',
-      component: SlotList
+      path: '/classifyslot',
+      name: 'Classifyslot',
+      component: Classifyslot,
+      redirect: '/classify',
+      children: [
+        {
+          path: '/classify',
+          name: 'Classify',
+          component: Classify
+        },
+        {
+          path: '/slotList',
+          name: 'SlotList',
+          component: SlotList
+        }
+      ]
     },
     {
       path: '/cart',
