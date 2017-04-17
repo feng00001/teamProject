@@ -360,7 +360,7 @@ var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
 		})
 	}
 }
-$('toTop').click(function () {
+$('.toTop').click(function () {
     var speed=500;//滑动的速度
     $('body,html').animate({ scrollTop: 0 }, speed);
     return false;
@@ -392,13 +392,10 @@ $('.list li').click(()=>{
 }
 .shopList header{
 	height: 0.9rem;
-<<<<<<< HEAD
-=======
 	position: fixed;
 	top:0;
 	left: 0;
 	z-index: 100;
->>>>>>> 9cec102a19ce3f190f383047effa74a3aa18acbd
 	padding-top: 0.1rem;
 	background: #f4f4f4;
 	width:100%;
