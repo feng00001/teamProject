@@ -21,7 +21,7 @@
         </div>
         <div class="checkgroup">
             <label><span>验证码</span></label>
-            <input type="text" placeholder="请输入短信验证码" />
+            <input type="text" placeholder="请输入短信验证码" ref="msgphone"/>
             <button @click="getshortmsg">获取短信验证码</button>
         </div>
     </div>
@@ -48,7 +48,6 @@
 import { mapMutations, mapActions} from 'vuex'
 import $ from 'jquery'
 import infomsg from './InfoMsg.vue'
-import {send_sms} from '../../../util/shortMsg'
 
 export default {
   methods: {
@@ -126,6 +125,19 @@ export default {
     },
     changechart () {
         this.$refs.chartimg.src = this.$refs.chartimg.src + "?" +Math.random()
+    },
+    getshortmsg () {
+        var that = this
+        console.log(that.$refs.phonenum.value)
+        $.ajax({
+            url: "/exp/mine/getshortmsg",
+            data: {
+                msgphone: that.$refs.phonenum.value
+            },
+            success: function(data){
+                console.log(data)
+            }
+        })
     }
   },
   computed: {

@@ -8,7 +8,7 @@ var mobile = '';
 // 修改为您要发送的短信内容
 var text = '您好, 您的验证码是1234';
 // 指定发送的模板编号
-var tpl_id = 1;
+var tpl_id = 1769896;
 // 指定发送模板的内容
 var tpl_value =  {'#code#':'1234','#company#':'yunpian'};
 // 语音短信的内容
@@ -52,9 +52,10 @@ function send_sms(mobile,text){
     };//这是需要提交的数据  
     var content = qs.stringify(post_data);  
     post(send_sms_uri,content,sms_host);
+    console.log("in")
 }
 
-function send_tpl_sms(uri,apikey,mobile,tpl_id,tpl_value){
+function send_tpl_sms(mobile,tpl_value){
     var post_data = {  
     'apikey': apikey,
     'mobile':mobile,
@@ -62,7 +63,7 @@ function send_tpl_sms(uri,apikey,mobile,tpl_id,tpl_value){
     'tpl_value':qs.stringify(tpl_value),  
     };//这是需要提交的数据  
     var content = qs.stringify(post_data);  
-    post(uri,content,sms_host); 
+    post(send_tpl_sms_uri,content,sms_host); 
 }
 function send_voice_sms(uri,apikey,mobile,code){
     var post_data = {  
@@ -81,7 +82,7 @@ function post(uri,content,host){
         path: uri,  
         method: 'POST',  
         headers: {  
-            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'  
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8;'  
         }  
     };
     var req = https.request(options, function (res) {  

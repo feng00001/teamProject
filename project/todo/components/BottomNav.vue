@@ -3,13 +3,8 @@
     <ul id="bottom">
     	<router-link to="/shopList" tag="li" active-class="special">HomePage</router-link>
     	<router-link to="/classify" tag="li" active-class="special">Classify</router-link>
-<<<<<<< HEAD
     	<router-link to="/cart" tag="li" active-class="special">Cart</router-link>
-    	<router-link to="/mine" tag="li" active-class="special">Mine</router-link>
-=======
-    	<router-link to="/order" tag="li" active-class="special">Order</router-link>
     	<router-link to="/myself" tag="li" active-class="special">Mine</router-link>
->>>>>>> 9cec102a19ce3f190f383047effa74a3aa18acbd
     </ul>
   </div>
 </template>

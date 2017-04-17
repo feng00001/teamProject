@@ -10,12 +10,10 @@ import Logon from '../components/Logon.vue'
 import LogonPhone from '../components/LogonPhone.vue'
 import Register from '../components/Register.vue'
 import MySelf from '../components/MySelf.vue'
-<<<<<<< HEAD
 import SlotList from '../components/SlotList.vue'
-=======
 import util from '../../../util/common.js'
 
->>>>>>> 9cec102a19ce3f190f383047effa74a3aa18acbd
+
 Vue.use(Router)
 
 const router = new Router({

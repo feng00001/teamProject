@@ -58,7 +58,6 @@ export const mutations = {
   setIsHide(state) {
     state.isHide = state.isHide === "none" ? "block" : "none"
   },
-<<<<<<< HEAD
   setIsSure (state) {
     state.isTop = !state.isTop
     state.isDown = !state.isDown
@@ -66,7 +65,7 @@ export const mutations = {
   },
   setSlotList (state, test) {
     state.slotList = test
-=======
+  },
   // 王春园 begin
   setMineMsg(state, arg) {
     state.mineMsg = arg;
@@ -74,7 +73,6 @@ export const mutations = {
   setUserinfo(state, arg) {
     console.log("a:"+arg)
     state.userinfo = arg;
->>>>>>> 9cec102a19ce3f190f383047effa74a3aa18acbd
   }
   // 王春园 end
 }
