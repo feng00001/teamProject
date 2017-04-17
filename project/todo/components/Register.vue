@@ -22,7 +22,7 @@
         <div class="checkgroup">
             <label><span>验证码</span></label>
             <input type="text" placeholder="请输入短信验证码" ref="msgphone"/>
-            <button @click="getshortmsg">获取短信验证码</button>
+            <button @click="getshortmsg" ref="getphonecode">获取短信验证码</button>
         </div>
     </div>
     <div class="inputtext">
@@ -73,7 +73,7 @@ export default {
         var that = this;
         let phonenum = this.$refs.phonenum.value;
         let chart = this.$refs.chart.value;
-        // let vrcode = this.$refs.vrcode.value;
+        let msgphone = this.$refs.msgphone.value;
         let password = this.$refs.password.value;
         // 手机号码正则表达式
         let phonenumReg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/
@@ -105,7 +105,8 @@ export default {
                     data: {
                         username: phonenum,
                         password: password,
-                        chart: chart
+                        chart: chart,
+                        msgphone: msgphone
                     },
                     success: function(data){
                         console.log(data)
@@ -128,16 +129,34 @@ export default {
     },
     getshortmsg () {
         var that = this
-        console.log(that.$refs.phonenum.value)
+        var reg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/
+        if(!reg.test(that.$refs.phonenum.value)){
+            that.$store.commit('setMineMsg', "请输入正确的手机号码")
+            infomsg.methods.clearMsg(that)
+            return;
+        }
         $.ajax({
             url: "/exp/mine/getshortmsg",
             data: {
                 msgphone: that.$refs.phonenum.value
             },
             success: function(data){
-                console.log(data)
+                that.yomi(60)
             }
         })
+    },
+    yomi (max) {
+        var btnel = this.$refs.getphonecode
+        btnel.disabled = true
+        btnel.innerHTML = "重新获取("+max+")"
+        var id = setInterval(function(){
+            btnel.innerHTML = "重新获取("+(--max)+")"
+            if(max===0){
+                clearInterval(id)
+                btnel.disabled = false
+                btnel.innerHTML = "获取短信验证码"
+            }
+        },1000)
     }
   },
   computed: {

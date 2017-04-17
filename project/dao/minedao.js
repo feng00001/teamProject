@@ -81,6 +81,13 @@ module.exports = {
 				connection.release();
 				return;
 			}
+			if(req.session.phonecode!==param.msgphone){
+				ret = "您输入的短信验证码不正确"
+				util.jsonWrite(res, ret);
+				// 释放连接 
+				connection.release();
+				return;
+			}
 			// 建立连接，向表中插入值
 			connection.query($sql.sqlMine02, [param.username, param.password], function(err, result) {
 				

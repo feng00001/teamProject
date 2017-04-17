@@ -19,7 +19,7 @@
         </div>
         <div class="checkgroup">
             <label><span>验证码</span></label>
-            <input type="text" placeholder="请输入短信验证码" />
+            <input type="text" placeholder="请输入短信验证码" ref="msgphone"/>
             <button>获取短信验证码</button>
         </div>
     </div>
@@ -47,7 +47,8 @@ export default {
             type: "GET",
             url: "/exp/mine/logonphone",
             data: {
-                username: this.$refs.username.value
+                username: this.$refs.username.value,
+                msgphone: this.$refs.msgphone.value
             },
             success: function(data) {
                 that.$store.commit('setMineMsg', "登陆成功,正在为您跳转。。。")
@@ -56,6 +57,37 @@ export default {
                 })
             }
         })
+    },
+    getshortmsg () {
+        var that = this
+        var reg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/
+        if(!reg.test(that.$refs.phonenum.value)){
+            that.$store.commit('setMineMsg', "请输入正确的手机号码")
+            infomsg.methods.clearMsg(that)
+            return;
+        }
+        $.ajax({
+            url: "/exp/mine/getshortmsg",
+            data: {
+                msgphone: that.$refs.phonenum.value
+            },
+            success: function(data){
+                that.yomi(60)
+            }
+        })
+    },
+    yomi (max) {
+        var btnel = this.$refs.getphonecode
+        btnel.disabled = true
+        btnel.innerHTML = "重新获取("+max+")"
+        var id = setInterval(function(){
+            btnel.innerHTML = "重新获取("+(--max)+")"
+            if(max===0){
+                clearInterval(id)
+                btnel.disabled = false
+                btnel.innerHTML = "获取短信验证码"
+            }
+        },1000)
     }
   }
 }
