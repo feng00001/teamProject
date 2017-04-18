@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../components/Home.vue'
 import Classify from '../components/Classify.vue'
-import Order from '../components/Order.vue'
+import Cart from '../components/Cart.vue'
 import Mine from '../components/Mine.vue'
 import ShopList from '../components/Shoplist.vue'
 import ShopDetail from '../components/ShopDetail.vue'
@@ -43,9 +43,9 @@ const router = new Router({
       component: Classify
     },
     {
-      path: '/order',
-      name: 'Order',
-      component: Order
+      path: '/cart',
+      name: 'Cart',
+      component: Cart
     },
     {
       path: '/mine',
