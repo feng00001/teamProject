@@ -4,7 +4,7 @@
   <div class="shopBuy">
 	<header>
 		<i class="iconfont l">&#x3484;</i>
-		<h1 class="l">天天抢购</h1>
+		<h1 class="l">雷朋Rayban</h1>
 		<i class="iconfont r dot">&#xe660;</i>
 	</header>
 	<div class="list">
@@ -27,28 +27,17 @@
 		</ul>
 	</div>
 	<nav>
-		<ul>
-			<li>
-				<p>00:00</p>
-				<p>已开抢</p>
-			</li>
-			<li>
-				<p>06:00</p>
-				<p>已开抢</p>
-			</li>
-			<li>
-				<p>10:00</p>
-				<p>已开抢</p>
-			</li>
-			<li>
-				<p>15:00</p>
-				<p>已开抢</p>
-			</li>
-			<li>
-				<p>21:00</p>
-				<p>已开抢</p>
-			</li>
+		<ul class="nav_list">
+			<li>默认</li>
+			<li>价格<i class="iconfont">&#xe647;</i></li>
+			<li>仅显示有货</li>
+			<li>筛选<i class="iconfont">&#xe610;</i></li>
 		</ul>
+		<div class="pic">
+			<img :src="$store.state.testImg[1]">
+			<span class="time">11天</span>
+			<button>领优惠券，享更多优惠</button>
+		</div>
 	</nav>
 	<section>
 		<ul>
@@ -231,24 +220,47 @@ header h1{
 	font-size: .42rem;
 }
 nav{
-	height: 1.2rem;
-	background: #333;
-}
-nav ul{
+	height: 5.5rem;
 	width: 7.5rem;
-	height: 1.2rem;
+	border-top:.02rem;
+	box-sizing: border-box;
 }
-nav ul li{
-    position: relative;
-    width: 20%;
-    padding: 0.2rem 0;
-    text-align: center;
-    color: #fff;
-    float: left;
-    z-index: 10; 
+nav .nav_list{
+	width: 7.5rem;
+	height: 1rem;
+	background: #fafafa;
 }
-nav ul li p{
-	line-height: .4rem;
+nav .nav_list li{
+	float: left;
+	width:25%;
+	text-align: center;
+	line-height: 1rem;
+}
+nav .pic{
+	height: 5rem;
+}
+nav .pic img{
+	height: 2.5rem;
+}
+nav .pic span{
+	display: block;
+	text-align: center;
+	line-height: .5rem;
+	background: #fff;
+	height: .7rem;
+}
+nav .pic button{
+	outline: none;
+	border: 0;
+	width: 7rem;
+	background: #fff;
+	border-radius: .1rem;
+	border: .02rem solid #ccc;
+	color: #f60;
+	font-size: .30rem;
+	margin-top: .2rem;
+	margin-left: .25rem;
+	height: .8rem;
 }
 section{
 	overflow: hidden;
