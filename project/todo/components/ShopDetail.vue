@@ -116,6 +116,12 @@ export default {
 	width:7.5rem;
 	height:8rem;
 }
+.mint-swipe-indicator{
+  background:green;
+}
+.is-active{
+  background:red !important;
+}
 #main .limit{
     line-height: .7rem;
     height: .7rem;
