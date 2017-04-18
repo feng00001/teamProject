@@ -102,6 +102,9 @@ export default {
 				that.$store.commit('setShoplist', data)				
 			}
 		})
+		$(".dot").click(function(){
+  		$(".list").toggle();
+		});
 	},
 	components: obj,
 	methods: {
