@@ -35,14 +35,24 @@ export const state = {
   userinfo: {},
   // 王春园用 end
   // 韩旭 begin
-  classifyImg: ['http://k21.iblimg.com/prd/images/category/2016/09/进口面膜.jpg','assets/imgs/search.png','http://img32.iblimg.com/photo-1/3030/2016/12/1623634222_500x500.jpg','http://m.bl.com/h5-web/ui/newH5resource/css/i/single-detail/serve-logo.png'],
+  classifyImg: [
+    'http://k21.iblimg.com/prd/images/category/2016/09/进口面膜.jpg',
+    'assets/imgs/search.png',
+    'http://img32.iblimg.com/photo-1/3030/2016/12/1623634222_500x500.jpg',
+    'http://m.bl.com/h5-web/ui/newH5resource/css/i/single-detail/serve-logo.png',
+    'http://m.bl.com/h5-web/ui/newH5resource/css/i/single-detail/portrait.png',
+    'http://img.iblimg.com/bl-iblapp-25/2066358001_150x150.jpg',
+    'http://m.bl.com/h5-web/ui/newH5resource/css/i/single-detail/star.png',
+    'http://k21.iblimg.com/prd/images/brand/2016/08/saibeige.jpg',
+    'http://img33.iblimg.com/photo-4/3030/642860909_200x200.jpg'],
   isHide: 'none',
   isSure: 'none',
   cartImg: 'http://m.bl.com/h5-web/ui/h5resource/css/i/h5-cart-img_r2_c2.png',
   isTop: false,
   isDown: true,
   slotListImg: 'http://m.bl.com/h5-web/ui/newH5resource/css/i/icon-close.png',
-  slotList: {}
+  slotList: {},
+  isShow: 'everyLook'
   //韩旭 
 }
 
@@ -55,17 +65,23 @@ export const mutations = {
   	state.shopDetail = test
   	console.log("name:"+test.shopname)
   },
+  //韩旭 begin 
   setIsHide(state) {
     state.isHide = state.isHide === "none" ? "block" : "none"
   },
-  setIsSure (state) {
+  setIsSure(state) {
     state.isTop = !state.isTop
     state.isDown = !state.isDown
     state.isSure = state.isSure === "none" ? "block" : "none"
   },
-  setSlotList (state, test) {
+  setSlotList(state, test) {
     state.slotList = test
   },
+  setIsShow(state, test) {
+    console.log("in："+test)
+    state.isShow = test
+  },
+  //韩旭 end
   // 王春园 begin
   setMineMsg(state, arg) {
     state.mineMsg = arg;
