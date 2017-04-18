@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../components/Home.vue'
-import Classifyslot from '../components/Classifyslot.vue'
 import Classify from '../components/Classify.vue'
-import Cart from '../components/Cart.vue'
+import Order from '../components/Order.vue'
 import Mine from '../components/Mine.vue'
 import ShopList from '../components/Shoplist.vue'
-import SlotList from '../components/SlotList.vue'
 import ShopDetail from '../components/ShopDetail.vue'
 import ShopBuy from '../components/ShopBuy.vue'
+import ShopQuality from '../components/ShopQuality.vue'
+import ShopLife from '../components/ShopLife.vue'
 import Logon from '../components/Logon.vue'
 import LogonPhone from '../components/LogonPhone.vue'
 import Register from '../components/Register.vue'
@@ -38,27 +38,14 @@ const router = new Router({
       ]
     },
     {
-      path: '/classifyslot',
-      name: 'Classifyslot',
-      component: Classifyslot,
-      redirect: '/classify',
-      children: [
-        {
-          path: '/classify',
-          name: 'Classify',
-          component: Classify
-        },
-        {
-          path: '/slotList',
-          name: 'SlotList',
-          component: SlotList
-        }
-      ]
+      path: '/classify',
+      name: 'Classify',
+      component: Classify
     },
     {
-      path: '/cart',
-      name: 'Cart',
-      component: Cart
+      path: '/order',
+      name: 'Order',
+      component: Order
     },
     {
       path: '/mine',
@@ -89,6 +76,16 @@ const router = new Router({
       path: '/ShopBuy',
       name: 'ShopBuy',
       component: ShopBuy
+    },
+    {
+      path: '/ShopLife',
+      name: 'ShopLife',
+      component: ShopLife
+    },
+    {
+      path: '/ShopQuality',
+      name: 'ShopQuality',
+      component: ShopQuality
     },
      {
       path: '*',

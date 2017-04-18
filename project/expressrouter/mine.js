@@ -40,8 +40,13 @@ router.get('/getshortmsg', function(req, res, next) {
 	var param = req.query || req.params;
 	console.log(param.msgphone)
 	if(param.msgphone){
-		console.log(typeof param.msgphone)
-		send_sms(param.msgphone,"【大连华信项目小组】您的验证码是1234")
+		var code = ""
+		while(code.length<=4){
+			var c = Math.floor(Math.random()*10);
+			code += c
+		}
+		send_sms(param.msgphone,"【大连华信项目小组】您的验证码是" + code)
+		req.session.phonecode = code;
   		res.end("OK")
 	}else{
 		res.end("NG")
