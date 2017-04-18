@@ -16,11 +16,31 @@ router.get('/logon', function(req, res, next) {
 
 /* GET 手机登陆. */
 router.get('/logonphone', function(req, res, next) {
-  	testdao.selectUserPhone(req, res, next);
+	var param = req.query || req.params;
+	if(param.msgphone!==req.session.phonecode){
+		util.jsonWrite(res, "您输入的短信验证码不正确");
+		return;
+	}
+	res.cookie("user", param.username);
+	util.jsonWrite(res, null);
+  	
 });
 
 /* GET 注册. */
 router.get('/register', function(req, res, next) {
+	// 获取前台页面传过来的参数
+	var param = req.query || req.params;
+	var ret = null;
+	if(req.session.checkcode.toUpperCase()!==param.chart.toUpperCase()){
+		ret = "您输入的验证码不正确"
+		util.jsonWrite(res, ret);
+		return;
+	}
+	if(req.session.phonecode!==param.msgphone){
+		ret = "您输入的短信验证码不正确"
+		util.jsonWrite(res, ret);
+		return;
+	}
   	testdao.insertUser(req, res, next);
 });
 
@@ -38,10 +58,9 @@ router.get('/userinit', function(req, res, next) {
 router.get('/getshortmsg', function(req, res, next) {
 	// 获取前台页面传过来的参数
 	var param = req.query || req.params;
-	console.log(param.msgphone)
 	if(param.msgphone){
 		var code = ""
-		while(code.length<=4){
+		while(code.length<=3){
 			var c = Math.floor(Math.random()*10);
 			code += c
 		}

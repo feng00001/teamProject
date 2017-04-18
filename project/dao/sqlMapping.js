@@ -15,7 +15,12 @@ var sql = {
 	// 检查用户是否存在,用于检查账户是否已经存在
 	sqlMine03: 'select * from users where username = ?',
 	// 根据用户Id查询
-	sqlMine04: 'select * from users where userid = ?'
+	sqlMine04: 'select * from users where userid = ?',
 	// Mine end
+
+	// Homepage begin
+	// 根据specialid查询商品
+	sqlHomepage01: 'select * from shop where specialid = ?'
+	// Homepage end
 };
 module.exports = sql;

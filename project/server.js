@@ -9,6 +9,7 @@ const WebpackConfig = require('./webpack.config')
 const index = require('./expressrouter/index')
 const mine = require('./expressrouter/mine')
 const util = require('./expressrouter/util')
+const homepage = require('./expressrouter/homepage')
 
 const app = express()
 app.use(cookieParser())
@@ -33,6 +34,8 @@ app.use("/exp/util", util)
 app.use('/exp', index)
 
 app.use('/exp/mine', mine)
+
+app.use('/exp/homepage', homepage)
 
 app.use(express.static(__dirname))
 

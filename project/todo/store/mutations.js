@@ -25,6 +25,7 @@ export const state = {
             'assets/imgs/shopList/n9.png','assets/imgs/shopList/n10.png',],
   // 高洋用 begin
   // gyimg: []
+  everyday: [],
   // 高洋用 end
   // 王春园用 begin
   userphone: 'assets/imgs/userphone.png',
@@ -89,8 +90,13 @@ export const mutations = {
   setUserinfo(state, arg) {
     console.log("a:"+arg)
     state.userinfo = arg;
-  }
+  },
   // 王春园 end
+  // 高洋用 begin
+  setEveryday(state, test) {
+    state.everyday = test;
+  }
+  // 高洋用 end
 }
 
 export const actions = {

@@ -127,40 +127,10 @@
 		</div>
 		<div class="scroll">
 			<ul>
-	          <li>
-	            <img :src="$store.state.testImg[3]">
-	            <p>葡萄干</p>
-	            <span>￥29.9</span>
-	          </li>
-	          <li>
-	            <img :src="$store.state.testImg[3]">
-	            <p>葡萄干</p>
-	            <span>￥29.9</span>
-	          </li>
-	          <li>
-	            <img :src="$store.state.testImg[3]">
-	            <p>葡萄干</p>
-	            <span>￥29.9</span>
-	          </li>
-	          <li>
-	            <img :src="$store.state.testImg[3]">
-	            <p>葡萄干</p>
-	            <span>￥29.9</span>
-	          </li>
-	          <li>
-	            <img :src="$store.state.testImg[3]">
-	            <p>葡萄干</p>
-	            <span>￥29.9</span>
-	          </li>
-	          <li>
-	            <img :src="$store.state.testImg[3]">
-	            <p>葡萄干</p>
-	            <span>￥29.9</span>
-	          </li>
-	          <li>
-	            <img :src="$store.state.testImg[3]">
-	            <p>葡萄干</p>
-	            <span>￥29.9</span>
+	          <li v-for="item in $store.state.everyday">
+	            <img :src="item.img">
+	            <p>{{item.shopname}}</p>
+	            <span>￥{{item.price}}</span>
 	          </li>
         	</ul>
 		</div>
@@ -290,62 +260,18 @@ export default {
 	mounted (){
 		var that = this;
 		$.ajax({
-			method:"get",
-			url:"/exp",
+			type:"get",
+			url:"/exp/homepage/everyday",
 			success:function(data){
+				console.log(data)
 				// 对store的操作需要调用mutations
-				that.$store.commit('setShoplist', data)				
+				that.$store.commit('setEveryday', data)				
 			}
 		})
 	},
 	components: obj,
 	methods: {
-		searchByName () {
-			var that = this;
-			$.ajax({
-				method:"get",
-				url:"/exp/search",
-				data: {
-					shopname: that.$refs.ipt.value
-				},
-				success:function(data){
-					// 对store的操作需要调用mutations
-					that.$store.commit('setShoplist', data)
-				}
-			})
-		},
-		insertVal () {
-			var that = this;
-			$.ajax({
-				method:"get",
-				url:"/exp/insertVal",
-				data: {
-					shopname: that.$refs.ipt.value
-				},
-				success:function(data){
-					// 对store的操作需要调用mutations
-					that.$store.commit('setShoplist', data)
-				}
-			})
-		},
-		deleteById (id) {
-			var that = this;
-			$.ajax({
-				method:"get",
-				url:"/exp/deleteById",
-				data: {
-					shopid: id
-				},
-				success:function(data){
-					// 对store的操作需要调用mutations
-					that.$store.commit('setShoplist', data)
-				}
-			})
-		},
-		// 不需要传递参数的时候可以使用结构赋值，否则没必要用
-		...mapActions([
-		  
-		])
+		
 	}
 }
 window.onscroll=function(){
@@ -539,11 +465,11 @@ $('.list li').click(()=>{
 	overflow-x:scroll;
 	overflow-y:hidden;
 	height: 3rem;
+	width: 7.5rem;
 	box-sizing: border-box;
 }
 .shopList #buy ul{
 	height: 3rem;
-	width: 12.55rem;
 	border-top:.02rem solid #ccc;
 	border-bottom:.02rem solid #ccc;
 }

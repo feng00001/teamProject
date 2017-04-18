@@ -15,12 +15,12 @@
     <div class="inputtext">
         <div class="formgroup">
             <label><span>手机号</span></label>
-            <input type="text" placeholder="请输入手机号" ref="username"/>
+            <input type="text" placeholder="请输入手机号" ref="phonenum"/>
         </div>
         <div class="checkgroup">
             <label><span>验证码</span></label>
             <input type="text" placeholder="请输入短信验证码" ref="msgphone"/>
-            <button>获取短信验证码</button>
+            <button @click="getshortmsg" ref="getphonecode">获取短信验证码</button>
         </div>
     </div>
     <div class="setoption">
@@ -43,14 +43,26 @@ export default {
   methods: {
     logonphone() {
         var that = this;
+        // 手机号码正则表达式
+        let phonenumReg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/
+        if(!phonenumReg.test(this.$refs.phonenum.value)){
+            this.$store.commit('setMineMsg', "请填写正确的手机号码")
+            infomsg.methods.clearMsg(this)
+            return;
+        }
         $.ajax({
             type: "GET",
             url: "/exp/mine/logonphone",
             data: {
-                username: this.$refs.username.value,
+                username: this.$refs.phonenum.value,
                 msgphone: this.$refs.msgphone.value
             },
             success: function(data) {
+                if(data){
+                    that.$store.commit('setMineMsg', data)
+                    infomsg.methods.clearMsg(that)
+                    return;
+                }
                 that.$store.commit('setMineMsg', "登陆成功,正在为您跳转。。。")
                 infomsg.methods.clearMsg(that,function(){
                     location.href = "#/myself"
@@ -89,6 +101,8 @@ export default {
             }
         },1000)
     }
+  },components:{
+    infomsg
   }
 }
 </script>
