@@ -1,18 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../components/Home.vue'
+import Classifyslot from '../components/Classifyslot.vue'
 import Classify from '../components/Classify.vue'
 import Cart from '../components/Cart.vue'
 import Mine from '../components/Mine.vue'
 import ShopList from '../components/Shoplist.vue'
+import SlotList from '../components/SlotList.vue'
 import ShopDetail from '../components/ShopDetail.vue'
+import ShopBuy from '../components/ShopBuy.vue'
 import Logon from '../components/Logon.vue'
 import LogonPhone from '../components/LogonPhone.vue'
 import Register from '../components/Register.vue'
 import MySelf from '../components/MySelf.vue'
-import SlotList from '../components/SlotList.vue'
 import util from '../../../util/common.js'
-
 
 Vue.use(Router)
 
@@ -37,14 +38,22 @@ const router = new Router({
       ]
     },
     {
-      path: '/classify',
-      name: 'Classify',
-      component: Classify
-    },
-    {
-      path: '/slotList',
-      name: 'SlotList',
-      component: SlotList
+      path: '/classifyslot',
+      name: 'Classifyslot',
+      component: Classifyslot,
+      redirect: '/classify',
+      children: [
+        {
+          path: '/classify',
+          name: 'Classify',
+          component: Classify
+        },
+        {
+          path: '/slotList',
+          name: 'SlotList',
+          component: SlotList
+        }
+      ]
     },
     {
       path: '/cart',
@@ -77,6 +86,11 @@ const router = new Router({
       component: MySelf
     },
     {
+      path: '/ShopBuy',
+      name: 'ShopBuy',
+      component: ShopBuy
+    },
+     {
       path: '*',
       redirect: '/shopList'
     }
