@@ -2,7 +2,7 @@
 module.exports = {
 	mysql: {
 		connectionLimit : 10,    
-		host: '10.5.151.167', 
+		host: '192.168.191.1', 
 		user: 'root',
 		password: '',
 		database:'test', // 前面建的user表位于这个数据库中

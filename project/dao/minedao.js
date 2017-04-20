@@ -13,7 +13,7 @@ module.exports = {
 			// 获取前台页面传过来的参数
 			var param = req.query || req.params;
 			// 建立连接，向表中插入值
-			connection.query($sql.sqlMine01, [param.username, param.password], function(err, result) {
+			connection.query($sql.sqlMine01, [param.username, param.password, 0], function(err, result) {
 				var ret = "您的账户或密码不正确";
 				// 如果查询结果无数据，则表示用户名不重复
 				if(result && result.length===1){
@@ -27,12 +27,34 @@ module.exports = {
 			});
 		});
 	},
-	checkUser: function (req, res, next) {
+	logonPhone: function(req, res, next) {
 		pool.getConnection(function(err, connection) {
 			// 获取前台页面传过来的参数
 			var param = req.query || req.params;
 			// 建立连接，向表中插入值
 			connection.query($sql.sqlMine03, [param.username], function(err, result) {
+				// 如果查询结果无数据，则表示用户名不重复
+				if(!(result && result.length>=1)){
+					connection.query($sql.sqlMine02, [param.username, null, 1], function(err, result) {
+						// 释放连接 
+						connection.release();
+					});
+				}else{
+					// 释放连接 
+					connection.release();
+				}
+			});
+		});
+	},
+	checkUser: function (req, res, next) {
+		pool.getConnection(function(err, connection) {
+			if(err){
+				console.log(err)
+			}
+			// 获取前台页面传过来的参数
+			var param = req.query || req.params;
+			// 建立连接，向表中插入值
+			connection.query($sql.sqlMine03, [param.username, 0], function(err, result) {
 				var ret = null;
 				// 如果查询结果存在,则表示用户存在
 				if(result && result.length>0){
@@ -46,14 +68,15 @@ module.exports = {
 		});
 	},
 	insertUser: function (req, res, next) {
+		// 获取前台页面传过来的参数
+		var param = req.query || req.params;
 		pool.getConnection(function(err, connection) {
 			// 建立连接，向表中插入值
-			connection.query($sql.sqlMine02, [param.username, param.password], function(err, result) {
-				
+			connection.query($sql.sqlMine02, [param.username, param.password, 0], function(err, result) {
+				var ret = null;
 				if(err) {
 					ret = "注册失败，请联系管理员"
 				}
-				console.log("ret:"+ret)
 				// 以json形式，把操作结果返回给前台页面
 				util.jsonWrite(res, ret);
 				// 释放连接 
@@ -65,7 +88,6 @@ module.exports = {
 		pool.getConnection(function(err, connection) {
 			// 获取前台页面传过来的参数
 			var param = req.query || req.params;
-
 			// 建立连接，向表中插入值
 			connection.query($sql.sqlMine04, [req.cookies.user], function(err, result) {
 				var ret = [{

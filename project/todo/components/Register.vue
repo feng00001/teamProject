@@ -21,7 +21,7 @@
         </div>
         <div class="checkgroup">
             <label><span>验证码</span></label>
-            <input type="text" placeholder="请输入短信验证码" ref="msgphone"/>
+            <input type="text" placeholder="请输入短信验证码" ref="msgphone" v-model="$store.state.msgphone"/>
             <button @click="getshortmsg" ref="getphonecode">获取短信验证码</button>
         </div>
     </div>
@@ -166,7 +166,8 @@ export default {
         let chart = this.$store.state.chart;
         // let vrcode = this.$refs.vrcode.value;
         let password = this.$store.state.password;
-        if(phonenum&&chart&&password){
+        let msgphone = this.$store.state.msgphone;
+        if(phonenum&&chart&&password&&msgphone){
             flag = false;
         }
         return flag;

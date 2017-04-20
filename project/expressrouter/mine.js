@@ -17,6 +17,7 @@ router.get('/logon', function(req, res, next) {
 /* GET 手机登陆. */
 router.get('/logonphone', function(req, res, next) {
 	var param = req.query || req.params;
+	testdao.logonPhone(req, res, next)
 	if(param.msgphone!==req.session.phonecode){
 		util.jsonWrite(res, "您输入的短信验证码不正确");
 		return;

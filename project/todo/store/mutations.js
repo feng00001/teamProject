@@ -33,6 +33,7 @@ export const state = {
   phonenum: null,
   chart: null,
   password: null,
+  msgphone: null,
   userinfo: {},
   // 王春园用 end
   // 韩旭 begin
