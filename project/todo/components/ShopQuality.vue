@@ -28,7 +28,7 @@
 	</div>
 	<nav>
 		<ul class="nav_list">
-			<li>默认</li>
+			<li class="active">默认</li>
 			<li>价格<i class="iconfont">&#xe647;</i></li>
 			<li>仅显示有货</li>
 			<li>筛选<i class="iconfont">&#xe610;</i></li>
@@ -112,6 +112,13 @@ export default {
 				that.$store.commit('setShoplist', data)				
 			}
 		})
+		$(".dot").click(function(){
+  		$(".list").toggle();
+		});
+		$('nav_list').click(function(){
+			$('.active').removeClass('active');
+			$(this).addClass('active');
+		})
 	},
 	components: obj,
 	methods: {
@@ -163,15 +170,16 @@ export default {
 		])
 	}
 }
-$(".dot").click(function(){
-  	$(".list").toggle();
-});
 
 </script>
 <style type="text/css" scoped>
 .mint-swipe-item {
   background: white;
   text-align: center;
+}
+.active{
+	color: #fe5b4a;
+	border-bottom: .05rem solid #fe5b4a;
 } 
 .shopBuy{
 	background: #f4f4f4;
@@ -233,9 +241,12 @@ nav .nav_list{
 nav .nav_list li{
 	float: left;
 	width:25%;
+	box-sizing: border-box;
+	height: 1rem;
 	text-align: center;
 	line-height: 1rem;
 }
+
 nav .pic{
 	height: 5rem;
 }
