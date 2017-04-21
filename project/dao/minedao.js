@@ -31,15 +31,23 @@ module.exports = {
 		pool.getConnection(function(err, connection) {
 			// 获取前台页面传过来的参数
 			var param = req.query || req.params;
+			console.log(param.username)
 			// 建立连接，向表中插入值
-			connection.query($sql.sqlMine03, [param.username], function(err, result) {
+			connection.query($sql.sqlMine03, [param.username, 1], function(err, result) {
+				
 				// 如果查询结果无数据，则表示用户名不重复
 				if(!(result && result.length>=1)){
+					
 					connection.query($sql.sqlMine02, [param.username, null, 1], function(err, result) {
+						if(err){
+							console.log(err)
+						}
+						res.cookie("user", result.userid);
 						// 释放连接 
 						connection.release();
 					});
 				}else{
+					res.cookie("user", result[0].userid);
 					// 释放连接 
 					connection.release();
 				}
