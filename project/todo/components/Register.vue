@@ -21,7 +21,7 @@
         </div>
         <div class="checkgroup">
             <label><span>验证码</span></label>
-            <input type="text" placeholder="请输入短信验证码" ref="msgphone" v-model="$store.state.msgphone"/>
+            <input type="text" placeholder="请输入短信验证码" ref="msgphone" v-model=/>
             <button @click="getshortmsg" ref="getphonecode">获取短信验证码</button>
         </div>
     </div>
