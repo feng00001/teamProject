@@ -54,7 +54,9 @@ export const state = {
   isDown: true,
   slotListImg: 'http://m.bl.com/h5-web/ui/newH5resource/css/i/icon-close.png',
   slotList: {},
-  isShow: 'everyLook'
+  isShow: 'everyLook',
+  typelist: [],
+  subtypelist: [],
   //韩旭 
 }
 
@@ -82,6 +84,12 @@ export const mutations = {
   setIsShow(state, test) {
     console.log("in："+test)
     state.isShow = test
+  },
+  setTypelist(state, test) {
+    state.typelist = test
+  },
+  setSubtypelist(state, test) {
+    state.subtypelist = test
   },
   //韩旭 end
   // 王春园 begin

@@ -20,7 +20,16 @@ var sql = {
 
 	// Homepage begin
 	// 根据specialid查询商品
-	sqlHomepage01: 'select * from shop where specialid = ?'
+	sqlHomepage01: 'select * from shop where specialid = ?',
 	// Homepage end
+
+	// Classify begin
+	// 查询所有type
+	sqlClassify01: 'select * from type',
+	// 根据typeid查询subtype
+	sqlClassify02: 'select * from subtype where typeid = ?',
+	// 根据subtypeid查询finaltype
+	sqlClassify03: 'select * from finaltype where subtypeid = ?'
+	// Classify end
 };
 module.exports = sql;

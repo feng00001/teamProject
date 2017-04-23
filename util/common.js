@@ -20,7 +20,7 @@ var util = {
 	    return v ? v[2] : null;
 	},
 	deleteCookie: function (name) {
-	    this.set(name, '', -1);
+	    this.setCookie(name, '', -1);
 	}
 }
 

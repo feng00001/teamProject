@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import util from '../../../util/common.js'
+import filterpaths from './filterpath.js'
 import Home from '../components/Home.vue'
 import Classify from '../components/Classify.vue'
 import Cart from '../components/Cart.vue'
@@ -13,7 +15,8 @@ import Logon from '../components/Logon.vue'
 import LogonPhone from '../components/LogonPhone.vue'
 import Register from '../components/Register.vue'
 import MySelf from '../components/MySelf.vue'
-import util from '../../../util/common.js'
+import Setting from '../components/Setting.vue'
+
 
 Vue.use(Router)
 
@@ -73,6 +76,11 @@ const router = new Router({
       component: MySelf
     },
     {
+      path: '/setting',
+      name: 'Setting',
+      component: Setting
+    },
+    {
       path: '/ShopBuy',
       name: 'ShopBuy',
       component: ShopBuy
@@ -95,17 +103,21 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  // alert(sessionStorage.getItem('accessToken'))
-  //    console.log(to);
-    console.log(!util.getCookie("user") || util.getCookie("user")=='undefined')
-  if ((to.path==='/myself')&&(!util.getCookie("user") || util.getCookie("user")=='undefined')) {
-    console.log(1)
-    console.log(to.path)
+  
+  var len = filterpaths.length;
+  var pathflag = true;
+  for(var i = 0;i<len;i++){
+    if((to.path===filterpaths[i])&&(!util.getCookie("user") || util.getCookie("user")=='undefined')){
+      pathflag = false;
+      break;
+    }
+  }
+
+  if(!pathflag){
     next({
       path: '/mine'
     })
-  } else {
-    console.log(2)
+  }else{
     next()
   }
 })

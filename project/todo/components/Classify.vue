@@ -18,328 +18,21 @@
   	</div>
   	<div id="content1">
 			 <div class="left">
-				<ol @touchend="changeUl">
-					<li>百联进口</li>
-					<li>生鲜食品</li>
-					<li>食品粮油</li>
-					<li>酒水冲印</li>
-					<li>美容护理</li>
-					<li>母婴专区</li>
-					<li>家居餐厨</li>
-					<li>厨卫清洁</li>
-					<li>精品服装</li>
-					<li>鞋靴箱包</li>
-					<li>腕表视频</li>
-					<li>手机数码</li>
-					<li>电脑办公</li>
-					<li>家用电器</li>
-					<li>运动户外</li>
-					<li>汽车用品</li>
-					<li>营养保健</li>
-					<li>图书音像</li>
-					<li>生活服务</li>
+				<ol>
+					<li v-for="item in $store.state.typelist" @touchend="changeUl(item.typeid)">{{item.typename}}</li>
 					
 				</ol>
 			</div>
 			<div class="goodsinfo">
-				<p class="nav">进口美容护理</p>
-				<ul>
-					<router-link to="/slotList" tag="li">
-		  				<img :src="$store.state.classifyImg[0]"/>
-						<p>进口乳液／面霜</p>
-		        	</router-link>
-					<li>
-						<img :src="$store.state.classifyImg[0]"/>
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img :src="$store.state.classifyImg[0]"/>
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img :src="$store.state.classifyImg[0]"/>
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img :src="$store.state.classifyImg[0]"/>
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img :src="$store.state.classifyImg[0]"/>
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img :src="$store.state.classifyImg[0]"/>
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img :src="$store.state.classifyImg[0]"/>
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img :src="$store.state.classifyImg[0]"/>
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img :src="$store.state.classifyImg[0]"/>
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img :src="$store.state.classifyImg[0]"/>
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img :src="$store.state.classifyImg[0]"/>
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img :src="$store.state.classifyImg[0]"/>
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img :src="$store.state.classifyImg[0]"/>
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img :src="$store.state.classifyImg[0]"/>
-						<p>进口乳液／面霜</p>
-					</li>
-				</ul>
-				<p class="nav">进口食品</p>
-				<ul>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-				</ul>
-				<p class="nav">进口乳品 酒水 冲饮</p>
-				<ul>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-				</ul>
-				<p class="nav">进口母婴</p>
-				<ul>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-				</ul>
-				<p class="nav">进口3c家电</p>
-				<ul>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-				</ul>
-				<p class="nav">进口家居生活</p>
-				<ul>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-					<li>
-						<img />
-						<p>进口乳液／面霜</p>
-					</li>
-				</ul>
+				<div v-for="item in $store.state.subtypelist">
+					<p class="nav">{{item.subtypename}}</p>
+					<ul>
+						<router-link to="/slotList" tag="li" v-for="it in item.finalls" :key="it.finaltypeid">
+			  				<img :src="it.img"/>
+							<p>{{it.finaltypename}}</p>
+			        	</router-link>
+					</ul>
+				</div>
 			</div>
 			<bottom-nav></bottom-nav>
 		</div>
@@ -353,17 +46,38 @@ import {mapMutations, mapActions} from 'vuex'
 import $ from 'jquery'
 
 export default {
-  methods: {
-    switchoverNav () {
-    	this.$store.commit('setIsHide')
-    },
-    changeUl () {
-    	
-    }
-  },
-  components: {
-  	BottomNav
-  }
+	mounted(){
+		var that = this
+		$.ajax({
+			type: "get",
+			url: "/exp/classify/type",
+			success: function(data){
+				that.$store.commit('setTypelist',data)
+			}
+		})
+	},
+	methods: {
+		switchoverNav () {
+			this.$store.commit('setIsHide')
+		},
+		changeUl (typeid) {
+			var that = this;
+			$.ajax({
+				type: "get",
+				url: "/exp/classify/subtype",
+				data: {
+					typeid: typeid
+				},
+				success: function(data){
+					console.log("OK")
+					that.$store.commit('setSubtypelist',data)
+				}
+			})
+		}
+	},
+	components: {
+		BottomNav
+	}
 }
 </script>
 

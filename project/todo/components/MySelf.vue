@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="head">
 		<div class="setting">
-			<a href="javascript:;">设置</a>
+			<a href="#/setting">设置</a>
 		</div>
 		<div class="userinfo">
 			<div class="userphone">
