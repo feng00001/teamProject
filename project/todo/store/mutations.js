@@ -27,7 +27,7 @@ export const state = {
   prePage: 0,
   everyday: [],
   yourlikelist: [],
-  isDisplay:'',
+  isDisplay:'all',
   // 高洋用 end
   // 王春园用 begin
   userphone: 'assets/imgs/userphone.png',
