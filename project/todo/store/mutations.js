@@ -23,6 +23,7 @@ export const state = {
             'assets/imgs/shopList/n5.png','assets/imgs/shopList/n6.png',
             'assets/imgs/shopList/n7.png','assets/imgs/shopList/n8.png',
             'assets/imgs/shopList/n9.png','assets/imgs/shopList/n10.png',],
+  prePage: 0,
   // 高洋用 begin
   // gyimg: []
   everyday: [],
@@ -104,6 +105,9 @@ export const mutations = {
   // 高洋用 begin
   setEveryday(state, test) {
     state.everyday = test;
+  },
+  setPrePage(state, test) {
+    state.prePage = test;
   }
   // 高洋用 end
 }
