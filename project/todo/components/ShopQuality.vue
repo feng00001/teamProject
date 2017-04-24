@@ -144,9 +144,7 @@ export default {
 				that.$store.commit('setShoplist', data)				
 			}
 		})
-		// $(".dot").click(function(){
-  		// $(".list").toggle();
-		// });
+		
 		
 		$('#special').click(function(){
 			$('.li_list').toggle();
@@ -157,10 +155,16 @@ export default {
 		})
 		$('.li_list li input').click(function(){
 			$('.focus').removeClass('focus');
-			$(this).addClass('focus');
-			// $(this).css({
-			// 	background:"#f60"
-			// });
+			$(this).addClass('focus')
+		})
+		$('.pic span .time').html(function(){
+			var data=new Date();
+			function format(value){
+				if(value<0){
+					return value='0'+value
+				}
+			}
+			return format(data.setDate(getDate()+3))+'天'+format(data.setDate(getHours()))+'小时'+format(data.setData(getMinuts()))+'分钟' +data.getSeconds()+'秒' 
 		})
 	},
 	components: obj,

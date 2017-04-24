@@ -13,6 +13,7 @@ import ShopDetail from '../components/ShopDetail.vue'
 import ShopBuy from '../components/ShopBuy.vue'
 import ShopQuality from '../components/ShopQuality.vue'
 import ShopLife from '../components/ShopLife.vue'
+import MyOrder from '../components/MyOrder.vue'
 import Logon from '../components/Logon.vue'
 import LogonPhone from '../components/LogonPhone.vue'
 import Register from '../components/Register.vue'
@@ -109,6 +110,11 @@ const router = new Router({
       path: '/ShopQuality',
       name: 'ShopQuality',
       component: ShopQuality
+    },
+    {
+      path: '/myorder',
+      name: 'MyOrder',
+      component: MyOrder
     },
      {
       path: '*',
