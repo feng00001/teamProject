@@ -27,6 +27,7 @@ export const state = {
   // 高洋用 begin
   // gyimg: []
   everyday: [],
+  yourlikelist: [],
   // 高洋用 end
   // 王春园用 begin
   userphone: 'assets/imgs/userphone.png',
@@ -108,6 +109,9 @@ export const mutations = {
   },
   setPrePage(state, test) {
     state.prePage = test;
+  },
+  setYourlikelist(state, test) {
+    state.yourlikelist = test;
   }
   // 高洋用 end
 }
