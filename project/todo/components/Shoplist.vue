@@ -1,6 +1,7 @@
 <style type="text/css" src="mint-ui/lib/style.css"></style>
 
 <template>
+<!-- <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="$store.state.allLoaded" ref="loadmore"> -->
   <div class="shopList">
     <a class="toTop" href="#">
     	<img :src="$store.state.testImg[4]">
@@ -20,6 +21,7 @@
     		<i class="iconfont">&#xe62a;</i>	
     	</a>
     </header>
+    <mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="$store.state.allLoaded" ref="loadmore">
     <div id="slide">
 	    <mt-swipe :auto="4000" >
 	    	<mt-swipe-item>
@@ -199,28 +201,18 @@
 			<a href="#" class="r">登录之后，更加准确</a>
 			<i class="iconfont r">&#xe6a3;</i>
 		</div>
+		
+		
+
 		<ul>
-			<li>
-				<img :src="$store.state.testImg[1]">
-				<p>玉薇Wellcake 酸奶蔓越莓慕斯蛋糕 8寸</p>
-				<span>¥238.00</span>
-			</li>
-			<li>
-				<img :src="$store.state.testImg[1]">
-				<p>玉薇Wellcake 酸奶蔓越莓慕斯蛋糕 8寸</p>
-				<span>¥238.00</span>
-			</li>
-			<li>
-				<img :src="$store.state.testImg[1]">
-				<p>玉薇Wellcake 酸奶蔓越莓慕斯蛋糕 8寸</p>
-				<span>¥238.00</span>
-			</li>
-			<li>
-				<img :src="$store.state.testImg[1]">
-				<p>玉薇Wellcake 酸奶蔓越莓慕斯蛋糕 8寸</p>
-				<span>¥238.00</span>
+			<li v-for="item in $store.state.yourlikelist">
+				<img :src="item.img">
+				<p>{{item.shopname}}</p>
+				<span>¥{{item.price}}</span>
 			</li>
 		</ul>
+		
+
 	</div>
 	<footer>
 		<div class="login">
@@ -243,19 +235,26 @@
 			<p>Copyright © 2016 百联 bl.com 版权所有</p>
 		</div>
 	</footer>
+	</mt-loadmore>
     <bottom-nav></bottom-nav>
   </div>
+  <!-- </mt-loadmore> -->
 </template>
 
 <script>
 import BottomNav from './BottomNav.vue'
 import {mapMutations, mapActions} from 'vuex'
 import $ from 'jquery'
-import { Swipe, SwipeItem} from 'mint-ui'
+import { Swipe, SwipeItem, Loadmore} from 'mint-ui'
+
 var obj = {};
 obj[Swipe.name]= Swipe;
 obj[SwipeItem.name]= SwipeItem;
-obj.BottomNav= BottomNav
+obj.BottomNav= BottomNav;
+
+obj[Loadmore.name] = Loadmore;
+
+
 export default {
 	// 页面加载完成后调用，
 	mounted (){
@@ -264,15 +263,51 @@ export default {
 			type:"get",
 			url:"/exp/homepage/everyday",
 			success:function(data){
-				console.log(data)
 				// 对store的操作需要调用mutations
 				that.$store.commit('setEveryday', data)				
 			}
 		})
+		this.$store.commit('setPrePage', 0);
+		$.ajax({
+			type:"get",
+			url:"/exp/homepage/yourlike",
+			data: {
+				prePage: this.$store.state.prePage
+			},
+			success:function(data){
+				// 对store的操作需要调用mutations
+				that.$store.commit('setYourlikelist', data);
+				console.log("len:"+data.length)
+				if(data&&data.length>0)	{
+					that.$store.commit('setPrePage', that.$store.state.prePage + 1);
+				}
+					
+			}
+		})
 	},
 	components: obj,
+
 	methods: {
-		
+	    loadBottom: function() {
+	    	console.log(this.$store.state.prePage)
+	    	var that = this;
+	    	$.ajax({
+				type:"get",
+				url:"/exp/homepage/yourlike",
+				data: {
+					prePage: this.$store.state.prePage
+				},
+				success:function(data){
+					that.$refs.loadmore.onBottomLoaded();
+					// 对store的操作需要调用mutations
+					if(data&&data.length>0)	{
+					that.$store.commit('setPrePage', that.$store.state.prePage + 1);
+					that.$store.commit('setYourlikelist', that.$store.state.yourlikelist.concat(data));
+					}
+				}
+			})
+	    }
+
 	}
 }
 window.onscroll=function(){

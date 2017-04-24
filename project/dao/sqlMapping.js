@@ -21,6 +21,8 @@ var sql = {
 	// Homepage begin
 	// 根据specialid查询商品
 	sqlHomepage01: 'select * from shop where specialid = ?',
+	// 分页查询猜你喜欢
+	sqlHomepage02: 'select * from shop limit ?,?',
 	// Homepage end
 
 	// Classify begin
