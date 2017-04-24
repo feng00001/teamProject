@@ -1,8 +1,7 @@
 <template>
   <div class="search-nav">
     <div id="header">
-      <input type="text" placeholder="搜索你想找的商品"/>
-      <img :src="$store.state.classifyImg[1]">
+      
       <span>
         <p @touchend="switchoverNav" v-if="$store.state.isHide==='none'">...</p>
         <p @touchend="switchoverNav" v-else>x</p>
@@ -37,23 +36,7 @@ export default {
       padding:.3rem 0;
       overflow: hidden;
     }
-    #header input{
-      height: .6rem;
-      line-height: .6rem;
-      border-bottom: 1px solid #ddd;
-      float: left;
-      background: #f4f4f4;
-      border-radius: .1rem;
-      width: 65%;
-      margin-left: .3rem;
-      padding-left:.3rem;
-      background:#fff;
-    }
-    #header img{
-      position: absolute;
-      left:0.25rem;
-      top:.2rem;
-    }
+    
     #header span{
       position: absolute;
       right:0.35rem;

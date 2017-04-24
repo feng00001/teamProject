@@ -1,7 +1,11 @@
 
 <template>
   <div class="classify">
-  	<search-nav></search-nav>
+  	<div id="header">
+  		<input type="text" placeholder="搜索你想找的商品"/>
+      	<img :src="$store.state.classifyImg[1]">
+  		<search-nav></search-nav>
+  	</div>
   	<div id="content1">
 			 <div class="left">
 				<ol>
@@ -68,6 +72,28 @@ export default {
 </script>
 
 <style scoped>
+#header{
+      padding:.3rem 0;
+      overflow: hidden;
+    }
+    
+#header input{
+      height: .6rem;
+      line-height: .6rem;
+      border-bottom: 1px solid #ddd;
+      float: left;
+      background: #f4f4f4;
+      border-radius: .1rem;
+      width: 65%;
+      margin-left: .3rem;
+      padding-left:.3rem;
+      background:#fff;
+    }
+    #header img{
+      position: absolute;
+      left:0.25rem;
+      top:.2rem;
+    }
     #content1{
 	    display: flex;
 	    flex-direction: row;
