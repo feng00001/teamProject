@@ -2,14 +2,6 @@
 
 <template>
   <div class="shopList">
-  	<!-- <h1>Shoplist</h1>
-  	<input type="text" ref="ipt"/>
-  	<button @click="searchByName">Search</button>
-  	<button @click="insertVal">Insert</button>
-    <button @click="selectAll">查询</button>
-    <ul>
-    	<li v-for="item in $store.state.shoplist"><a :href="'#/detail/'+item.shopid">{{item.shopname}}</a><span @click="deleteById(item.shopid)">删除</span></li>
-    </ul> -->
     <a class="toTop" href="#">
     	<img :src="$store.state.testImg[4]">
     </a>
@@ -31,29 +23,34 @@
     <div id="slide">
 	    <mt-swipe :auto="4000" >
 	    	<mt-swipe-item>
-				<img :src="$store.state.testImg[1]">
+				<!-- <img :src="$store.state.testImg[1]"> -->
+				<img  style="background:url(http://img23.iblimg.com/market-2/images/content/1985932398.jpg) no-repeat center">
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img :src="$store.state.testImg[1]">
+				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/791602993.jpg) no-repeat center">
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img :src="$store.state.testImg[1]">
+				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/791602993.jpg) no-repeat center">
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img :src="$store.state.testImg[1]">
+				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/1913242316.jpg) no-repeat center">
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img :src="$store.state.testImg[1]">
+				<img  style="background:url(http://img23.iblimg.com/market-2/images/content/531205495.jpg) no-repeat center">
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img :src="$store.state.testImg[1]">
+				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/1758104514.jpg) no-repeat center">
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img :src="$store.state.testImg[1]">
+				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/784170849.jpg) no-repeat center">
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img :src="$store.state.testImg[1]">
+				<img  style="background:url(http://img23.iblimg.com/market-2/images/content/2026052681.jpg) no-repeat center">
 	    	</mt-swipe-item>
+	    	<mt-swipe-item>
+				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/784170849.jpg) no-repeat center">
+	    	</mt-swipe-item>
+
 	    </mt-swipe>
     </div>
     <div id="nav">
@@ -103,18 +100,18 @@
 	<div id="news">
 		<div class="news_left l">
 			<a href="#">
-				<img :src="$store.state.testImg[1]">
+				<img  alt="">
 			</a>
 		</div>
 		<div class="news_right l">
 			<span>
 				<a href="#">
-					<img :src="$store.state.testImg[1]">
+					<img  alt="" class="tp">
 				</a>
 			</span>
 			<span>
 				<a href="#">
-					<img :src="$store.state.testImg[1]">
+					<img  alt="" class="bt">
 				</a>
 			</span>
 		</div>
@@ -142,21 +139,22 @@
 		</div>
 		<div class="life_tp">
 			<a href="#" class="l">
-				<img :src="$store.state.testImg[1]">
+				<!-- <img :src="$store.state.testImg[1]"> -->
+				<img  alt="" class="one">
 			</a>
 			<a href="#" class="l">
-				<img :src="$store.state.testImg[1]">
+				<img  alt="" class="two">
 			</a>
 		</div>
 		<div class="life_bt">
 			<a href="#" class="l">
-				<img :src="$store.state.testImg[1]">
+				<img  alt="" class="one">
 			</a>
 			<a href="#" class="l">
-				<img :src="$store.state.testImg[1]">
+				<img  alt="" class="two">
 			</a>
 			<a href="#" class="l">
-				<img :src="$store.state.testImg[1]">
+				<img  alt="" class="three">
 			</a>
 		</div>
 	</div>
@@ -166,29 +164,32 @@
 		</div>
 		<div class="spe_tp">
 			<a href="#" class="l">
-				<img :src="$store.state.testImg[1]">
+				<img class="one" alt="">
 			</a>
 			<a href="#" class="l">
-				<img :src="$store.state.testImg[1]">
+				<img class="two" alt="">
 			</a>
 			<a href="#" class="l">
-				<img :src="$store.state.testImg[1]">
+				<img class="three" alt="">
 			</a>
 		</div>
 		<div class="spe_bt">
-			<img :src="$store.state.testImg[1]">
+			<img >
 		</div>
 	</div>
 	<div id="slide2">
     	<mt-swipe :auto="4000" class="flyaway">
 	    	<mt-swipe-item>
-				<img :src="$store.state.testImg[1]">
+				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/791602993.jpg) no-repeat center">
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img :src="$store.state.testImg[1]">
+				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/791602993.jpg) no-repeat center">
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img :src="$store.state.testImg[1]">
+				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/791602993.jpg) no-repeat center">
+	    	</mt-swipe-item>
+	    	<mt-swipe-item>
+				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/791602993.jpg) no-repeat center">
 	    	</mt-swipe-item>
 	    </mt-swipe>
     </div>
@@ -374,14 +375,15 @@ $('.list li').click(()=>{
     color: #e6133c;
 }
 .shopList  #slide{
-	height: 2.3rem;
+	height: 2.5rem;
 	width: 7.5rem;
 	margin-top: 1rem;
 	overflow: hidden;
 }
 .shopList #slide img{
-	height: 2.3rem;
+	height: 2.5rem;
 	width: 7.5rem;
+	background-size: cover;
 }
 .shopList #nav{
 	height: 3.32rem;
@@ -420,19 +422,29 @@ $('.list li').click(()=>{
 .shopList #news .news_left img{
 	width: 2.88rem;
 	height: 4.55rem;
+	background: url(http://img22.iblimg.com/market-2/images/content/1331891831.jpg) no-repeat center;
+	background-size: cover;
 }
 .shopList #news .news_right span{
 	display: block;
 	width: 4.6rem;
-	height: 2.3rem;
+	height: 2.28rem;
 	box-sizing: border-box;
 	border-bottom: 0.02rem solid #ccc;
 }
-.shopList #news .news_right span img{
+.shopList #news .news_right span img.tp{
 	width: 4.58rem;
-	height: 2.25rem;
+	height: 2.26rem;
+	background: url(http://img22.iblimg.com/market-2/images/content/730613966.jpg) no-repeat center;
+	background-size: cover;
 }
-.shopList #news .news_right span:last-child{
+.shopList #news .news_right span img.bt{
+	width: 4.58rem;
+	height: 2.26rem;
+	background: url(http://img22.iblimg.com/market-2/images/content/1492018109.jpg) no-repeat center;
+	background-size: cover;
+}
+.shopList #news .news_right span:first-child{
 	border:0;
 }
 .shopList #buy{
@@ -527,9 +539,18 @@ $('.list li').click(()=>{
 	height: 2.52rem;
 	border-right: 0.02rem solid #ccc;
 }
-.shopList #life .life_tp img{
+.shopList #life .life_tp img.one{
 	width: 3.72rem;
 	height: 2.52rem;
+	background: url(http://img22.iblimg.com/market-2/images/content/730613966.jpg) no-repeat center;
+	background-size: cover;
+	box-sizing: border-box;
+}
+.shopList #life .life_tp img.two{
+	width: 3.72rem;
+	height: 2.52rem;
+	background: url(http://img22.iblimg.com/market-2/images/content/1993378220.jpg) no-repeat center;
+	background-size: cover;
 	box-sizing: border-box;
 }
 .shopList #life .life_tp a:last-child,.shopList #life .life_bt a:last-child{
@@ -545,10 +566,26 @@ $('.list li').click(()=>{
 	box-sizing: border-box;
 	border-right: 0.02rem solid #ccc;
 }
-.shopList #life .life_bt img{
+.shopList #life .life_bt img.one{
 	width: 2.47rem;
 	height: 2.44rem;
 	box-sizing: border-box;
+	background: url(http://img23.iblimg.com/market-2/images/content/1784240540.jpg) no-repeat center;
+	background-size: cover;
+}
+.shopList #life .life_bt img.two{
+	width: 2.47rem;
+	height: 2.44rem;
+	box-sizing: border-box;
+	background: url(http://img23.iblimg.com/market-2/images/content/1265473904.jpg) no-repeat center;
+	background-size: cover;
+}
+.shopList #life .life_bt img.three{
+	width: 2.47rem;
+	height: 2.44rem;
+	box-sizing: border-box;
+	background: url(http://img22.iblimg.com/market-2/images/content/181306820.jpg) no-repeat center;
+	background-size: cover;
 }
 .shopList #special{
 	width: 7.5rem;
@@ -575,22 +612,43 @@ $('.list li').click(()=>{
 .shopList #special .spe_tp a{
 	display: inline-block;
 	width: 2.5rem;
-	height: 2.5rem;
-	box-sizing: border-box;
-	border-right: 0.02rem solid #ccc;
-}
-.shopList #special .spe_tp img{
-	width: 2.5rem;
 	height: 2.44rem;
 	box-sizing: border-box;
 	border-right: 0.02rem solid #ccc;
+}
+.shopList #special .spe_tp img.one{
+	width: 2.5rem;
+	height: 2.44rem;
+	box-sizing: border-box;
+	background: url(http://img22.iblimg.com/market-2/images/content/1753109583.jpg) no-repeat center;
+	background-size: cover;
+}
+.shopList #special .spe_tp img.two{
+	width: 2.5rem;
+	height: 2.44rem;
+	box-sizing: border-box;
+	background: url(http://img23.iblimg.com/market-2/images/content/1138844193.jpg) no-repeat center;
+	background-size: cover;
+}
+.shopList #special .spe_tp img.three{
+	width: 2.5rem;
+	height: 2.44rem;
+	box-sizing: border-box;
+	background: url(http://img22.iblimg.com/market-2/images/content/829696241.jpg) no-repeat center;
+	background-size: cover;
 }
 .shopList #special .spe_tp  a:last-child{
 	border: 0;
 }
+.shopList #special .spe_bt{
+	margin-top: -.1rem;
+}
 .shopList #special .spe_bt img{
 	width: 7.5rem;
-	height: 2.44rem;
+	height: 2.54rem;
+	border:0;
+	background: url(http://img23.iblimg.com/market-2/images/content/1623108742.jpg) no-repeat center;
+	background-size: cover;
 }
 .shopList  #slide2{
 	height: 2.3rem;
@@ -600,6 +658,7 @@ $('.list li').click(()=>{
 .shopList #slide2 img{
 	height: 2.3rem;
 	width: 7.5rem;
+	background-size: cover;
 }
 .shopList #like{
 	width: 7.5rem;
