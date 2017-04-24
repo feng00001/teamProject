@@ -3,29 +3,13 @@
 <template>
   <div class="shopBuy">
 	<header>
-		<i class="iconfont l">&#x3484;</i>
+		<router-link to="/shopList"  active-class="special">
+			<i class="iconfont l">&#x3484;</i>
+		</router-link>
 		<h1 class="l">天天抢购</h1>
-		<i class="iconfont r dot">&#xe660;</i>
+		<!-- <i class="iconfont r dot">&#xe660;</i> -->
 	</header>
-	<div class="list">
-		<ul>
-			<li>
-				<i class="iconfont">&#xe632;</i>
-			</li>
-			<li>
-				<i class="iconfont">&#xe501;</i>
-			</li>
-			<li>
-				<i class="iconfont">&#xe657;</i>
-			</li>
-			<li>
-				<i class="iconfont">&#xe62a;</i>
-			</li>
-			<li>
-				<i class="iconfont">&#xe6a3;</i>
-			</li>
-		</ul>
-	</div>
+	<search-nav></search-nav>
 	<nav>
 		<ul>
 			<li>
@@ -104,6 +88,7 @@
 
 <script>
 import BottomNav from './BottomNav.vue'
+import SearchNav from './SearchNav.vue'
 import {mapMutations, mapActions} from 'vuex'
 import $ from 'jquery'
 import { Swipe, SwipeItem} from 'mint-ui'
@@ -111,6 +96,7 @@ var obj = {};
 obj[Swipe.name]= Swipe;
 obj[SwipeItem.name]= SwipeItem;
 obj.BottomNav= BottomNav
+obj.SearchNav= SearchNav
 export default {
 	// 页面加载完成后调用，
 	mounted (){
@@ -205,34 +191,10 @@ header h1{
 	font-weight: 1;
 	font-size: .24rem;
 }
-.list{
-	display: none;
-	height: 1rem;
-	border-bottom: 0.1rem solid #fe8477;
-    background-color: rgba(0,0,0,.8);
-    transition: all .2s ease;
-    overflow: hidden;
-    position: absolute;
-    width:7.5rem;
-    top: .9rem;
-    left: 0px;
-    z-index: 11;
-}
-.list ul li{
-	width:20%;
-	height: 1.2rem;
-	line-height: 1.2rem;
-	float: left;
-	color: #fff;
-	
-	text-align: center;
-}
-.list ul li i{
-	font-size: .42rem;
-}
 nav{
 	height: 1.2rem;
 	background: #333;
+	margin-top: -.3rem;
 }
 nav ul{
 	width: 7.5rem;

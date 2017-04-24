@@ -3,35 +3,63 @@
 <template>
   <div class="shopBuy">
 	<header>
-		<i class="iconfont l">&#x3484;</i>
+		<router-link to="/shopList"  active-class="special">
+			<i class="iconfont l">&#x3484;</i>
+		</router-link>
 		<h1 class="l">雷朋Rayban</h1>
-		<i class="iconfont r dot">&#xe660;</i>
+		<!-- <i class="iconfont r dot">&#xe660;</i> -->
 	</header>
-	<div class="list">
+	<!-- <div class="list">
 		<ul>
 			<li>
+				<router-link to="/shopList" tag="li" active-class="special">
 				<i class="iconfont">&#xe632;</i>
+				<b>首页</b>
+				</router-link>
 			</li>
 			<li>
+				<router-link to="/shopList" tag="li" active-class="special">
 				<i class="iconfont">&#xe501;</i>
+				<b>搜索</b>
+				</router-link>
 			</li>
 			<li>
+				<router-link to="/shopList" tag="li" active-class="special">
 				<i class="iconfont">&#xe657;</i>
+				<b>分类</b>				
+				</router-link>
 			</li>
 			<li>
+				<router-link to="/shopList" tag="li" active-class="special">
 				<i class="iconfont">&#xe62a;</i>
+				<b>购物车</b>
+				</router-link>
 			</li>
 			<li>
+				<router-link to="/shopList" tag="li" active-class="special">
 				<i class="iconfont">&#xe6a3;</i>
+				<b>我的</b>
+				</router-link>
 			</li>
 		</ul>
-	</div>
+	</div> -->
+	<search-nav></search-nav>
 	<nav>
 		<ul class="nav_list">
 			<li class="active">默认</li>
 			<li>价格<i class="iconfont">&#xe647;</i></li>
 			<li>仅显示有货</li>
-			<li>筛选<i class="iconfont">&#xe610;</i></li>
+			<li id="special">筛选<i class="iconfont">&#xe610;</i>
+				<ul class="li_list active" style="display:none">
+					<li>全部品牌</li>
+					<li>雷朋</li>
+					<li>
+						<button>清空选项</button>
+						<button>确认</button>
+						<p class="time"></p>
+					</li>
+				</ul>
+			</li>
 		</ul>
 		<div class="pic">
 			<img :src="$store.state.testImg[1]">
@@ -93,6 +121,7 @@
 
 <script>
 import BottomNav from './BottomNav.vue'
+import SearchNav from './SearchNav.vue'
 import {mapMutations, mapActions} from 'vuex'
 import $ from 'jquery'
 import { Swipe, SwipeItem} from 'mint-ui'
@@ -100,6 +129,8 @@ var obj = {};
 obj[Swipe.name]= Swipe;
 obj[SwipeItem.name]= SwipeItem;
 obj.BottomNav= BottomNav
+obj.SearchNav= SearchNav
+
 export default {
 	// 页面加载完成后调用，
 	mounted (){
@@ -112,13 +143,19 @@ export default {
 				that.$store.commit('setShoplist', data)				
 			}
 		})
-		$(".dot").click(function(){
-  		$(".list").toggle();
-		});
-		$('nav_list').click(function(){
-			$('.active').removeClass('active');
-			$(this).addClass('active');
+		// $(".dot").click(function(){
+  		// $(".list").toggle();
+		// });
+		// $('nav_list').click(function(){
+		// 	$('.active').removeClass('active');
+		// 	$(this).addClass('active');
+		// })
+		$('#special').click(function(){
+			$('.li_list').toggle();
+				// $('.active').removeClass('active');
+		 	// $(this).addClass('active');
 		})
+		
 	},
 	components: obj,
 	methods: {
@@ -202,7 +239,7 @@ header h1{
 	font-weight: 1;
 	font-size: .24rem;
 }
-.list{
+/*.list{
 	display: none;
 	height: 1rem;
 	border-bottom: 0.1rem solid #fe8477;
@@ -218,15 +255,19 @@ header h1{
 .list ul li{
 	width:20%;
 	height: 1.2rem;
-	line-height: 1.2rem;
+	line-height: .45rem;
 	float: left;
 	color: #fff;
-	
+	padding-top:.1rem;
+	box-sizing: border-box;
 	text-align: center;
 }
 .list ul li i{
-	font-size: .42rem;
+	font-size: .38rem;
 }
+.list ul li b{
+	display: block;
+}*/
 nav{
 	height: 5.5rem;
 	width: 7.5rem;
@@ -246,7 +287,37 @@ nav .nav_list li{
 	text-align: center;
 	line-height: 1rem;
 }
-
+nav .nav_list li .li_list{
+	position: absolute;
+	width: 7.5rem;
+	height: 2.9rem;
+	left: 0;
+	top:2.2rem;
+	background: #fff;
+	z-index: 100 !important;
+}
+nav .nav_list li .li_list li{
+	clear: both;
+	height: .9rem;
+	width: 7.5rem;
+	line-height: .9rem;
+	text-align: left;
+	text-indent: .3rem;
+	border-bottom: 1px solid #ccc;
+}
+nav .nav_list li .li_list li:last-child{
+	text-align: center;
+	border:0;
+}
+nav .nav_list li .li_list li button{
+	outline: none;
+	border:.02rem solid #ccc;
+	background: #fff;
+	border-radius: .1rem;
+	width: 2.5rem;
+	height: .7rem;
+	margin:.1rem;
+}
 nav .pic{
 	height: 5rem;
 }

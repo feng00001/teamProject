@@ -35,6 +35,7 @@ export default {
     #header{
       padding:.3rem 0;
       overflow: hidden;
+      
     }
     
     #header span{
