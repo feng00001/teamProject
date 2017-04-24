@@ -59,6 +59,15 @@ export default {
     },
     fly2cart(e) {
       this.$refs.count.innerText++
+      $.ajax({
+        type:"get",
+        url:"/exp/homepage/everyday",
+        success:function(data){
+          // 对store的操作需要调用mutations
+          that.$store.commit('setEveryday', data)       
+        }
+      })
+      
     },
 		...mapActions([
 		  

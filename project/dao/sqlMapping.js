@@ -40,5 +40,9 @@ var sql = {
 	sqlSlotlist04: 'select * from evaluate where shopid = ?'
 
 	//slotlist end
+	//cart begin
+	// sqlCart02: 'insert into users(username,password,type) values (?,?,?)',
+
+	//cart end
 };
 module.exports = sql;
