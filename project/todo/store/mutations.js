@@ -56,6 +56,7 @@ export const state = {
   slotListImg: 'http://m.bl.com/h5-web/ui/newH5resource/css/i/icon-close.png',
   slotList: {},
   isShow: 'everyLook',
+  isPaly: 'store',
   typelist: [],
   subtypelist: [],
   //韩旭 
@@ -85,6 +86,10 @@ export const mutations = {
   setIsShow(state, test) {
     console.log("in："+test)
     state.isShow = test
+  },
+  setIsPlay(state, test) {
+    console.log("in："+test)
+    state.isPaly = test
   },
   setTypelist(state, test) {
     state.typelist = test
