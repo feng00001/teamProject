@@ -55,7 +55,7 @@ export default {
 				that.$store.commit('setTypelist',data)
 			}
 		})
-		changeUl(1);
+		this.changeUl(1);
 	},
 	methods: {
 		switchoverNav () {
