@@ -89,6 +89,7 @@ export default {
 		},
 		orderByPriceAsc(params) {
 			var that = this;
+			console.log(this.$store.state.priceFlag)
 			if(this.$store.state.priceFlag){
 				$.ajax({
 					type:"get",
