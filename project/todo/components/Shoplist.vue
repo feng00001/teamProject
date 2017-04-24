@@ -205,21 +205,6 @@
 				<p>玉薇Wellcake 酸奶蔓越莓慕斯蛋糕 8寸</p>
 				<span>¥238.00</span>
 			</li>
-			<li>
-				<img :src="$store.state.testImg[1]">
-				<p>玉薇Wellcake 酸奶蔓越莓慕斯蛋糕 8寸</p>
-				<span>¥238.00</span>
-			</li>
-			<li>
-				<img :src="$store.state.testImg[1]">
-				<p>玉薇Wellcake 酸奶蔓越莓慕斯蛋糕 8寸</p>
-				<span>¥238.00</span>
-			</li>
-			<li>
-				<img :src="$store.state.testImg[1]">
-				<p>玉薇Wellcake 酸奶蔓越莓慕斯蛋糕 8寸</p>
-				<span>¥238.00</span>
-			</li>
 		</ul>
 	</div>
 	<footer>
@@ -267,6 +252,18 @@ export default {
 				console.log(data)
 				// 对store的操作需要调用mutations
 				that.$store.commit('setEveryday', data)				
+			}
+		})
+		$.ajax({
+			type:"get",
+			url:"/exp/homepage/yourlike",
+			data: {
+				prePage: this.$store.state.prePage
+			},
+			success:function(data){
+				console.log(data)
+				// 对store的操作需要调用mutations
+				that.$store.commit('setYourlikelist', data);		
 			}
 		})
 	},

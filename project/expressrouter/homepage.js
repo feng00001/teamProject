@@ -8,4 +8,9 @@ router.get('/everyday', function(req, res, next) {
   	homepagedao.selecteveryday(req, res, next)
 });
 
+/* GET 获取猜你喜欢. */
+router.get('/yourlike', function(req, res, next) {
+  	homepagedao.selectyourlike(req, res, next)
+});
+
 module.exports = router;

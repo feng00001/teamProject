@@ -33,17 +33,19 @@
 		</div>
 		<div id="content">
 			<dl v-for="item in $store.state.slotList">
-				<dt>
-					<img :src="$store.state.classifyImg[0]">
-				</dt>
-				<dd>
-					<p>{{item.shopname}}</p>
-					<h2>¥<span ref="price">{{item.price}}</span></h2>
-					<ul>
-						<li><span ref="volume">{{item.pinglun}}</span>条评论</li>
-						<li>好评<span>{{item.pinglv}}</span></li>
-					</ul>
-				</dd>
+				<router-link to="/detail/1">
+					<dt>
+						<img :src="$store.state.classifyImg[0]">
+					</dt>
+					<dd>
+						<p>{{item.shopname}}</p>
+						<h2>¥<span ref="price">{{item.price}}</span></h2>
+						<ul>
+							<li><span ref="volume">{{item.pinglun}}</span>条评论</li>
+							<li>好评<span>{{item.pinglv}}</span></li>
+						</ul>
+					</dd>
+				</router-link>
 			</dl>
 			
 			<div id="master" :style="{display:$store.state.isSure}"></div>
@@ -273,8 +275,8 @@ export default {
 	}
 	#content dl dd p {
 		width: 100%;
-		line-height: .3rem;
-		height:.6rem;
+		line-height: .5rem;
+    	height: 1rem;
 		overflow : hidden;
 		text-overflow: ellipsis;
 		display: -webkit-box;
@@ -283,7 +285,7 @@ export default {
 		text-overflow:hidden;
 	}
 	#content dl dd h2{
-		margin-top: .5rem;
+		margin-top: .2rem;
 		color:#e6133c;
 	}
 	#content dl dd ul li{

@@ -4,6 +4,8 @@ import util from '../../../util/common.js'
 import filterpaths from './filterpath.js'
 import Home from '../components/Home.vue'
 import Classify from '../components/Classify.vue'
+import Classifyslot from '../components/Classifyslot.vue'
+import SlotList from '../components/SlotList.vue'
 import Cart from '../components/Cart.vue'
 import Mine from '../components/Mine.vue'
 import ShopList from '../components/Shoplist.vue'
@@ -41,9 +43,22 @@ const router = new Router({
       ]
     },
     {
-      path: '/classify',
-      name: 'Classify',
-      component: Classify
+      path: '/classifyslot',
+      name: 'Classifyslot',
+      component: Classifyslot,
+      redirect: '/classify',
+      children: [
+        {
+          path: '/classify',
+          name: 'Classify',
+          component: Classify
+        },
+        {
+          path: '/slotlist',
+          name: 'SlotList',
+          component: SlotList
+        }
+      ]
     },
     {
       path: '/cart',
