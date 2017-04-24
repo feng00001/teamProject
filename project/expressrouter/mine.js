@@ -22,9 +22,6 @@ router.get('/logonphone', function(req, res, next) {
 		return;
 	}
 	testdao.logonPhone(req, res, next);
-	
-	util.jsonWrite(res, null);
-  	
 });
 
 /* GET 注册. */

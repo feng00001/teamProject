@@ -33,10 +33,16 @@ module.exports = {
 			var param = req.query || req.params;
 			console.log(param.username)
 			// 建立连接，向表中插入值
-			connection.query($sql.sqlMine03, [param.username, 1], function(err, result) {
-				
+			new Promise(function(resolve, reject){
+				connection.query($sql.sqlMine03, [param.username, 1], function(err, result) {
+					resolve({err, result})
+				});
+			}).then(function({err, result}){
+				if(err){
+					console.log(err)
+				}
 				// 如果查询结果无数据，则表示用户名不重复
-				if(!(result && result.length>=1)){
+				if(!(result && result.length>0)){
 					
 					connection.query($sql.sqlMine02, [param.username, null, 1], function(err, result) {
 						if(err){
@@ -47,11 +53,15 @@ module.exports = {
 						connection.release();
 					});
 				}else{
+
+					console.log(JSON.stringify(result))
+					console.log(result[0].userid)
 					res.cookie("user", result[0].userid);
 					// 释放连接 
 					connection.release();
 				}
-			});
+				util.jsonWrite(res, null);
+			})
 		});
 	},
 	checkUser: function (req, res, next) {
