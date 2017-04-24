@@ -54,8 +54,9 @@
 					<li>全部品牌</li>
 					<li>雷朋</li>
 					<li>
-						<button>清空选项</button>
-						<button>确认</button>
+						<input type="button" value="清空选项" />
+						<input type="button" value="确认" class="focus" />
+						<!-- <button class="focus">确认</button> -->
 						<p class="time"></p>
 					</li>
 				</ul>
@@ -146,16 +147,21 @@ export default {
 		// $(".dot").click(function(){
   		// $(".list").toggle();
 		// });
-		// $('nav_list').click(function(){
-		// 	$('.active').removeClass('active');
-		// 	$(this).addClass('active');
-		// })
+		
 		$('#special').click(function(){
 			$('.li_list').toggle();
-				// $('.active').removeClass('active');
-		 	// $(this).addClass('active');
 		})
-		
+		$('.nav_list li').click(function(){
+			$('.active').removeClass('active');
+			$(this).addClass('active');
+		})
+		$('.li_list li input').click(function(){
+			$('.focus').removeClass('focus');
+			$(this).addClass('focus');
+			// $(this).css({
+			// 	background:"#f60"
+			// });
+		})
 	},
 	components: obj,
 	methods: {
@@ -218,6 +224,9 @@ export default {
 	color: #fe5b4a;
 	border-bottom: .05rem solid #fe5b4a;
 } 
+.focus{
+	color: #fff;
+}
 .shopBuy{
 	background: #f4f4f4;
 }
@@ -290,7 +299,7 @@ nav .nav_list li{
 nav .nav_list li .li_list{
 	position: absolute;
 	width: 7.5rem;
-	height: 2.9rem;
+	height: 2.8rem;
 	left: 0;
 	top:2.2rem;
 	background: #fff;
@@ -309,7 +318,7 @@ nav .nav_list li .li_list li:last-child{
 	text-align: center;
 	border:0;
 }
-nav .nav_list li .li_list li button{
+nav .nav_list li .li_list li input{
 	outline: none;
 	border:.02rem solid #ccc;
 	background: #fff;

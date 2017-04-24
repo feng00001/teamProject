@@ -3,14 +3,14 @@
     <div id="header">
       
       <span>
-        <p @touchend="switchoverNav" v-if="$store.state.isHide==='none'">...</p>
-        <p @touchend="switchoverNav" v-else>x</p>
+        <p @touchend="switchoverNav" v-if="$store.state.isHide==='none'" class="iconfont">&#xe660;</p>
+        <p @touchend="switchoverNav" v-else class="iconfont">&#xe624;</p>
         <ul ref="nav" :style="{display:$store.state.isHide}">
-          <router-link to="/shopList" tag="li" active-class="special"><i>1</i><b>首页</b></router-link>
-          <router-link to="/classify" tag="li" active-class="special"><i>1</i><b>搜索</b></router-link>
-          <router-link to="/classify" tag="li" active-class="special"><i>1</i><b>分类</b></router-link>
-          <router-link to="/order" tag="li" active-class="special"><i>1</i><b>购物车</b></router-link>
-          <router-link to="/mine" tag="li" active-class="special"><i>1</i><b>我的</b></router-link>
+          <router-link to="/shopList" tag="li" active-class="special"><i class="iconfont">&#xe632;</i><b>首页</b></router-link>
+          <router-link to="/classify" tag="li" active-class="special"><i class="iconfont">&#xe501;</i><b>搜索</b></router-link>
+          <router-link to="/classify" tag="li" active-class="special"><i class="iconfont">&#xe657;</i><b>分类</b></router-link>
+          <router-link to="/order" tag="li" active-class="special"><i class="iconfont">&#xe62a;</i><b>购物车</b></router-link>
+          <router-link to="/mine" tag="li" active-class="special"><i class="iconfont">&#xe6a3;</i><b>我的</b></router-link>
         </ul>
       </span>
     </div>
@@ -55,10 +55,10 @@ export default {
       top:-.15rem;
     }
     #header span p{
-      font-size:38px;
+      font-size:20px;
       position: absolute;
       left:-0.5rem;
-      top:-0.35rem;
+      top:.25rem;
     }
     #header span ul{
       position: absolute;
@@ -72,10 +72,13 @@ export default {
     #header span ul li{
       float:left;
       width:20%;
+      text-align: center;
     }
     #header span ul li i{
       height:.5rem;
       padding:0 .3rem;
+      color: #fff;
+
       line-height: .5rem;
     }
     #header span ul li b{
