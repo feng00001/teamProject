@@ -515,8 +515,9 @@ $('.list li').click(()=>{
 	width: 7.5rem;
 	box-sizing: border-box;
 }
-.shopList #buy ul{
+.shopList #buy .scroll ul{
 	height: 3rem;
+	width: 12rem;
 	border-top:.02rem solid #ccc;
 	border-bottom:.02rem solid #ccc;
 }
