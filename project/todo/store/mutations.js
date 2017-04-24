@@ -105,7 +105,7 @@ export const mutations = {
   // 高洋用 begin
   setEveryday(state, test) {
     state.everyday = test;
-  }
+  },
   setPrePage(state, test) {
     state.prePage = test;
   }
