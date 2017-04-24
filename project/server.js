@@ -11,6 +11,7 @@ const mine = require('./expressrouter/mine')
 const util = require('./expressrouter/util')
 const homepage = require('./expressrouter/homepage')
 const classify = require('./expressrouter/classify')
+const slotlist = require('./expressrouter/slotlist')
 
 const app = express()
 app.use(cookieParser())
@@ -39,6 +40,8 @@ app.use('/exp/mine', mine)
 app.use('/exp/homepage', homepage)
 
 app.use('/exp/classify', classify)
+
+app.use('/exp/slotlist', slotlist)
 
 app.use(express.static(__dirname))
 

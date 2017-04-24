@@ -31,7 +31,10 @@ var sql = {
 	// 根据typeid查询subtype
 	sqlClassify02: 'select * from subtype where typeid = ?',
 	// 根据subtypeid查询finaltype
-	sqlClassify03: 'select * from finaltype where subtypeid = ?'
+	sqlClassify03: 'select * from finaltype where subtypeid = ?',
 	// Classify end
+	//slotlist begin
+	sqlSlotlist01: 'select * from shop order by ? asc'
+	//slotlist end
 };
 module.exports = sql;

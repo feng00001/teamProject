@@ -60,11 +60,10 @@ import $ from 'jquery'
 export default {
 
 	mounted (){
-		// console.log("需要排序" + that.$store.state.slotList.shopname)
 		var that = this;
 		$.ajax({
 			type:"get",
-			url:"/todo/orderBy.json",
+			url:"/exp/slotlist/slots",
 			success:function(data){
 				that.$store.commit('setSlotList', data)
 				// console.log(data)
