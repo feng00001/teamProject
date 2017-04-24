@@ -60,7 +60,8 @@ export const state = {
   isPaly: 'store',
   typelist: [],
   subtypelist: [],
-  priceFlag: true
+  priceFlag: true,
+  cur: 'cur'
   //韩旭 
 }
 
