@@ -60,6 +60,7 @@ export const state = {
   isPaly: 'store',
   typelist: [],
   subtypelist: [],
+  priceFlag: true
   //韩旭 
 }
 
@@ -97,6 +98,9 @@ export const mutations = {
   },
   setSubtypelist(state, test) {
     state.subtypelist = test
+  },
+  setPriceFlag(state) {
+    state.priceFlag = state.priceFlag === true ? false : true
   },
   //韩旭 end
   // 王春园 begin

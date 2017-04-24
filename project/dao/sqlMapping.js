@@ -34,7 +34,11 @@ var sql = {
 	sqlClassify03: 'select * from finaltype where subtypeid = ?',
 	// Classify end
 	//slotlist begin
-	sqlSlotlist01: 'select * from shop order by ? asc'
+	sqlSlotlist01: 'select * from shop order by shopid asc',
+	sqlSlotlist02: 'select * from shop order by price asc',
+	sqlSlotlist03: 'select * from shop order by price desc',
+	sqlSlotlist04: 'select * from evaluate where shopid = ?'
+
 	//slotlist end
 };
 module.exports = sql;

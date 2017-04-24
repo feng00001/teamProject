@@ -8,5 +8,13 @@ router.get('/slots', function(req, res, next) {
   	slotlistdao.selectlist(req, res, next)
 });
 
+router.get('/priceasc', function(req, res, next) {
+  	slotlistdao.selectpriceasc(req, res, next)
+});
+
+router.get('/pricedesc', function(req, res, next) {
+  	slotlistdao.selectpricedesc(req, res, next)
+});
+
 
 module.exports = router;

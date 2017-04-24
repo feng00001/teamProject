@@ -15,13 +15,12 @@
         		<li class="cur l">综合<span @touchend="isSure" :class="{angleTop:$store.state.isTop,angleDown:$store.state.isDown}"></span>
         			<ul class="one" @touchend="isChecked($event)" :style="{display:$store.state.isSure}">
         				<li class="curTwo">综合排序<span class="r" id="sure">v</span></li>
-        				<li>新品优先</li>
-        				<li>评价数从高到低</li>
+        				<li @touchend="orderByNew">新品优先</li>
         			</ul>
         		</li>
-        		<li class="l" @touchend="orderByVolume">销量</li>
-        		<li class="l">价格</li>
-        		<li class="l">筛选</li>
+        		<li class="l" @touchend="orderByComs">销量</li>
+        		<li class="l" @touchend="orderByPriceAsc">
+        		价格</li>
         	</ul>
 
         	<ul class="classify">
@@ -35,14 +34,14 @@
 			<dl v-for="item in $store.state.slotList">
 				<router-link to="/detail/1">
 					<dt>
-						<img :src="$store.state.classifyImg[0]">
+						<img :src="item.el.img">
 					</dt>
 					<dd>
-						<p>{{item.shopname}}</p>
-						<h2>¥<span ref="price">{{item.price}}</span></h2>
+						<p>{{item.el.shopname}}</p>
+						<h2>¥<span ref="price">{{item.el.price}}</span></h2>
 						<ul>
-							<li><span ref="volume">{{item.pinglun}}</span>条评论</li>
-							<li>好评<span>{{item.pinglv}}</span></li>
+							<li><span ref="volume">{{item.commence}}</span>条评论</li>
+							<li>好评<span>{{item.commence}}</span></li>
 						</ul>
 					</dd>
 				</router-link>
@@ -66,7 +65,7 @@ export default {
 			url:"/exp/slotlist/slots",
 			success:function(data){
 				that.$store.commit('setSlotList', data)
-				// console.log(data)
+				console.log(data)
 			}
 		})
 	},
@@ -82,28 +81,37 @@ export default {
 			this.$store.commit('setIsSure')
 			// this.$store.state.isTop != this.$store.state.isTop
 		},
-		orderByVolume() {
-			// console.log(this.$refs.volume)
-			let arr=[]
-			this.$refs.volume.map((el,index)=>{
-				
-				arr.push(parseInt(el.innerHTML))
-
-			})
-			console.log(arr)
-			function compare(item1,item2){
-				if(item1<item2){
-					return 1
-				}else if(item1>item2){
-					return -1
-				}else{
-					return 0
-				}
+		orderByNew(params) {
+			var that = this;
+		},
+		orderByComs(params) {
+			var that = this;
+		},
+		orderByPriceAsc(params) {
+			var that = this;
+			if(this.$store.state.priceFlag){
+				$.ajax({
+					type:"get",
+					url:"/exp/slotlist/priceasc",
+					success:function(data){
+						that.$store.commit('setSlotList', data)
+						console.log(data)
+						that.$store.commit('setPriceFlag')
+					}
+				})
+			}else{
+				$.ajax({
+					type:"get",
+					url:"/exp/slotlist/pricedesc",
+					success:function(data){
+						that.$store.commit('setSlotList', data)
+						console.log(data)
+						that.$store.commit('setPriceFlag')
+					}
+				})
 			}
-			arr.sort(compare)
-			console.log(arr)
+			
 		}
-		
 	}
 }
 </script>
