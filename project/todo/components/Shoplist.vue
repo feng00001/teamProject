@@ -200,10 +200,10 @@
 			<i class="iconfont r">&#xe6a3;</i>
 		</div>
 		<ul>
-			<li>
-				<img :src="$store.state.testImg[1]">
-				<p>玉薇Wellcake 酸奶蔓越莓慕斯蛋糕 8寸</p>
-				<span>¥238.00</span>
+			<li v-for="item in $store.state.yourlikelist">
+				<img :src="item.img">
+				<p>{{item.shopname}}</p>
+				<span>¥{{item.price}}</span>
 			</li>
 		</ul>
 	</div>
