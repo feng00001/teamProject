@@ -4,13 +4,17 @@
   <div class="shop-detail">
     <div id="header">
       <ul @touchend='switchover($event)'>
-        <router-link to="/classify" class="l" tag="li"><i class="iconfont">&#x3484;</i></router-link>
+        <router-link to="/slotlist" class="l" tag="li"><i class="iconfont">&#x3484;</i></router-link>
         <li class="l store">商品</li>
         <li class="l detail">详情</li>
         <li class="l parameter">参数</li>
         <li class="l commence">评论</li>
-        <router-link to="/classify" class="l" tag="li"><i class="iconfont">&#xe62a;</i></router-link>
-        <router-link to="/classify" class="r" tag="li"><i class="iconfont">&#xe660;</i></router-link>
+        <router-link to="/cart" class="l" tag="li">
+          <i class="iconfont" style="position: relative;">&#xe62a;
+            <span ref="count" class="cart-count">0</span>
+          </i>
+        </router-link>
+        <search-nav></search-nav>
       </ul>
     </div>
     <detail-report v-if="$store.state.isPaly==='store'"></detail-report>
@@ -20,7 +24,7 @@
   	<div id="footer">
   		<ul>
   			<router-link to="/mine/logon" class="l" tag="li">立即购买</router-link>
-  			<router-link to="/cart" class="l" tag="li">加入购物车</router-link>
+  			<li class="l" v-on:touchend="fly2cart">加入购物车</li>
   		</ul>
   	</div>
   </div>
@@ -33,6 +37,7 @@ import DetailReport from './DetailReport.vue'
 import Parameter from './Parameter.vue'
 import Commence from './Commence.vue'
 import Particular from './Particular.vue'
+import SearchNav from './SearchNav.vue'
 
 export default {
 	// 页面加载完成后调用，
@@ -50,8 +55,10 @@ export default {
         this.$store.commit('setIsPlay', 'parameter')
       }else{
         this.$store.commit('setIsPlay', 'commence')
-      }
-      
+      }   
+    },
+    fly2cart(e) {
+      this.$refs.count.innerText++
     },
 		...mapActions([
 		  
@@ -61,7 +68,8 @@ export default {
     DetailReport,
     Parameter,
     Commence,
-    Particular
+    Particular,
+    SearchNav
   }
 }
 </script>
@@ -107,5 +115,17 @@ export default {
 }
 #footer ul li:nth-of-type(2){
 	background:#e6133c;
+}
+#header ul .cart-count{
+    position: absolute;
+    top: -.2rem;
+    width: .4rem;
+    height: .4rem;
+    line-height: .4rem;
+    text-align: center;
+    background: red;
+    border-radius: 50%;
+    color:#fff;
+    font-size:12px;
 }
 </style>
