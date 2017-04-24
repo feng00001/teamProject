@@ -9,7 +9,7 @@
   	<div id="content1">
 			 <div class="left">
 				<ol>
-					<li v-for="item in $store.state.typelist" @touchend="changeUl(item.typeid)">{{item.typename}}</li>
+					<li v-for="item in $store.state.typelist" @touchend="changeUl(item.typeid)" :class="$store.state.cur">{{item.typename}}</li>
 					
 				</ol>
 			</div>
@@ -157,5 +157,9 @@ export default {
 	    height: .3rem;
 	    font-size: 16px;
 	    border-left: 2px solid red;
+	}
+	#content1 .left ol li.cur{
+		/*border-left:.05rem solid red;*/
+		background:red;
 	}
 </style>

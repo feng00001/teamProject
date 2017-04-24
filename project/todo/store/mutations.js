@@ -16,6 +16,7 @@ export const state = {
   // 单个shop信息
   shopDetail: {},
   // 测试用
+  // 高洋用 begin
   testImg: ['assets/imgs/shopList/logo.png','assets/imgs/shopList/11.jpg',
             'assets/imgs/shopList/nav.png','assets/imgs/shopList/2.jpg',
             'assets/imgs/shopList/totop.png','assets/imgs/shopList/n2.png',
@@ -24,10 +25,9 @@ export const state = {
             'assets/imgs/shopList/n7.png','assets/imgs/shopList/n8.png',
             'assets/imgs/shopList/n9.png','assets/imgs/shopList/n10.png',],
   prePage: 0,
-  // 高洋用 begin
-  // gyimg: []
   everyday: [],
   yourlikelist: [],
+  isDisplay:'all',
   // 高洋用 end
   // 王春园用 begin
   userphone: 'assets/imgs/userphone.png',
@@ -60,7 +60,8 @@ export const state = {
   isPaly: 'store',
   typelist: [],
   subtypelist: [],
-  priceFlag: true
+  priceFlag: true,
+  cur: 'cur'
   //韩旭 
 }
 
@@ -121,7 +122,11 @@ export const mutations = {
   },
   setYourlikelist(state, test) {
     state.yourlikelist = test;
-  }
+  },
+  setIsDisplay(state, test) {
+    console.log("in："+test)
+    state.isDisplay = test
+  },
   // 高洋用 end
 }
 
