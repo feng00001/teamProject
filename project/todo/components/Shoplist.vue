@@ -26,31 +26,31 @@
 	    <mt-swipe :auto="4000" >
 	    	<mt-swipe-item>
 				<!-- <img :src="$store.state.testImg[1]"> -->
-				<img  style="background:url(http://img23.iblimg.com/market-2/images/content/1985932398.jpg) no-repeat center">
+				<img  style="background:url(http://img23.iblimg.com/market-2/images/content/1985932398.jpg) no-repeat center;background-size:cover">
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/791602993.jpg) no-repeat center">
+				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/791602993.jpg) no-repeat center ;background-size:cover">
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/791602993.jpg) no-repeat center">
+				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/791602993.jpg) no-repeat center;background-size:cover">
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/1913242316.jpg) no-repeat center">
+				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/1913242316.jpg) no-repeat center;background-size:cover">
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img  style="background:url(http://img23.iblimg.com/market-2/images/content/531205495.jpg) no-repeat center">
+				<img  style="background:url(http://img23.iblimg.com/market-2/images/content/531205495.jpg) no-repeat center;background-size:cover">
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/1758104514.jpg) no-repeat center">
+				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/1758104514.jpg) no-repeat center;background-size:cover">
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/784170849.jpg) no-repeat center">
+				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/784170849.jpg) no-repeat center;background-size:cover">
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img  style="background:url(http://img23.iblimg.com/market-2/images/content/2026052681.jpg) no-repeat center">
+				<img  style="background:url(http://img23.iblimg.com/market-2/images/content/2026052681.jpg) no-repeat center;background-size:cover">
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/784170849.jpg) no-repeat center">
+				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/784170849.jpg) no-repeat center;background-size:cover">
 	    	</mt-swipe-item>
 
 	    </mt-swipe>
@@ -418,7 +418,6 @@ $('.list li').click(()=>{
 .shopList #slide img{
 	height: 2.5rem;
 	width: 7.5rem;
-	background-size: cover;
 }
 .shopList #nav{
 	height: 3.32rem;
