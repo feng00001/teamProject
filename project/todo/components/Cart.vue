@@ -72,7 +72,7 @@ export default {
         userid: userid
       },
       success: function(data){
-
+        console.log(data)
       }
     })
   },
