@@ -16,47 +16,14 @@
 	<mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="$store.state.allLoaded" ref="loadmore">
 	<section>
 		<ul>
-			<li>
+			<li v-for="item in $store.state.shoplifelist">
 				<div class="pic">
-    				<img :src="$store.state.testImg[1]">
+    				<img :src="item.img">
 				</div>
 				<div class="con">
-					<p>潘娜托尼 男童秋款风衣 休闲冲锋衣 JC-Q157</p>
+					<p>{{item.shopname}}</p>
 					<p>每人限购200件</p>
-					<span>￥258.00</span>
-					<button>立即抢购</button>
-				</div>
-			</li>
-			<li>
-				<div class="pic">
-    				<img :src="$store.state.testImg[1]">
-				</div>
-				<div class="con">
-					<p class="top">潘娜托尼 男童秋款风衣 休闲冲锋衣 JC-Q157</p>
-					<p class="bt">每人限购200件</p>
-					<span>￥258.00</span>
-					<button>立即抢购</button>
-				</div>
-			</li>
-			<li>
-				<div class="pic">
-    				<img :src="$store.state.testImg[1]">
-				</div>
-				<div class="con">
-					<p>潘娜托尼 男童秋款风衣 休闲冲锋衣 JC-Q157</p>
-					<p>每人限购200件</p>
-					<span>￥258.00</span>
-					<button>立即抢购</button>
-				</div>
-			</li>
-			<li>
-				<div class="pic">
-    				<img :src="$store.state.testImg[1]">
-				</div>
-				<div class="con">
-					<p class="top">潘娜托尼 男童秋款风衣 休闲冲锋衣 JC-Q157</p>
-					<p class="bt">每人限购200件</p>
-					<span>￥258.00</span>
+					<span>￥{{item.price}}</span>
 					<button>立即抢购</button>
 				</div>
 			</li>
@@ -83,9 +50,13 @@ export default {
 	mounted (){
 		var that = this;
 		this.$store.commit('setPrePage', 0);
+
 		$.ajax({
 			method:"get",
 			url:"/exp/shoplife/init",
+			data: {
+				prePage: this.$store.state.prePage
+			},
 			success:function(data){
 				// 对store的操作需要调用mutations
 				that.$store.commit('setShopLifelist', data)				
@@ -109,6 +80,7 @@ export default {
 					that.$refs.loadmore.onBottomLoaded();
 					// 对store的操作需要调用mutations
 					if(data&&data.length>0)	{
+						console.log(data)
 					that.$store.commit('setPrePage', that.$store.state.prePage + 1);
 					that.$store.commit('setShopLifelist', that.$store.state.shopbuylist.concat(data));
 					}
