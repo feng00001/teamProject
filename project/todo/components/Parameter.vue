@@ -31,7 +31,7 @@
         <span class="left l">产地</span>
         <span class="right l">产地</span>
       </li>
-      <li class="second">规格参数</li>
+      <li class="second">产地</li>
       <li>
         <span class="left l">产地</span>
         <span class="right l">产地</span>

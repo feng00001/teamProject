@@ -111,44 +111,19 @@
         </div>
         <div class="guess-what-you-like">
           <ul class="type" @touchend='switchover($event)'>
-            <li class="every-look" active-class="special">大家都在看</li>
-            <li class="hot" active-class="special">热门商品</li>
-            <li class="buy-buy-buy" active-class="special">买买买</li>
+            <li class="every-look special" >大家都在看</li>
+            <li class="hot">热门商品</li>
+            <li class="buy-buy-buy">买买买</li>
           </ul>
           <div class="look" v-if="$store.state.isShow==='everyLook'">
             <mt-swipe :auto="4000" >
               <mt-swipe-item>
                 <ul>
-                  <li>
+                  <li v-for="item in $store.state.watches">
                     <img :src="$store.state.classifyImg[8]">
                     <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
+                    <p class="dPrice">￥<span>{{item.price}}</span></p>
+                  </li> 
                 </ul>
               </mt-swipe-item>
               <mt-swipe-item>
@@ -453,12 +428,31 @@ export default {
     $('.mint-swipe .mint-swipe-indicators .is-active').css({
       background:'red'
     })
+    var that = this
+    $.ajax({
+      type:"get",
+      url:"/exp/detail/watches",
+      data: {
+        prePage: this.$store.state.prePage
+      },
+      success:function(data){
+        // 对store的操作需要调用mutations
+        that.$store.commit('setWatches', data);
+        console.log("len:"+data.length)
+        if(data&&data.length>0) {
+          that.$store.commit('setPrePage', that.$store.state.prePage + 1);
+        }
+          
+      }
+    })
   },
   methods: {
     switchover(e) {
-      if(e.target.className === 'every-look'){
+      $('.special').removeClass('special')
+      $(e.target).addClass('special')
+      if(e.target.className.indexOf('every-look') !== -1){
         this.$store.commit('setIsShow', 'everyLook')
-      }else if(e.target.className === 'hot'){
+      }else if(e.target.className.indexOf('hot') !== -1 ){
         this.$store.commit('setIsShow', 'hot')
       }else{
         this.$store.commit('setIsShow', 'buy')
@@ -475,8 +469,8 @@ export default {
 
 
 <style scoped>
-    .special{
-  background:red;
+.special{
+  border-bottom:.05rem solid #f60;
 }
 #main{
   flex:1;

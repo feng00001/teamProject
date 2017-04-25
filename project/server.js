@@ -15,6 +15,7 @@ const slotlist = require('./expressrouter/slotlist')
 const cartcount = require('./expressrouter/cartcount')
 const shopbuy = require('./expressrouter/shopbuy')
 const shoplife = require('./expressrouter/shoplife')
+const detail = require('./expressrouter/detail')
 
 const app = express()
 app.use(cookieParser())
@@ -51,6 +52,8 @@ app.use('/exp/cartcount', cartcount)
 app.use('/exp/shopbuy', shopbuy)
 
 app.use('/exp/shoplife', shoplife)
+
+app.use('/exp/detail', detail)
 
 app.use(express.static(__dirname))
 

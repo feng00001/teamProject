@@ -64,7 +64,10 @@ export const state = {
   subtypelist: [],
   priceFlag: true,
   cur: '',
-  cartlist: []
+  cartlist: [],
+  watches: [],
+  hots: [],
+  buys: []
   //韩旭 
 }
 
@@ -111,6 +114,9 @@ export const mutations = {
   },
   setCartlist(state, test) {
     state.cartlist = test
+  },
+  setWatches(state, test) {
+    state.watches = test
   },
   //韩旭 end
   // 王春园 begin
