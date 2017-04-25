@@ -26,24 +26,24 @@
     </div>
     <div id="cont">
       <ul class="all">
-        <li class="list">
+        <li class="list" v-for="item in $store.state.cartlist">
           <div class="left">
-            <input type="checkbox">
+            <input type="checkbox" checked/>
           </div>
           <div class="center">
-            <img :src="$store.state.classifyImg[1]">
+            <img :src="item.img">
           </div>
           <div class="right">
-            <p class="shopname">肌肤之钥 CPB 光透妆前乳 SPF24 PA++ 30ml 光凝 妆前霜 遮瑕 控油 保湿补水 隔离霜 防晒</p>
+            <p class="shopname">{{item.shopname}}</p>
             <p class="blink">闪</p>
             <div class="c-p">
-              <span class="new-price">￥557.00</span>
+              <span class="new-price" ref="siglePrice">￥{{item.price}}</span>
               <del class="old-price">￥806.00</del>
               <span class="r">
                   <table border="0.005" cellspacing="0" cellpadding="0">
                     <tr>
                       <td class="minus">-</td>
-                      <td class="count">1</td>
+                      <td class="count" ref="count">{{item.quantity}}</td>
                       <td class="add">+</td>
                     </tr>
                   </table>
@@ -53,6 +53,17 @@
           </div>
         </li>
       </ul>
+    </div>
+    <div class="footer">
+      <input type="checkbox" checked/>全选 
+      <span class="totle">
+        合计：
+      </span>
+      <button class="r">去结算（9）</button>
+      <span class="r" ref="totle">
+        ￥{{totle}}
+      </span>
+      
     </div>
     <bottom-nav></bottom-nav>
   </div>
@@ -66,7 +77,8 @@ import util from '../../../util/common.js'
 
 export default {
   mounted (){
-    var userid = util.getCookie("user")
+    var userid = util.getCookie("user");
+    var that = this
     $.ajax({
       type: 'get',
       url: '/exp/cartcount/alls',
@@ -74,9 +86,13 @@ export default {
         userid: userid
       },
       success: function(data){
-        console.log(data)
+        var totle = that.$refs.totle.innerText
+        that.$store.commit('setCartlist',data)
       }
     })
+  },
+  computed: {
+
   },
   methods: {
     
@@ -165,7 +181,7 @@ export default {
     height:100%;
     flex:1;
   }
-  #cont .all .list .left input[type="checkbox"]:checked {
+  input[type="checkbox"]:checked {
     border-color: #e6133c;
     background-color: #e6133c;
     width: .4rem;
@@ -173,7 +189,7 @@ export default {
     color:white;
     position: relative;
   }
-  #cont .all .list .left input[type="checkbox"]:checked::after{
+  input[type="checkbox"]:checked::after{
     display: inline-block;
     position: absolute;
     top:0;
@@ -185,7 +201,7 @@ export default {
     color: white;
     content: "√";
   }
-  #cont .all .list .left input[type="checkbox"]{
+  input[type="checkbox"]{
       user-select: text;
       -webkit-appearance: none;
       position: relative;
@@ -215,7 +231,7 @@ export default {
   }
   #cont .all .list .right .shopname::before{
     display: inline-block;
-    width: .6rem;
+    width: .7rem;
     line-height: .35rem;
     height: .35rem;
     text-align: center;
@@ -250,5 +266,32 @@ export default {
   }
   .right .c-p .new-price{
     color:#e6133c;
+  }
+  .footer{
+    position: fixed;
+    bottom:1.2rem;
+    left:0;
+    width:100%;
+    line-height: 1rem;
+    background:#fff;
+  }
+  .footer button{
+    width: 2.5rem;
+    background: #e6133c;
+    line-height: 1rem;
+    height: 1rem;
+    border:0;
+    text-align: center;
+    font-size: 14px;
+    color: #fff; 
+  }
+  .footer input{
+    margin: .3rem;
+  }
+  .footer .totle{
+    margin-left: .3rem
+  }
+  .footer span.r{
+     margin-right: .3rem
   }
 </style>
