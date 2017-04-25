@@ -12,7 +12,7 @@ module.exports = {
 			// 获取前台页面传过来的参数
 			var param = req.query || req.params;
 			// 建立连接，向表中插入值
-			connection.query($sql.sqlClassify01, null, function(err, result) {
+			connection.query($sql.sqlShopBuy01, null, function(err, result) {
 
 				// 以json形式，把操作结果返回给前台页面
 				util.jsonWrite(res, result);
