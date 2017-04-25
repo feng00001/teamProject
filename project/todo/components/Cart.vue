@@ -42,9 +42,9 @@
               <span class="r">
                   <table border="0.005" cellspacing="0" cellpadding="0">
                     <tr>
-                      <td class="minus" @touchend="minus">-</td>
+                      <td class="minus" @touchend="minus(item.shopcarid)">-</td>
                       <td class="count">{{item.quantity}}</td>
-                      <td class="add" @touchend="add">+</td>
+                      <td class="add" @touchend="add(item.shopcarid)">+</td>
                     </tr>
                   </table>
               </span>
@@ -102,31 +102,33 @@ export default {
     }
   },
   methods: {
-    minus() {
+    minus(co) {
       var userid = util.getCookie("user");
-      var that = this
+      var that = this;
       $.ajax({
         type: 'get',
         url: '/exp/cartcount/minus',
         data: {
-          userid: userid
+          userid: userid,
+          shopcarid: co
         },
         success: function(data){
       
         }
       })
     },
-    add() {
+    add(co) {
       var userid = util.getCookie("user");
       var that = this
       $.ajax({
         type: 'get',
         url: '/exp/cartcount/add',
         data: {
-          userid: userid
+          userid: userid,
+          shopcarid: co
         },
         success: function(data){
-     
+      
         }
       })
     }
