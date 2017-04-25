@@ -8,4 +8,8 @@ router.get('/ins', function(req, res, next) {
   	cartcountdao.updatecount(req, res, next)
 });
 
+router.get('/alls', function(req, res, next) {
+  	cartcountdao.selectcount(req, res, next)
+});
+
 module.exports = router;

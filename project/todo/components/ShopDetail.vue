@@ -63,7 +63,6 @@ export default {
       var str=location.href
       var str1 = str.match(/detail.*/)
       var shopid = str1[0].match(/\d.*/)[0]
-      // console.log(util.getCookie("user"))
       var userid = util.getCookie("user")
       $.ajax({
         type:"get",
@@ -73,7 +72,6 @@ export default {
           userid: userid
         },
         success:function(data){
-          // 对store的操作需要调用mutations
           console.log(data)
         }
       })

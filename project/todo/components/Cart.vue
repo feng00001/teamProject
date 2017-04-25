@@ -63,6 +63,19 @@ import BottomNav from './BottomNav.vue'
 import { mapMutations, mapActions} from 'vuex'
 
 export default {
+  mounted (){
+    var userid = util.getCookie("user")
+    $.ajax({
+      type: 'get',
+      url: '/exp/cartcount/alls',
+      data: {
+        userid: userid
+      },
+      success: function(data){
+
+      }
+    })
+  },
   methods: {
     
   },
