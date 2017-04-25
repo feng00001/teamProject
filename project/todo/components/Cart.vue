@@ -79,16 +79,7 @@ export default {
   mounted (){
     var userid = util.getCookie("user");
     var that = this
-    $.ajax({
-      type: 'get',
-      url: '/exp/cartcount/alls',
-      data: {
-        userid: userid
-      },
-      success: function(data){
-        that.$store.commit('setCartlist',data)
-      }
-    })
+    this.selall()
   },
   computed: {
     totle: function() {
@@ -113,7 +104,7 @@ export default {
           shopcarid: co
         },
         success: function(data){
-      
+          that.selall()
         }
       })
     },
@@ -128,7 +119,21 @@ export default {
           shopcarid: co
         },
         success: function(data){
-      
+          that.selall()
+        }
+      })
+    },
+    selall() {
+      var userid = util.getCookie("user");
+      var that = this
+      $.ajax({
+        type: 'get',
+        url: '/exp/cartcount/alls',
+        data: {
+          userid: userid
+        },
+        success: function(data){
+          that.$store.commit('setCartlist',data)
         }
       })
     }

@@ -68,7 +68,7 @@ module.exports = {
 			// 获取前台页面传过来的参数
 			var param = req.query || req.params;
 			// 建立连接，向表中插入值
-			connection.query($sql.sqlCart03,  [param.shopcarid], function(err, result) {
+			connection.query($sql.sqlCart03, [param.shopcarid], function(err, result) {
 				
 				util.jsonWrite(res, result);
 				console.log(JSON.stringify(result))
