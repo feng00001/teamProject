@@ -3,36 +3,36 @@
 <template>
   <div class="order-detail">
     <div id="header">
+      <div class="top">
+        <router-link to="/classify" class="l" tag="a"><i class="iconfont">&#x3484;</i></router-link>
+        <span>订单管理</span>
+      </div>
       <ul @touchend='switchover($event)'>
-        <router-link to="/classify" class="l" tag="li"><i class="iconfont">&#x3484;</i></router-link>
-        <li class="l store">商品</li>
-        <li class="l detail">详情</li>
-        <li class="l parameter">参数</li>
-        <li class="l commence">评论</li>
-        <router-link to="/classify" class="l" tag="li"><i class="iconfont">&#xe62a;</i></router-link>
-        <router-link to="/classify" class="r" tag="li"><i class="iconfont">&#xe660;</i></router-link>
+        <li class="l all active">全部</li>
+        <li class="l payment">代付款</li>
+        <li class="l send">代发货</li>
+        <li class="l receive">待收货</li>
+        <li class="l evaluate">待评价</li>
+        
       </ul>
     </div>
-    <detail-report v-if="$store.state.isPaly==='store'"></detail-report>
-    <particular v-else-if="$store.state.isPaly==='detail'"></particular>
-    <commence v-else-if="$store.state.isPaly==='commence'"></commence>
-    <parameter v-else="$store.state.isPaly==='parameter'"></parameter>
-  	<div id="footer">
-  		<ul>
-  			<router-link to="/mine/logon" class="l" tag="li">立即购买</router-link>
-  			<router-link to="/cart" class="l" tag="li">加入购物车</router-link>
-  		</ul>
-  	</div>
+    <all-report v-if="$store.state.isDisplay==='all'"></all-report>
+    <payment v-else-if="$store.state.isDisplay==='payment'"></payment>
+    <send v-else-if="$store.state.isDisplay==='send'"></send>
+    <receive v-else-if="$store.state.isDisplay==='receive'"></receive>
+    <evaluate v-else="$store.state.isDisplay==='evaluate'"></evaluate>
+  	
   </div>
 </template>
 
 <script>
 import {mapMutations, mapActions} from 'vuex'
 import $ from 'jquery'
-import DetailReport from './DetailReport.vue'
-import Parameter from './Parameter.vue'
-import Commence from './Commence.vue'
-import Particular from './Particular.vue'
+import  AllReport from './AllReport.vue'
+import Payment from './Payment.vue'
+import Send from './Send.vue'
+import Receive from './Receive.vue'
+import Evaluate from './Evaluate.vue'
 
 export default {
 	// 页面加载完成后调用，
@@ -42,12 +42,16 @@ export default {
 	methods: {
     switchover(e) {
       console.log(e.target.className)
-      if(e.target.className === 'l store'){
-        this.$store.commit('setIsPlay', 'store')
-      }else if(e.target.className === 'l detail'){
-        this.$store.commit('setIsPlay', 'detail')
-      }else if(e.target.className === 'l parameter'){
-        this.$store.commit('setIsPlay', 'parameter')
+      $('.active').removeClass('active');
+      $(e.target).addClass('active')
+      if(e.target.className.indexOf('all') !== -1){
+        this.$store.commit('setIsPlay', 'all')
+      }else if(e.target.className.indexOf('payment') !== -1){
+        this.$store.commit('setIsPlay', 'payment')
+      }else if(e.target.className.indexOf('send') !== -1){
+        this.$store.commit('setIsPlay', 'send')
+      }else if(e.target.className.indexOf('receive') !== -1){
+        this.$store.commit('setIsPlay', 'receive')
       }else{
         this.$store.commit('setIsPlay', 'commence')
       }
@@ -58,10 +62,7 @@ export default {
 		])
 	},
 	components: {
-    DetailReport,
-    Parameter,
-    Commence,
-    Particular
+    AllReport
   }
 }
 </script>
@@ -72,40 +73,32 @@ export default {
 	flex-direction:column;
 }
 #header{
-    height: 1rem;
+    height: 2rem;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 2;
     background:rgba(255,255,255,0.6)
 }
-
-#footer{
-  height:1rem;
-  position: fixed;
-  bottom:0;
-  width: 100%;
+#header .top{
+  height: 1rem;
+  width: 7.5rem;
+  line-height: 1rem;
+  border-bottom: .02rem solid #ccc;
+}  
+#header .top span{
+  text-align: center;
+  width: 7rem;
+  font-size: 16px;
+  display: inline-block;
 }
 #header ul li {
   text-align: center;
   padding:0 .3rem;
   line-height:1rem;
+  box-sizing: border-box;
 }
-#footer ul{
-	display: flex;
-	flex-direction: row;
-}
-#footer ul li{
-	flex:50%;
-	height:1rem;
-	line-height: 1rem;
-	color:#fff;
-	text-align: center;
-}
-#footer ul li:nth-of-type(1){
-	background:#faa62d;
-}
-#footer ul li:nth-of-type(2){
-	background:#e6133c;
+.active{
+  border-bottom: .05rem solid #f60;
 }
 </style>
