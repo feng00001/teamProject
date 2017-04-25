@@ -10,6 +10,7 @@
 		<!-- <i class="iconfont r dot">&#xe660;</i> -->
 	</header>
 	<search-nav></search-nav>
+	<mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="$store.state.allLoaded" ref="loadmore">
 	<nav>
 		<ul>
 			<li>
@@ -36,53 +37,20 @@
 	</nav>
 	<section>
 		<ul>
-			<li>
+			<li v-for="item in $store.state.shopbuylist">
 				<div class="pic">
-    				<img :src="$store.state.testImg[1]">
+    				<img :src="item.img">
 				</div>
 				<div class="con">
-					<p>潘娜托尼 男童秋款风衣 休闲冲锋衣 JC-Q157</p>
+					<p>{{item.shopname}}</p>
 					<p>每人限购200件</p>
-					<span>￥258.00</span>
-					<button>立即抢购</button>
-				</div>
-			</li>
-			<li>
-				<div class="pic">
-    				<img :src="$store.state.testImg[1]">
-				</div>
-				<div class="con">
-					<p class="top">潘娜托尼 男童秋款风衣 休闲冲锋衣 JC-Q157</p>
-					<p class="bt">每人限购200件</p>
-					<span>￥258.00</span>
-					<button>立即抢购</button>
-				</div>
-			</li>
-			<li>
-				<div class="pic">
-    				<img :src="$store.state.testImg[1]">
-				</div>
-				<div class="con">
-					<p>潘娜托尼 男童秋款风衣 休闲冲锋衣 JC-Q157</p>
-					<p>每人限购200件</p>
-					<span>￥258.00</span>
-					<button>立即抢购</button>
-				</div>
-			</li>
-			<li>
-				<div class="pic">
-    				<img :src="$store.state.testImg[1]">
-				</div>
-				<div class="con">
-					<p class="top">潘娜托尼 男童秋款风衣 休闲冲锋衣 JC-Q157</p>
-					<p class="bt">每人限购200件</p>
-					<span>￥258.00</span>
+					<span>￥{{item.price}}</span>
 					<button>立即抢购</button>
 				</div>
 			</li>
 		</ul>
 	</section>
-    <bottom-nav></bottom-nav>
+	</mt-loadmore>
   </div>
 </template>
 
@@ -91,76 +59,55 @@ import BottomNav from './BottomNav.vue'
 import SearchNav from './SearchNav.vue'
 import {mapMutations, mapActions} from 'vuex'
 import $ from 'jquery'
-import { Swipe, SwipeItem} from 'mint-ui'
+import { Swipe, SwipeItem, Loadmore} from 'mint-ui'
 var obj = {};
 obj[Swipe.name]= Swipe;
 obj[SwipeItem.name]= SwipeItem;
 obj.BottomNav= BottomNav
 obj.SearchNav= SearchNav
+obj[Loadmore.name] = Loadmore;
 export default {
 	// 页面加载完成后调用，
 	mounted (){
 		var that = this;
+		this.$store.commit('setPrePage', 0);
 		$.ajax({
 			method:"get",
 			url:"/exp/shopbuy/init",
+			data: {
+				prePage: this.$store.state.prePage
+			},
 			success:function(data){
+				console.log(data)
 				// 对store的操作需要调用mutations
-				that.$store.commit('setShoplist', data)			
+				that.$store.commit('setShopBuylist', data)			
 			}
 		})
 		$(".dot").click(function(){
-  		$(".list").toggle();
+  			$(".list").toggle();
 		});
+		
 	},
 	components: obj,
 	methods: {
-		searchByName () {
-			var that = this;
-			$.ajax({
-				method:"get",
-				url:"/exp/search",
+		loadBottom: function() {
+	    	var that = this;
+	    	$.ajax({
+				type:"get",
+				url:"/exp/shopbuy/init",
 				data: {
-					shopname: that.$refs.ipt.value
+					prePage: this.$store.state.prePage
 				},
 				success:function(data){
+					that.$refs.loadmore.onBottomLoaded();
 					// 对store的操作需要调用mutations
-					that.$store.commit('setShoplist', data)
+					if(data&&data.length>0)	{
+					that.$store.commit('setPrePage', that.$store.state.prePage + 1);
+					that.$store.commit('setShopBuylist', that.$store.state.shopbuylist.concat(data));
+					}
 				}
 			})
-		},
-		insertVal () {
-			var that = this;
-			$.ajax({
-				method:"get",
-				url:"/exp/insertVal",
-				data: {
-					shopname: that.$refs.ipt.value
-				},
-				success:function(data){
-					// 对store的操作需要调用mutations
-					that.$store.commit('setShoplist', data)
-				}
-			})
-		},
-		deleteById (id) {
-			var that = this;
-			$.ajax({
-				method:"get",
-				url:"/exp/deleteById",
-				data: {
-					shopid: id
-				},
-				success:function(data){
-					// 对store的操作需要调用mutations
-					that.$store.commit('setShoplist', data)
-				}
-			})
-		},
-		// 不需要传递参数的时候可以使用结构赋值，否则没必要用
-		...mapActions([
-		  
-		])
+	    }
 	}
 }
 

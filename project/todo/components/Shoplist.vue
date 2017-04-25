@@ -126,7 +126,7 @@
 		</div>
 		<div class="scroll">
 			<ul>
-				<router-link tag="li" to="shopbuy" v-for="item in $store.state.everyday">
+				<router-link key="item.shopid" tag="li" to="shopbuy" v-for="item in $store.state.everyday">
 					<img :src="item.img">
 		            <p>{{item.shopname}}</p>
 		            <span>￥{{item.price}}</span>
