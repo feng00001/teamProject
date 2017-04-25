@@ -102,7 +102,7 @@ const router = new Router({
       component: ShopBuy
     },
     {
-      path: '/ShopLife',
+      path: '/shoplife',
       name: 'ShopLife',
       component: ShopLife
     },

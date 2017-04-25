@@ -140,22 +140,22 @@
 			<h1>生活馆</h1>
 		</div>
 		<div class="life_tp">
-			<a href="#" class="l">
+			<a href="#/shoplife" class="l">
 				<!-- <img :src="$store.state.testImg[1]"> -->
 				<img  alt="" class="one">
 			</a>
-			<a href="#" class="l">
+			<a href="#/shopleft" class="l">
 				<img  alt="" class="two">
 			</a>
 		</div>
 		<div class="life_bt">
-			<a href="#" class="l">
+			<a href="#/shopleft" class="l">
 				<img  alt="" class="one">
 			</a>
-			<a href="#" class="l">
+			<a href="#/shopleft" class="l">
 				<img  alt="" class="two">
 			</a>
-			<a href="#" class="l">
+			<a href="#/shopleft" class="l">
 				<img  alt="" class="three">
 			</a>
 		</div>
