@@ -23,3 +23,7 @@
 各模块规则：
 Mine：
 1.检测用户名是否重复，返回ret，1：不重复，0：重复
+HomePage(Shoplist):
+1.specialid: 
+	1: 每日抢购
+	2：生活馆
