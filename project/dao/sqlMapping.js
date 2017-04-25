@@ -37,11 +37,13 @@ var sql = {
 	sqlSlotlist01: 'select * from shop order by shopid asc',
 	sqlSlotlist02: 'select * from shop order by price asc',
 	sqlSlotlist03: 'select * from shop order by price desc',
-	sqlSlotlist04: 'select * from evaluate where shopid = ?'
+	sqlSlotlist04: 'select * from evaluate where shopid = ?',
 
 	//slotlist end
 	//cart begin
-	// sqlCart02: 'insert into users(username,password,type) values (?,?,?)',
+	sqlCart01: 'select * from shopcar where shopid = ? and userid = ?',
+	sqlCart02: 'insert into shopcar(shopid,userid,quantity) values (?,?,1)',
+	sqlCart03: 'update shopcar set quantity = quantity+1'
 
 	//cart end
 };

@@ -38,6 +38,7 @@ import Parameter from './Parameter.vue'
 import Commence from './Commence.vue'
 import Particular from './Particular.vue'
 import SearchNav from './SearchNav.vue'
+import util from '../../../util/common.js'
 
 export default {
 	// 页面加载完成后调用，
@@ -59,12 +60,21 @@ export default {
     },
     fly2cart(e) {
       this.$refs.count.innerText++
+      var str=location.href
+      var str1 = str.match(/detail.*/)
+      var shopid = str1[0].match(/\d.*/)[0]
+      // console.log(util.getCookie("user"))
+      var userid = util.getCookie("user")
       $.ajax({
         type:"get",
-        url:"/exp/homepage/everyday",
+        url:"/exp/cartcount/ins",
+        data: {
+          shopid: shopid,
+          userid: userid
+        },
         success:function(data){
           // 对store的操作需要调用mutations
-          that.$store.commit('setEveryday', data)       
+          console.log(data)
         }
       })
       
