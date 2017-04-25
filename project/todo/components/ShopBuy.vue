@@ -103,10 +103,10 @@ export default {
 		var that = this;
 		$.ajax({
 			method:"get",
-			url:"/exp",
+			url:"/exp/shopbuy",
 			success:function(data){
 				// 对store的操作需要调用mutations
-				that.$store.commit('setShoplist', data)				
+				that.$store.commit('setShoplist', data)			
 			}
 		})
 		$(".dot").click(function(){

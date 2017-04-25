@@ -97,7 +97,7 @@ const router = new Router({
       component: Setting
     },
     {
-      path: '/ShopBuy',
+      path: '/shopbuy',
       name: 'ShopBuy',
       component: ShopBuy
     },
@@ -116,7 +116,7 @@ const router = new Router({
       name: 'MyOrder',
       component: MyOrder
     },
-     {
+    {
       path: '*',
       redirect: '/shopList'
     }
