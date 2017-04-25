@@ -67,7 +67,8 @@ export const state = {
   cartlist: [],
   watches: [],
   hots: [],
-  buys: []
+  buys: [],
+  reportlist: []
   //韩旭 
 }
 
@@ -116,7 +117,52 @@ export const mutations = {
     state.cartlist = test
   },
   setWatches(state, test) {
-    state.watches = test
+    var w1 = []
+    var w2 = []
+    var w3 = []
+    test.map((el,idx)=>{
+      if(idx<6){
+        w1.push(test[idx])
+      }else if(idx>=6 && idx<12){
+        w2.push(test[idx])
+      }else{
+        w3.push(test[idx])
+      }
+    })
+    state.watches = [w1,w2,w3]
+  },
+  setHots(state, test) {
+    var h1 = []
+    var h2 = []
+    var h3 = []
+    test.map((el,idx)=>{
+      if(idx<6){
+        h1.push(test[idx])
+      }else if(idx>=6 && idx<12){
+        h2.push(test[idx])
+      }else if(idx>=12 && idx<18){
+        h3.push(test[idx])
+      }
+    })
+    state.hots = [h1,h2,h3]
+  },
+  setBuys(state, test) {
+    var b1 = []
+    var b2 = []
+    var b3 = []
+    test.map((el,idx)=>{
+      if(idx<6){
+        b1.push(test[idx])
+      }else if(idx>=6 && idx<12){
+        b2.push(test[idx])
+      }else if(idx>=12 && idx<18){
+        b3.push(test[idx])
+      }
+    })
+    state.buys = [b1,b2,b3]
+  },
+  setReportlist(state, test) {
+    state.reportlist = test
   },
   //韩旭 end
   // 王春园 begin

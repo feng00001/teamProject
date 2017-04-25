@@ -105,7 +105,7 @@
         <div class="flagship-store">
           <img :src="$store.state.classifyImg[7]" class="l">
           <span class="l">赛贝格</span>
-          <router-link to="/classify" class="r">
+          <router-link to="/slotlist" class="r">
               <i class="iconfont">&#xe656;</i>
           </router-link>
         </div>
@@ -119,79 +119,29 @@
             <mt-swipe :auto="4000" >
               <mt-swipe-item>
                 <ul>
-                  <li v-for="item in $store.state.watches">
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
+                  <li v-for="item in $store.state.watches[0]">
+                    <img :src="item.img">
+                    <p class="describe">{{item.shopname}}</p>
                     <p class="dPrice">￥<span>{{item.price}}</span></p>
                   </li> 
                 </ul>
               </mt-swipe-item>
               <mt-swipe-item>
                 <ul>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
+                  <li v-for="item in $store.state.watches[1]">
+                    <img :src="item.img">
+                    <p class="describe">{{item.shopname}}</p>
+                    <p class="dPrice">￥<span>{{item.price}}</span></p>
+                  </li> 
                 </ul>
               </mt-swipe-item>
               <mt-swipe-item>
                 <ul>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
+                  <li v-for="item in $store.state.watches[2]">
+                    <img :src="item.img">
+                    <p class="describe">{{item.shopname}}</p>
+                    <p class="dPrice">￥<span>{{item.price}}</span></p>
+                  </li> 
                 </ul>
               </mt-swipe-item>
             </mt-swipe>
@@ -200,104 +150,29 @@
             <mt-swipe :auto="4000" >
               <mt-swipe-item>
                 <ul>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>333.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>333.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>333.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>333.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>333.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
+                  <li v-for="item in $store.state.hots[0]">
+                    <img :src="item.img">
+                    <p class="describe">{{item.shopname}}</p>
+                    <p class="dPrice">￥<span>{{item.price}}</span></p>
+                  </li> 
                 </ul>
               </mt-swipe-item>
               <mt-swipe-item>
                 <ul>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
+                  <li v-for="item in $store.state.hots[1]">
+                    <img :src="item.img">
+                    <p class="describe">{{item.shopname}}</p>
+                    <p class="dPrice">￥<span>{{item.price}}</span></p>
+                  </li> 
                 </ul>
               </mt-swipe-item>
               <mt-swipe-item>
                 <ul>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
+                  <li v-for="item in $store.state.hots[2]">
+                    <img :src="item.img">
+                    <p class="describe">{{item.shopname}}</p>
+                    <p class="dPrice">￥<span>{{item.price}}</span></p>
+                  </li> 
                 </ul>
               </mt-swipe-item>
             </mt-swipe>
@@ -306,104 +181,29 @@
             <mt-swipe :auto="4000" >
               <mt-swipe-item>
                 <ul>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
+                  <li v-for="item in $store.state.buys[0]">
+                    <img :src="item.img">
+                    <p class="describe">{{item.shopname}}</p>
+                    <p class="dPrice">￥<span>{{item.price}}</span></p>
+                  </li> 
                 </ul>
               </mt-swipe-item>
               <mt-swipe-item>
                 <ul>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
+                  <li v-for="item in $store.state.buys[1]">
+                    <img :src="item.img">
+                    <p class="describe">{{item.shopname}}</p>
+                    <p class="dPrice">￥<span>{{item.price}}</span></p>
+                  </li> 
                 </ul>
               </mt-swipe-item>
               <mt-swipe-item>
                 <ul>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
-                  <li>
-                    <img :src="$store.state.classifyImg[8]">
-                    <p class="describe">奥丽肤 紫草保湿霜180g 紫色/无香 单瓶装 日本进口</p>
-                    <p class="dPrice">￥<span>222.22</span></p>
-                  </li>
+                  <li v-for="item in $store.state.buys[2]">
+                    <img :src="item.img">
+                    <p class="describe">{{item.shopname}}</p>
+                    <p class="dPrice">￥<span>{{item.price}}</span></p>
+                  </li> 
                 </ul>
               </mt-swipe-item>
             </mt-swipe>
@@ -429,6 +229,20 @@ export default {
       background:'red'
     })
     var that = this
+    var str=location.href
+    var str1 = str.match(/detail.*/)
+    var shopid = str1[0].match(/\d.*/)[0] 
+    $.ajax({
+      type:"get",
+      url:"/exp/detail/report",
+      data:{
+        shopid: shopid
+      },
+      success:function(data){
+        that.$store.commit('setReportlist', data)
+        console.log(data)
+      }
+    })
     $.ajax({
       type:"get",
       url:"/exp/detail/watches",
@@ -439,6 +253,38 @@ export default {
         // 对store的操作需要调用mutations
         that.$store.commit('setWatches', data);
         console.log("len:"+data.length)
+        if(data&&data.length>0) {
+          that.$store.commit('setPrePage', that.$store.state.prePage + 1);
+        }
+          
+      }
+    })
+    $.ajax({
+      type:"get",
+      url:"/exp/detail/hots",
+      data: {
+        prePage: this.$store.state.prePage
+      },
+      success:function(data){
+        // 对store的操作需要调用mutations
+        that.$store.commit('setHots', data);
+        console.log("lenhot:"+data.length)
+        if(data&&data.length>0) {
+          that.$store.commit('setPrePage', that.$store.state.prePage + 1);
+        }
+          
+      }
+    })
+    $.ajax({
+      type:"get",
+      url:"/exp/detail/buys",
+      data: {
+        prePage: this.$store.state.prePage
+      },
+      success:function(data){
+        // 对store的操作需要调用mutations
+        that.$store.commit('setBuys', data);
+        console.log("lenbuy:"+data.length)
         if(data&&data.length>0) {
           that.$store.commit('setPrePage', that.$store.state.prePage + 1);
         }
@@ -674,7 +520,7 @@ export default {
 #main .content .guess-what-you-like ul.type li{
   flex:1;
   text-align: center;
-  line-height: 1rem
+  line-height: 1rem;
 }
 #main .content .guess-what-you-like div.look{
   height:7.5rem;

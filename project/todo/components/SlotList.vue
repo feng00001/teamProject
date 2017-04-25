@@ -32,7 +32,7 @@
 		</div>
 		<div id="content">
 			<dl v-for="item in $store.state.slotList">
-				<router-link to="/detail/1">
+				<router-link :to="'/detail/'+item.el.shopid">
 					<dt>
 						<img :src="item.el.img">
 					</dt>
