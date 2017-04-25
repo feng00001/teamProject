@@ -37,14 +37,14 @@
             <p class="shopname">{{item.shopname}}</p>
             <p class="blink">闪</p>
             <div class="c-p">
-              <span class="new-price" ref="siglePrice">￥{{item.price}}</span>
+              <span class="new-price">￥{{item.price}}</span>
               <del class="old-price">￥806.00</del>
               <span class="r">
                   <table border="0.005" cellspacing="0" cellpadding="0">
                     <tr>
-                      <td class="minus">-</td>
-                      <td class="count" ref="count">{{item.quantity}}</td>
-                      <td class="add">+</td>
+                      <td class="minus" @touchend="minus">-</td>
+                      <td class="count">{{item.quantity}}</td>
+                      <td class="add" @touchend="add">+</td>
                     </tr>
                   </table>
               </span>
@@ -86,16 +86,50 @@ export default {
         userid: userid
       },
       success: function(data){
-        var totle = that.$refs.totle.innerText
         that.$store.commit('setCartlist',data)
       }
     })
   },
   computed: {
-
+    totle: function() {
+      var ret = 0
+      this.$store.state.cartlist.map((el,idx) => {
+        console.log('price:'+el.price + 'count:'+el.quantity)
+         ret += el.price*el.quantity
+        
+      })
+      return ret
+    }
   },
   methods: {
-    
+    minus() {
+      var userid = util.getCookie("user");
+      var that = this
+      $.ajax({
+        type: 'get',
+        url: '/exp/cartcount/minus',
+        data: {
+          userid: userid
+        },
+        success: function(data){
+      
+        }
+      })
+    },
+    add() {
+      var userid = util.getCookie("user");
+      var that = this
+      $.ajax({
+        type: 'get',
+        url: '/exp/cartcount/add',
+        data: {
+          userid: userid
+        },
+        success: function(data){
+     
+        }
+      })
+    }
   },
   components: {
   	BottomNav

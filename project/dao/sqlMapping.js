@@ -45,6 +45,7 @@ var sql = {
 	sqlCart02: 'insert into shopcar(shopid,userid,quantity) values (?,?,1)',
 	sqlCart03: 'update shopcar set quantity = quantity+1',
 	sqlCart04: 'select * from shopcar,shop where shopcar.shopid=shop.shopid and userid = ?',
+	sqlCart05: 'update shopcar set quantity = quantity-1',
 
 	//cart end
 	// ShopBuy begin

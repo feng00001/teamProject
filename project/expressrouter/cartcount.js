@@ -12,4 +12,12 @@ router.get('/alls', function(req, res, next) {
   	cartcountdao.selectcount(req, res, next)
 });
 
+router.get('/minus', function(req, res, next) {
+  	cartcountdao.selectcountminus(req, res, next)
+});
+
+router.get('/add', function(req, res, next) {
+  	cartcountdao.selectcountadd(req, res, next)
+});
+
 module.exports = router;
