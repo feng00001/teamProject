@@ -59,8 +59,10 @@
 </template>
 
 <script>
+import $ from 'jquery'
 import BottomNav from './BottomNav.vue'
 import { mapMutations, mapActions} from 'vuex'
+import util from '../../../util/common.js'
 
 export default {
   mounted (){
