@@ -28,6 +28,7 @@ export const state = {
   everyday: [],
   yourlikelist: [],
   isDisplay:'all',
+  shopbuylist: [],
   // 高洋用 end
   // 王春园用 begin
   userphone: 'assets/imgs/userphone.png',
@@ -127,9 +128,11 @@ export const mutations = {
     state.yourlikelist = test;
   },
   setIsDisplay(state, test) {
-    console.log("in："+test)
     state.isDisplay = test
   },
+  setShopBuylist(state, test) {
+    state.shopbuylist = test
+  }
   // 高洋用 end
 }
 

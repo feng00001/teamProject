@@ -46,5 +46,8 @@ var sql = {
 	sqlCart03: 'update shopcar set quantity = quantity+1'
 
 	//cart end
+	// ShopBuy begin
+	sqlShopBuy01: 'select * from shop where specialid = ? limit ?,?'
+	// ShopBuy end
 };
 module.exports = sql;
