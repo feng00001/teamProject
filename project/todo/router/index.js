@@ -4,6 +4,7 @@ import Home from '../components/Home.vue'
 import Classify from '../components/Classify.vue'
 import Order from '../components/Order.vue'
 import Mine from '../components/Mine.vue'
+import Search from '../components/Search.vue'
 import ShopList from '../components/Shoplist.vue'
 import ShopDetail from '../components/ShopDetail.vue'
 
@@ -38,6 +39,11 @@ export default new Router({
       path: '/order',
       name: 'Order',
       component: Order
+    },
+    {
+      path: '/search',
+      name: 'Search',
+      component: Search,
     },
     {
       path: '/mine',
