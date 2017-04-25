@@ -68,6 +68,7 @@
 			<button>领优惠券，享更多优惠</button>
 		</div>
 	</nav>
+	<mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="$store.state.allLoaded" ref="loadmore">
 	<section>
 		<ul>
 			<li>
@@ -116,7 +117,8 @@
 			</li>
 		</ul>
 	</section>
-    <bottom-nav></bottom-nav>
+	</mt-loadmore>
+    <!-- <bottom-nav></bottom-nav> -->
   </div>
 </template>
 
@@ -125,20 +127,25 @@ import BottomNav from './BottomNav.vue'
 import SearchNav from './SearchNav.vue'
 import {mapMutations, mapActions} from 'vuex'
 import $ from 'jquery'
-import { Swipe, SwipeItem} from 'mint-ui'
+import { Swipe, SwipeItem, Loadmore} from 'mint-ui'
 var obj = {};
 obj[Swipe.name]= Swipe;
 obj[SwipeItem.name]= SwipeItem;
 obj.BottomNav= BottomNav
 obj.SearchNav= SearchNav
+obj[Loadmore.name] = Loadmore;
 
 export default {
 	// 页面加载完成后调用，
 	mounted (){
 		var that = this;
+		this.$store.commit('setPrePage', 0);
 		$.ajax({
 			method:"get",
-			url:"/exp",
+			url:"/exp/shopquality/init",
+			data: {
+				prePage: this.$store.state.prePage
+			},
 			success:function(data){
 				// 对store的操作需要调用mutations
 				that.$store.commit('setShoplist', data)				
@@ -169,52 +176,25 @@ export default {
 	},
 	components: obj,
 	methods: {
-		searchByName () {
-			var that = this;
-			$.ajax({
-				method:"get",
-				url:"/exp/search",
+		loadBottom: function() {
+	    	var that = this;
+	    	$.ajax({
+				type:"get",
+				url:"/exp/shoplife/init",
 				data: {
-					shopname: that.$refs.ipt.value
+					prePage: this.$store.state.prePage
 				},
 				success:function(data){
+					that.$refs.loadmore.onBottomLoaded();
 					// 对store的操作需要调用mutations
-					that.$store.commit('setShoplist', data)
+					if(data&&data.length>0)	{
+						console.log(data)
+					that.$store.commit('setPrePage', that.$store.state.prePage + 1);
+					that.$store.commit('setShopLifelist', that.$store.state.shopbuylist.concat(data));
+					}
 				}
 			})
-		},
-		insertVal () {
-			var that = this;
-			$.ajax({
-				method:"get",
-				url:"/exp/insertVal",
-				data: {
-					shopname: that.$refs.ipt.value
-				},
-				success:function(data){
-					// 对store的操作需要调用mutations
-					that.$store.commit('setShoplist', data)
-				}
-			})
-		},
-		deleteById (id) {
-			var that = this;
-			$.ajax({
-				method:"get",
-				url:"/exp/deleteById",
-				data: {
-					shopid: id
-				},
-				success:function(data){
-					// 对store的操作需要调用mutations
-					that.$store.commit('setShoplist', data)
-				}
-			})
-		},
-		// 不需要传递参数的时候可以使用结构赋值，否则没必要用
-		...mapActions([
-		  
-		])
+	    }
 	}
 }
 

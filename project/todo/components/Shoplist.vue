@@ -165,13 +165,13 @@
 			<h1>精品馆</h1>
 		</div>
 		<div class="spe_tp">
-			<a href="#" class="l">
+			<a href="#/ShopQuality" class="l">
 				<img class="one" alt="">
 			</a>
-			<a href="#" class="l">
+			<a href="#/ShopQuality" class="l">
 				<img class="two" alt="">
 			</a>
-			<a href="#" class="l">
+			<a href="#/ShopQuality" class="l">
 				<img class="three" alt="">
 			</a>
 		</div>
