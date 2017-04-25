@@ -1,6 +1,5 @@
 <template>
-  <div class="detail-report">
-    
+  <div class="detail-report"> 
     <div id="main">
       <div class="banner">
         <mt-swipe :auto="4000" >
@@ -18,15 +17,11 @@
           </mt-swipe-item>
         </mt-swipe>
       </div>
-      <div class="limit">
-        <span class="l"><span>|</span>抢购（限购：2件）</span>
-        <span class="r">剩余:12天04:03:00</span>
-      </div>
       <div class="content">
-        <div class="product-name">
-          <h1>肌肤之钥 CPB 光透妆前乳 SPF24 PA++ 30ml 光凝 妆前霜 遮瑕 控油 保湿补水 隔离霜 防晒</h1>
+        <div class="product-name" v-for="item in $store.state.reportlist">
+          <h1>{{item.shopname}}</h1>
           <p class="specia">因特殊原因，本商品于订单交易成功日起5-7个工作日发货，介意者慎拍！由此带来的不便敬请谅解。</p>
-          <p class="price">￥<span>577.0</span></p>
+          <p class="price">￥<span>{{item.price}}</span></p>
           <p class="sale">促销</p>
           <p class="server">
             <span class="l">服务</span>
