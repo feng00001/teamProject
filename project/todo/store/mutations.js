@@ -61,7 +61,7 @@ export const state = {
   typelist: [],
   subtypelist: [],
   priceFlag: true,
-  cur: 'cur'
+  cur: ''
   //韩旭 
 }
 
@@ -102,6 +102,9 @@ export const mutations = {
   },
   setPriceFlag(state) {
     state.priceFlag = state.priceFlag === true ? false : true
+  },
+  setCur(state, test) {
+    state.cur = test
   },
   //韩旭 end
   // 王春园 begin

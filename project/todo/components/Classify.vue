@@ -9,7 +9,7 @@
   	<div id="content1">
 			 <div class="left">
 				<ol>
-					<li v-for="item in $store.state.typelist" @touchend="changeUl(item.typeid)" :class="$store.state.cur">{{item.typename}}</li>
+					<li v-for="item in $store.state.typelist" @touchend="changeUl(item.typeid)" :class="{cur:$store.state.cur===item.typeid}">{{item.typename}}</li>
 					
 				</ol>
 			</div>
@@ -51,6 +51,8 @@ export default {
 	methods: {
 		changeUl (typeid) {
 			var that = this;
+			this.$store.commit('setCur',typeid)
+
 			$.ajax({
 				type: "get",
 				url: "/exp/classify/subtype",
@@ -159,7 +161,8 @@ export default {
 	    border-left: 2px solid red;
 	}
 	#content1 .left ol li.cur{
-		/*border-left:.05rem solid red;*/
-		background:red;
+		border-left:.1rem solid red;
+		box-sizing: border-box;
+		/*background:red;*/
 	}
 </style>
