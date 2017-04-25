@@ -38,11 +38,10 @@
             <p class="blink">闪</p>
             <div class="c-p">
               <span class="new-price">￥{{item.price}}</span>
-              <del class="old-price">￥806.00</del>
               <span class="r">
                   <table border="0.005" cellspacing="0" cellpadding="0">
                     <tr>
-                      <td class="minus" @touchend="minus(item.shopcarid)">-</td>
+                      <td class="minus" @touchend="minus(item.shopcarid,$event)">-</td>
                       <td class="count">{{item.quantity}}</td>
                       <td class="add" @touchend="add(item.shopcarid)">+</td>
                     </tr>
@@ -93,20 +92,23 @@ export default {
     }
   },
   methods: {
-    minus(co) {
+    minus(co,e) {
       var userid = util.getCookie("user");
       var that = this;
-      $.ajax({
-        type: 'get',
-        url: '/exp/cartcount/minus',
-        data: {
-          userid: userid,
-          shopcarid: co
-        },
-        success: function(data){
-          that.selall()
+      if($(e.target).next().html()-1 >= 0){
+          $.ajax({
+            type: 'get',
+            url: '/exp/cartcount/minus',
+            data: {
+              userid: userid,
+              shopcarid: co
+            },
+            success: function(data){
+              that.selall()
+            }
+          })
         }
-      })
+      
     },
     add(co) {
       var userid = util.getCookie("user");

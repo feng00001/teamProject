@@ -10,6 +10,8 @@ module.exports = {
 	updatecount: function (req, res, next) {
 		pool.getConnection(function(err, connection) {
 			// 获取前台页面传过来的参数
+			
+			
 			var param = req.query || req.params;
 			// 建立连接，向表中插入值
 			connection.query($sql.sqlCart01, [param.shopid,param.userid], function(err, result) {
@@ -18,8 +20,8 @@ module.exports = {
 				
 				var cart = result;
 				if(cart.length > 0){
-					console.log(cart)
-					connection.query($sql.sqlCart03, null, function(err, result) {
+
+					connection.query($sql.sqlCart03, [cart[0].shopcarid], function(err, result) {
 						util.jsonWrite(res, result);
 						connection.release();
 					})
@@ -55,6 +57,8 @@ module.exports = {
 			// 获取前台页面传过来的参数
 			var param = req.query || req.params;
 			// 建立连接，向表中插入值
+			console.log(param.shopcarid)
+			
 			connection.query($sql.sqlCart05, [param.shopcarid], function(err, result) {
 
 				util.jsonWrite(res, result);

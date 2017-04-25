@@ -48,14 +48,14 @@ export default {
 	methods: {
     switchover(e) {
       console.log(e.target.className)
-      if(e.target.className === 'l store'){
-        this.$store.commit('setIsPlay', 'store')
+      if(e.target.className === 'l commence'){
+        this.$store.commit('setIsPlay', 'commence')
       }else if(e.target.className === 'l detail'){
         this.$store.commit('setIsPlay', 'detail')
       }else if(e.target.className === 'l parameter'){
         this.$store.commit('setIsPlay', 'parameter')
       }else{
-        this.$store.commit('setIsPlay', 'commence')
+        this.$store.commit('setIsPlay', 'store')
       }   
     },
     fly2cart(e) {
