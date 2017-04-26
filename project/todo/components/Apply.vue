@@ -40,7 +40,7 @@
           <dt class="l">
             <p class="l">{{item.shopname}}</p>
             <span class="r">￥{{item.price}}</span>           
-            <span class="r" >x{{item.quantity}}</span> 
+            <span class="r" > x {{item.quantity}}</span> 
           </dt>
         </dl>
       </div>
@@ -62,30 +62,36 @@
     </div>
     <footer>
         <span class="l">待支付¥{{totle}}</span>
-        <a class="r" >提交订单</a>
+        <a class="r sub" >提交订单</a>
     </footer>
     </div>
     <div class="payDetail">
       <div class="mask"></div>
-      <div class="pay">
+      <div class="paylist">
         <div class="top">
           <router-link to="/myorder"  active-class="special">
-            <i class="iconfont l">&#xe624;</i>
+            <i class="iconfont">&#xe624;</i>
           </router-link>
-          <h3 class="l">付款详情</h3> 
+          <h3 class="r">付款详情</h3>
         </div> 
-        <ul>
+        <ul class="user">
           <li>
-            <span>账号</span>
-            <i>{{item.userid}}</i>
+            <span class="l">账号</span>
+            <i class="r">18811119999</i>
           </li>
           <li>
-            <span>需付款</span>
-            <i>{{totle}}元</i>
+            <span class="l">需付款</span>
+            <i class="r">{{totle}}元</i>
           </li>
         </ul>
+        <button class="btn">确认付款</button>
       </div>      
-    </div>  
+    </div>
+    <div class="success">
+      <img :src="$store.state.testImg[14]">
+      <p>支付成功</p>
+    </div> 
+    <div class="mask2"></div> 
 </div>
 </template>
 
@@ -97,7 +103,6 @@ import util from '../../../util/common.js'
 export default {
   name: 'payment',
   methods: {
-  
   },
  mounted (){
     var that = this;
@@ -113,6 +118,23 @@ export default {
         console.log(data);
         that.$store.commit('setApplylist',data)      
       }
+    })
+    $('.sub').click(function(){
+      $('.payDetail').css({
+        display:'block'
+      });
+    })
+    $('.btn').click(function(){
+      $('.success').css({
+        display:'block',
+        zIndex:"100"
+      });
+      $('.mask2').css({
+        display:'block'
+      })
+      setTimeout(function(){
+        location.href='http://localhost:8080/todo/#/myorder'
+      },3000)
     })
   },
    computed: {
@@ -270,7 +292,7 @@ export default {
 #apply .sum{
   margin-top: .5rem;
   width: 7.5rem;
-  height: 1.5rem;
+  height: 3rem;
   background: #fff;
   box-sizing: border-box;
   padding:.2rem;
@@ -284,12 +306,15 @@ export default {
  #apply .sum div:last-child{
   border:0;
  }
+ #apply .sum div a{
+  display: inline-block;
+  margin-right: .2rem;
+ }
 .false{
   width: 7.5rem; 
   padding:.2rem 0;
   box-sizing: border-box;
 }
-
 .false .mid{
   overflow-y:scroll; 
   clear: both;
@@ -301,7 +326,6 @@ export default {
 .false .mid dl{
   width: 7.5rem;
   height: 100%;
- 
 }
 .false .mid dl dd {
   width: 1.24rem;
@@ -322,7 +346,6 @@ export default {
 .false .mid dl dt p{
   width: 4rem;
   height: .66rem;
-
 }
 .false .mid dl dt span{
   width: 1.5rem;
@@ -350,20 +373,90 @@ export default {
 #apply .payDetail{
   width: 7.5rem;
   height: 100%;
-  position: absolute;
+  position: fixed;
   left: 0;
-  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  display: none;
+  transition: all .5s linear;
 }
 #apply .payDetail .mask{
   width: 100%;
-  height: 70%;
+  height: 65%;
   background: #000;
   opacity: .7;
 }
-#apply .payDetail .pay{
+#apply .payDetail .paylist{
   width: 100%;
-  height: 30%;
+  height: 35%;
   background: #fff;
+  box-sizing: border-box;
+  padding: .2rem;
+  font-size: 14px;
+}
+#apply .payDetail .paylist .top{
+  height: .8rem;
+  width: 100%;
+  line-height: .8rem;
+  border-bottom: .02rem solid #ccc;
+  box-sizing: border-box;
+}
+#apply .payDetail .paylist .top h3{
+  font-weight: 100;
+}
+#apply .payDetail .paylist .user{
+  width: 100%;
+  line-height: .8rem;
+  box-sizing: border-box;
+}
+#apply .payDetail .paylist .user li{
+  border-bottom: .02rem solid #ccc;
+  width: 100%;
+  height: .8rem;
+}
+#apply .payDetail .paylist button{
+  height: .6rem;
+  width: 7rem;
+  background: #e6133c;
+  border:0;
+  color: #fff;
+  margin-top: 1rem;
+  border-radius: 5px;
+}
+#apply .success{
+  width: 6rem;
+  height: 4rem;
+  background: #fff;
+  position: fixed;
+  top:50%;
+  margin-top: -2rem;
+  left: 50%;
+  margin-left: -3rem;
+  display: none;
+  border-radius: 10px;
+}
+#apply .success img{
+  width: 3rem;
+  height: 2.5rem;
+  margin-left: 1.5rem;
+}
+#apply .success p{
+  width: 100%;
+  text-align: center;
+  line-height: 1.5rem;
+  font-size: 18px;
+  color: #e6133c;
+}
+#apply .mask2{
+  width: 7.5rem;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: none;
+  z-index:90;
+  background: #000;
+  opacity: .8;
 }
 </style>
 
