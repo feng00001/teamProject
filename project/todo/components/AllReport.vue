@@ -60,9 +60,11 @@ export default {
   background: #fff; 
   margin-top: 2.2rem;
   padding:.2rem 0;
+  overflow-x:hidden;
   box-sizing: border-box;
 }
 .false .top{
+  width: 100%;
   height: .7rem;
   line-height: .7rem;
 } 
@@ -82,6 +84,7 @@ export default {
   margin-right: .2rem;
 }
 .false .mid{
+  width: 100%;
   height: 1.4rem;
   clear: both;
   background:#f5f5f5;
@@ -144,6 +147,7 @@ export default {
   clear: both;
   line-height: 1rem;
   padding-left:1rem;
+  box-sizing: border-box;
 }
 .false .bot button{
   width: 1.5rem;
@@ -151,6 +155,7 @@ export default {
   background: #fff;
   border-radius: .05rem;
   color: #333;
+
   border:.02rem solid #ccc;
 }
 </style>

@@ -62,6 +62,7 @@ export default {
   background: #fff; 
   margin-top: 2.2rem;
   padding:.2rem 0;
+  overflow-x:hidden;
   box-sizing: border-box;
 }
 .false .top{
@@ -146,6 +147,7 @@ export default {
   clear: both;
   line-height: 1rem;
   padding-left:1rem;
+  box-sizing: border-box;
 }
 .false .bot button{
   width: 1.5rem;

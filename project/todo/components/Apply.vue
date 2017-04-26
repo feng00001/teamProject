@@ -76,11 +76,29 @@
 
 <script>
 import { mapMutations, mapActions} from 'vuex'
+import $ from 'jquery'
+import util from '../../../util/common.js'
 
 export default {
   name: 'payment',
   methods: {
     
+  },
+ mounted (){
+    var that = this;
+    var userid = util.getCookie("user");
+    $.ajax({
+      method:"get",
+      url:"/exp/shopquality/init",
+      data: {
+        prePage: this.$store.state.prePage
+      },
+      success:function(data){
+        // 对store的操作需要调用mutations
+        that.$store.commit('setShopQualitylist', data)        
+      }
+    })
+
   }
 }
 </script>
@@ -225,7 +243,11 @@ export default {
       height: .7rem;
       width: 100%;
       line-height: .7rem;
+      border-bottom: .02rem solid #ccc;
     }
+     #apply .sum div:last-child{
+      border:0;
+     }
     .false{
       width: 7.5rem;
       height:2.5rem;

@@ -9,40 +9,7 @@
 		<h1 class="l">雷朋Rayban</h1>
 		<!-- <i class="iconfont r dot">&#xe660;</i> -->
 	</header>
-	<!-- <div class="list">
-		<ul>
-			<li>
-				<router-link to="/shopList" tag="li" active-class="special">
-				<i class="iconfont">&#xe632;</i>
-				<b>首页</b>
-				</router-link>
-			</li>
-			<li>
-				<router-link to="/shopList" tag="li" active-class="special">
-				<i class="iconfont">&#xe501;</i>
-				<b>搜索</b>
-				</router-link>
-			</li>
-			<li>
-				<router-link to="/shopList" tag="li" active-class="special">
-				<i class="iconfont">&#xe657;</i>
-				<b>分类</b>				
-				</router-link>
-			</li>
-			<li>
-				<router-link to="/shopList" tag="li" active-class="special">
-				<i class="iconfont">&#xe62a;</i>
-				<b>购物车</b>
-				</router-link>
-			</li>
-			<li>
-				<router-link to="/shopList" tag="li" active-class="special">
-				<i class="iconfont">&#xe6a3;</i>
-				<b>我的</b>
-				</router-link>
-			</li>
-		</ul>
-	</div> -->
+	
 	<search-nav></search-nav>
 	<nav>
 		<ul class="nav_list">
