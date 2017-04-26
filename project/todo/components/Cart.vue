@@ -18,13 +18,13 @@
       <span>后可同步电脑与手机购物车中的商品</span>
       <router-link to="/mine/logon" class="r">&lt;</router-link>
     </div>
-    <div id="cart-content" :style="{display:$store.state.isEmptyCart}">
+    <div id="cart-content" v-if="$store.state.cartlist.length===0">
       <img :src="$store.state.cartImg">
       <p>购物车快饿扁了／(ToT)／～～</p>
       <p>主人快点给我挑点宝贝吧</p>
       <router-link to="/shopList">去逛逛～走你</router-link>
     </div>
-    <div id="cont">
+    <div id="cont" v-else>
       <ul class="all">
         <li class="list" v-for="item in $store.state.cartlist">
           <div class="left">
@@ -96,30 +96,31 @@ export default {
       var userid = util.getCookie("user");
       var that = this;
       if($(e.target).next().html()-1 >= 0){
-          $.ajax({
-            type: 'get',
-            url: '/exp/cartcount/minus',
-            data: {
-              userid: userid,
-              shopcarid: co
-            },
-            success: function(data){
-              that.selall()
-            }
-          })
-        }else{
-          $.ajax({
-            type: 'get',
-            url: '/exp/cartcount/del',
-            data: {
-              userid: userid,
-              shopcarid: co
-            },
-            success: function(data){
-              that.selall()
-            }
-          })
-        }
+        $.ajax({
+          type: 'get',
+          url: '/exp/cartcount/minus',
+          data: {
+            userid: userid,
+            shopcarid: co
+          },
+          success: function(data){
+            that.selall()
+          }
+        })
+      }
+      // else{
+      //   $.ajax({
+      //     type: 'get',
+      //     url: '/exp/cartcount/del',
+      //     data: {
+      //       userid: userid,
+      //       shopcarid: co
+      //     },
+      //     success: function(data){
+      //       that.selall()
+      //     }
+      //   })
+      // }
       
     },
     add(co) {
@@ -147,6 +148,7 @@ export default {
           userid: userid
         },
         success: function(data){
+          console.log(data)
           that.$store.commit('setCartlist',data)
 
         }

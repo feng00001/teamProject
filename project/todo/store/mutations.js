@@ -118,15 +118,15 @@ export const mutations = {
     state.cur = test
   },
   setCartlist(state, test) {
-    
-    if(test.length > 0){
-      console.log(test.length)
-      state.cartlist = test;
-      state.isEmptyCart = 'none'
-      console.log(state.isEmptyCart)
-    }else{
-      state.isEmptyCart = 'block'
-    }
+    state.cartlist = test;
+    // if(test.length > 0){
+    //   console.log(test.length)
+    //   state.cartlist = test;
+    //   state.isEmptyCart = 'none'
+    //   console.log(state.isEmptyCart)
+    // }else{
+    //   state.isEmptyCart = 'block'
+    // }
   },
   setWatches(state, test) {
     var w1 = []
