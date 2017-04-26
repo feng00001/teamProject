@@ -70,7 +70,7 @@ export const state = {
   watches: [],
   hots: [],
   buys: [],
-  reportlist: [],
+  reportlist: {},
   isEmptyCart: 'block',
   isList: 'con1'
   //韩旭 

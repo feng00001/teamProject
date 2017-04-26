@@ -2,26 +2,17 @@
   <div class="detail-report"> 
     <div id="main">
       <div class="banner">
-        <mt-swipe :auto="4000" >
-          <mt-swipe-item>
-            <img :src="$store.state.classifyImg[2]">
-          </mt-swipe-item>
-          <mt-swipe-item>
-            <img :src="$store.state.classifyImg[2]">
-          </mt-swipe-item>
-          <mt-swipe-item>
-            <img :src="$store.state.classifyImg[2]">
-          </mt-swipe-item>
-          <mt-swipe-item>
-            <img :src="$store.state.classifyImg[2]">
+        <mt-swipe>
+          <mt-swipe-item  key="item.shopimgid" v-for="item in $store.state.reportlist.imgs">
+            <img :src="item.img">
           </mt-swipe-item>
         </mt-swipe>
       </div>
       <div class="content">
-        <div class="product-name" v-for="item in $store.state.reportlist">
-          <h1>{{item.shopname}}</h1>
+        <div class="product-name">
+          <h1>￥{{$store.state.reportlist.shopname}}</h1>
           <p class="specia">因特殊原因，本商品于订单交易成功日起5-7个工作日发货，介意者慎拍！由此带来的不便敬请谅解。</p>
-          <p class="price">￥<span>{{item.price}}</span></p>
+          <p class="price">￥<span>{{$store.state.reportlist.price}}</span></p>
           <p class="sale">促销</p>
           <p class="server">
             <span class="l">服务</span>
@@ -216,6 +207,7 @@ export default {
       background:'red'
     })
     var that = this
+    that.$store.commit('setReportlist', [])
     var str=location.href
     var str1 = str.match(/detail.*/)
     var shopid = str1[0].match(/\d.*/)[0] 
@@ -226,8 +218,7 @@ export default {
         shopid: shopid
       },
       success:function(data){
-        that.$store.commit('setReportlist', data)
-        console.log(data)
+        that.$store.commit('setReportlist', data[0])
       }
     })
     $.ajax({

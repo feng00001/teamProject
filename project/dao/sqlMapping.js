@@ -53,6 +53,7 @@ var sql = {
 	//detail begin
 	sqldetail01: 'select * from shop limit ?,?',
 	sqldetail02: 'select * from shop where shopid=?',
+	sqldetail03: 'select * from shopimg where shopid=?',
 	//detail end
 	// ShopBuy begin
 	sqlShopBuy01: 'select * from shop where specialid = ? limit ?,?',
