@@ -19,7 +19,7 @@ import LogonPhone from '../components/LogonPhone.vue'
 import Register from '../components/Register.vue'
 import MySelf from '../components/MySelf.vue'
 import Setting from '../components/Setting.vue'
-
+import Apply from '../components/Apply.vue'
 
 Vue.use(Router)
 
@@ -115,6 +115,11 @@ const router = new Router({
       path: '/myorder',
       name: 'MyOrder',
       component: MyOrder
+    },
+    {
+      path: '/apply',
+      name: 'Apply',
+      component: Apply
     },
     {
       path: '*',
