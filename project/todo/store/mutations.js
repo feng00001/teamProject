@@ -30,6 +30,7 @@ export const state = {
   isDisplay:'all',
   shopbuylist: [],
   shoplifelist: [],
+  shopqualitylist: [],
   // 高洋用 end
   // 王春园用 begin
   userphone: 'assets/imgs/userphone.png',
@@ -192,6 +193,9 @@ export const mutations = {
   },
   setShopLifelist(state, test) {
     state.shoplifelist = test
+  },
+  setShopQualitylist(state, test) {
+    state.shopqualitylist = test
   }
   // 高洋用 end
 }
