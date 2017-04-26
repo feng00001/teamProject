@@ -20,6 +20,7 @@ import Register from '../components/Register.vue'
 import MySelf from '../components/MySelf.vue'
 import Setting from '../components/Setting.vue'
 import Apply from '../components/Apply.vue'
+import Search from '../components/Search.vue'
 
 Vue.use(Router)
 
@@ -120,6 +121,11 @@ const router = new Router({
       path: '/apply',
       name: 'Apply',
       component: Apply
+    },
+    {
+      path: '/search',
+      name: 'Search',
+      component: Search
     },
     {
       path: '*',

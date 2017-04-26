@@ -10,10 +10,11 @@
     	<a href="#" class="l logo">
     		<img :src="$store.state.testImg[0]">
     	</a>
-    	<div class="search l ">
+    	<router-link to="/search" tag="div" active-class="special" class="search l ">
     		<i class="iconfont">&#xe501;</i>
     		<input class="l" type="text" placeholder="搜索你要的商品">
-    	</div>
+    	</router-link>
+    	
     	<a href="" class="list l">
     		<i class="iconfont">&#xe657;</i>
     	</a>
