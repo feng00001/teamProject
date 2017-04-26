@@ -71,7 +71,8 @@ export const state = {
   hots: [],
   buys: [],
   reportlist: [],
-  isEmptyCart: 'block'
+  isEmptyCart: 'block',
+  isDisplay: 'con1'
   //韩旭 
 }
 
@@ -174,6 +175,11 @@ export const mutations = {
   },
   setReportlist(state, test) {
     state.reportlist = test
+  },
+  setIsDisplay(state) {
+     console.log('是否展示：' + state.isDisplay)
+    // state.isDisplay = state.isDisplay === 'con1' ? 'con2' : 'con1';
+
   },
   //韩旭 end
 

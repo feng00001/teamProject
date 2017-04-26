@@ -6,7 +6,7 @@
   		<search-nav></search-nav>
   	</div>
   	<div id="content1">
-			 <div class="left">
+			<div class="left">
 				<ol>
 					<li v-for="item in $store.state.typelist" @touchend="changeUl(item.typeid)" :class="{cur:$store.state.cur===item.typeid}">{{item.typename}}</li>
 					
@@ -76,10 +76,10 @@ export default {
 #header{
       padding:.3rem 0;
       overflow: hidden;
-    }
+}
 #header label{
-    	position: relative;
-    }
+    position: relative;
+}
 #header label i{
 	position: absolute;
 	top:0.2rem;
