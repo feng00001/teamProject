@@ -71,7 +71,8 @@ export const state = {
   hots: [],
   buys: [],
   reportlist: [],
-  isEmptyCart: 'block'
+  isEmptyCart: 'block',
+  isList: 'con1'
   //韩旭 
 }
 
@@ -117,15 +118,7 @@ export const mutations = {
     state.cur = test
   },
   setCartlist(state, test) {
-    
-    if(test.length > 0){
-      console.log(test.length)
-      state.cartlist = test;
-      state.isEmptyCart = 'none'
-      console.log(state.isEmptyCart)
-    }else{
-      state.isEmptyCart = 'block'
-    }
+    state.cartlist = test;
   },
   setWatches(state, test) {
     var w1 = []
@@ -174,6 +167,10 @@ export const mutations = {
   },
   setReportlist(state, test) {
     state.reportlist = test
+  },
+  setIsList(state) {
+    state.isList = state.isList === 'con1' ? 'con2' : 'con1';
+
   },
   //韩旭 end
 

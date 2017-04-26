@@ -4,11 +4,11 @@
 			<div class="first">
 				<router-link to="/classify" class="l">&gt;</router-link>
 				<div class="search l">
-					<i>🔍</i>
+					<i class="iconfont">&#xe501;</i>
 					<input type="text" placeholder="查找你喜欢的商品"/>
 					<img :src="$store.state.slotListImg">
 				</div>
-	        	<i class="r">🐩</i>
+	        	<i class="r iconfont" @touchend="switchover">&#xe628;</i>
 			</div>
 			
         	<ul class="nav">
@@ -30,7 +30,7 @@
         		<li>促销</li>
         	</ul>
 		</div>
-		<div id="content">
+		<div id="content1" v-if="$store.state.isList==='con1'">
 			<dl v-for="item in $store.state.slotList">
 				<router-link :to="'/detail/'+item.el.shopid">
 					<dt>
@@ -49,6 +49,19 @@
 			
 			<div id="master" :style="{display:$store.state.isSure}"></div>
 		</div>
+		<div id="content2" v-else="$store.state.isList==='con2'">
+			<ul>
+				<router-link :to="'/detail/'+item.el.shopid" key="item.shopid" tag="li" v-for="item in $store.state.slotList">
+					<div class="pic">
+	    				<img :src="item.el.img">
+					</div>
+					<div class="con">
+						<p>{{item.el.shopname}}</p>
+						<span>￥{{item.el.price}}</span>
+					</div>
+				</router-link>
+			</ul>
+		</div>
 		
 	</div>	
 </template>
@@ -65,7 +78,7 @@ export default {
 			url:"/exp/slotlist/slots",
 			success:function(data){
 				that.$store.commit('setSlotList', data)
-				console.log(data)
+				// console.log(data)
 			}
 		})
 	},
@@ -112,6 +125,10 @@ export default {
 				})
 			}
 			
+		},
+		switchover() {
+			console.log("in")
+		    this.$store.commit('setIsList')   
 		}
 	}
 }
@@ -260,28 +277,28 @@ export default {
 		margin:0 .35rem;
 		border-radius: .03rem;
 	}
-	#content{
+	#content1{
 		margin-top:3.5rem;
 	}
-	#content dl{
+	#content1 dl{
 		margin:0.2rem .3rem;
 		overflow: hidden;
 		border-bottom:0.005rem solid #eee;
 	}
-	#content dl dt{
+	#content1 dl dt{
 		padding:.2rem;
 		float:left;
 		width:15%;
 	}
-	#content dl dt img{
+	#content1 dl dt img{
 		width:1.5rem;
 		height:2rem;
 	}
-	#content dl dd{
+	#content1 dl dd{
 		float:right;
 		width:65%;
 	}
-	#content dl dd p {
+	#content1 dl dd p {
 		width: 100%;
 		line-height: .5rem;
     	height: 1rem;
@@ -292,15 +309,73 @@ export default {
 		-webkit-box-orient: vertical;
 		text-overflow:hidden;
 	}
-	#content dl dd h2{
+	#content1 dl dd h2{
 		margin-top: .2rem;
 		color:#e6133c;
 	}
-	#content dl dd ul li{
+	#content1 dl dd ul li{
 		float:left;
 		margin-right: .3rem;
 		margin-top:.1rem;
 		color:#999;
 		font-weight: 100;
 	}
+#content2{
+	margin-top: 3.5rem;
+	overflow: hidden;
+	width: 7.5rem;
+	box-sizing: border-box;
+	padding: .2rem;
+	margin-bottom: 2rem;
+}
+#content2 ul{
+	width: 100%;
+	overflow: hidden;	
+}
+#content2 ul li{
+	float: left;
+	width: 3.4rem;
+	height: 5rem;
+	padding:.1rem;
+	background: #fff;
+	margin-right: .2rem;
+	margin-bottom: .2rem;
+	border: .02rem solid #ccc;
+	box-sizing: border-box;
+}
+#content2 ul li:nth-child(even){
+	margin-right: 0;
+}
+#content2 ul li .pic img{
+	width: 3.2rem;
+	height: 3.4rem;
+	border-bottom: .02rem solid #ccc;
+}
+#content2 ul li .con{
+	width: 3.2rem;
+	overflow: hidden;
+}
+#content2 ul li .con p{
+	width: 3.2rem;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	line-height: .4rem;
+	font-size: .16rem;
+}
+#content2 ul li .con span{
+	color: #8b001b;
+	line-height: .5rem;
+}
+#content2 ul li .con button{
+	width: 3.2rem;
+	display: block;
+    height: .46rem;
+    line-height: .46rem;
+    color: #fff;
+    border: 0;
+    outline: none;
+    text-align: center;
+    background: #ff5d7d;
+}
 </style>

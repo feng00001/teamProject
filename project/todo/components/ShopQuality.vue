@@ -14,7 +14,7 @@
 	<nav>
 		<ul class="nav_list">
 			<li class="active">默认</li>
-			<li>价格<i class="iconfont">&#xe647;</i></li>
+			<li  @touchend="orderByPriceAsc">价格<i class="iconfont">&#xe647;</i></li>
 			<li>仅显示有货</li>
 			<li id="special">筛选<i class="iconfont">&#xe610;</i></li>
 		</ul>
@@ -117,7 +117,33 @@ export default {
 					}
 				}
 			})
-	    }
+	    },
+	    orderByPriceAsc(params) {
+			var that = this;
+			console.log(this.$store.state.priceFlag)
+			if(this.$store.state.priceFlag){
+				$.ajax({
+					type:"get",
+					url:"/exp/slotlist/priceasc",
+					success:function(data){
+						that.$store.commit('setShopQualitylist', data.el)
+						console.log(data)
+						that.$store.commit('setPriceFlag')
+					}
+				})
+			}else{
+				$.ajax({
+					type:"get",
+					url:"/exp/slotlist/pricedesc",
+					success:function(data){
+						that.$store.commit('setShopQualitylist', data.el)
+						console.log(data)
+						that.$store.commit('setPriceFlag')
+					}
+				})
+			}
+			
+		}
 	}
 }
 

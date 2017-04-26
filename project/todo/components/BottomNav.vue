@@ -1,10 +1,14 @@
 <template>
   <div class="bottom-nav">
     <ul id="bottom">
-    	<router-link to="/shopList" tag="li" active-class="special">HomePage</router-link>
-    	<router-link to="/classify" tag="li" active-class="special">Classify</router-link>
-    	<router-link to="/cart" tag="li" active-class="special">Cart</router-link>
-    	<router-link to="/myself" tag="li" active-class="special">Mine</router-link>
+    	<router-link to="/shopList" tag="li" active-class="special">
+        <i class="iconfont">&#xe605;</i>首页</router-link>
+    	<router-link to="/classify" tag="li" active-class="special">
+        <i class="iconfont">&#xe657;</i>分类</router-link>
+    	<router-link to="/cart" tag="li" active-class="special">
+        <i class="iconfont">&#xe62a;</i>购物车</router-link>
+    	<router-link to="/myself" tag="li" active-class="special">
+        <i class="iconfont">&#xe6a3;</i>我的</router-link>
     </ul>
   </div>
 </template>
@@ -24,7 +28,7 @@ export default {
 <style scoped>
 
   #bottom .special {
-    background: red;
+    color:#e6133c;
   }
   #bottom {
   position: fixed;
@@ -40,11 +44,15 @@ export default {
 }
 #bottom li{
   flex:1;
-  line-height: 1.2rem;
+  line-height: 0.4rem;
   font-size: 16px;
+  margin-top:.2rem;
   text-align: center
 }
 #bottom li a{
   text-decoration:none;
+}
+#bottom i{
+  display: block;
 }
 </style>
