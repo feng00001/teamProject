@@ -37,7 +37,7 @@
 	</nav> -->
 	<section>
 		<ul>
-			<li v-for="item in $store.state.shopbuylist">
+			<router-link :to="'detail/'+item.shopid" key="item.shopid" tag="li" v-for="item in $store.state.shopbuylist">
 				<div class="pic">
     				<img :src="item.img">
 				</div>
@@ -47,7 +47,7 @@
 					<span>￥{{item.price}}</span>
 					<button>立即抢购</button>
 				</div>
-			</li>
+			</router-link>
 		</ul>
 	</section>
 	</mt-loadmore>
