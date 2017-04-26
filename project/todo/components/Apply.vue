@@ -123,6 +123,16 @@ export default {
       $('.payDetail').css({
         display:'block'
       });
+      $.ajax({
+        type: "get",
+        url: "/exp/apply/doorder",
+        data: {
+          
+        },
+        success: function(data){
+
+        }
+      })
     })
     $('.btn').click(function(){
       $('.success').css({
@@ -145,7 +155,7 @@ export default {
          ret += el.price*el.quantity
         
       })
-      return ret
+      return ret.toFixed(2)
     },
     sum: function(){
       var ret = 0
