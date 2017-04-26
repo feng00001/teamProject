@@ -64,7 +64,8 @@ export default {
       position: absolute;
       width:7.5rem;
       left:-7.15rem;
-      top:1.1rem;
+      top:.8rem;
+      z-index: 100;
       border-bottom: 0.05rem solid #fe8477;
         background-color: rgba(0,0,0,.8);
         display: none;

@@ -11,7 +11,7 @@
 	</header>
 	<search-nav></search-nav>
 	<mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="$store.state.allLoaded" ref="loadmore">
-	<nav>
+	<!-- <nav>
 		<ul>
 			<li>
 				<p>00:00</p>
@@ -34,7 +34,7 @@
 				<p>已开抢</p>
 			</li>
 		</ul>
-	</nav>
+	</nav> -->
 	<section>
 		<ul>
 			<li v-for="item in $store.state.shopbuylist">
@@ -138,7 +138,13 @@ header h1{
 	font-weight: 1;
 	font-size: .24rem;
 }
-nav{
+/*search-nav{
+	position: absolute;
+    width: 7.5rem;
+    left: -7.15rem;
+    top: .6rem;
+}*/
+/*nav{
 	height: 1.2rem;
 	background: #333;
 	margin-top: -.3rem;
@@ -158,8 +164,9 @@ nav ul li{
 }
 nav ul li p{
 	line-height: .4rem;
-}
+}*/
 section{
+	/*margin-top: .7rem;*/
 	overflow: hidden;
 	width: 7.5rem;
 	box-sizing: border-box;

@@ -2,7 +2,7 @@
 <div id="apply">
     <div>
         <div class="apply_order">
-            <a class="iconfont" >&#x3484;</a>
+            <router-link to="/cart" tag="a" active-class="special"><i class="iconfont">&#x3484;</i></router-link>
             <p class="p_ord">确认订单</p>
         </div>
         <div class="addr">
@@ -57,12 +57,14 @@
             </ul>
         </div>
         <div class="sum">
-            
+              <div>
                 <span class="l">商品总额</span>
                 <a href="#" class="r">¥199</a>
+              </div>
+              <div>
                 <span class="l">运费总计</span>
                 <a href="#" class="r">¥199</a>
-            
+              </div>
         </div>
         <footer>
             <span class="l">待支付¥22</span>
@@ -211,6 +213,19 @@ export default {
         height: .9rem;
         width: 2.06rem;
     }
+    #apply .sum{
+      margin-top: .2rem;
+      width: 7.5rem;
+      height: 1.5rem;
+      background: #fff;
+      box-sizing: border-box;
+      padding:.2rem;
+    }
+    #apply .sum div{
+      height: .7rem;
+      width: 100%;
+      line-height: .7rem;
+    }
     .false{
       width: 7.5rem;
       height:2.5rem;
@@ -275,11 +290,6 @@ export default {
       width: 1.4rem;
       padding:.15rem;
     }
-    .apply .sum{
-        width: 7.5rem;
-        height: 1.5rem;
-        background: #fff;
-        
-    }
+  
 </style>
 
