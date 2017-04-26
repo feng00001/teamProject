@@ -88,7 +88,7 @@ export default {
          ret += el.price*el.quantity
         
       })
-      return ret
+      return ret.toFixed(2)
     }
   },
   methods: {
