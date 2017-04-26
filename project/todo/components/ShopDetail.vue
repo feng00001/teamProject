@@ -59,23 +59,28 @@ export default {
       }   
     },
     fly2cart(e) {
+
       this.$refs.count.innerText++
       var str=location.href
       var str1 = str.match(/detail.*/)
       var shopid = str1[0].match(/\d.*/)[0]
       var userid = util.getCookie("user")
-      $.ajax({
-        type:"get",
-        url:"/exp/cartcount/ins",
-        data: {
-          shopid: shopid,
-          userid: userid
-        },
-        success:function(data){
-          console.log(data)
-        }
-      })
-      
+      if(userid === null){
+        alert('please sign up')
+      }else{
+        console.log(userid)
+        $.ajax({
+          type:"get",
+          url:"/exp/cartcount/ins",
+          data: {
+            shopid: shopid,
+            userid: userid
+          },
+          success:function(data){
+            console.log(data)
+          }
+        })
+      }
     },
 		...mapActions([
 		  
