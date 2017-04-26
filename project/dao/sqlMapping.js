@@ -34,9 +34,9 @@ var sql = {
 	sqlClassify03: 'select * from finaltype where subtypeid = ?',
 	// Classify end
 	//slotlist begin
-	sqlSlotlist01: 'select * from shop order by shopid asc',
-	sqlSlotlist02: 'select * from shop order by price asc',
-	sqlSlotlist03: 'select * from shop order by price desc',
+	sqlSlotlist01: 'select * from shop where specialid like "%" ? "%" order by shopid asc limit ?,?',
+	sqlSlotlist02: 'select * from shop where specialid like "%" ? "%" order by price asc limit ?,?',
+	sqlSlotlist03: 'select * from shop where specialid like "%" ? "%" order by price desc limit ?,?',
 	sqlSlotlist04: 'select * from evaluate where shopid = ?',
 
 	//slotlist end

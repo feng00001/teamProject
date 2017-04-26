@@ -30,6 +30,7 @@
         		<li>促销</li>
         	</ul>
 		</div>
+		<mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="$store.state.allLoaded" ref="loadmore">
 		<div id="content1" v-if="$store.state.isList==='con1'">
 			<dl v-for="item in $store.state.slotList">
 				<router-link :to="'/detail/'+item.el.shopid">
@@ -49,6 +50,7 @@
 			
 			<div id="master" :style="{display:$store.state.isSure}"></div>
 		</div>
+		
 		<div id="content2" v-else="$store.state.isList==='con2'">
 			<ul>
 				<router-link :to="'/detail/'+item.el.shopid" key="item.shopid" tag="li" v-for="item in $store.state.slotList">
@@ -62,27 +64,62 @@
 				</router-link>
 			</ul>
 		</div>
-		
+		</mt-loadmore>
 	</div>	
 </template>
 <script>
 import {mapMutations, mapActions} from 'vuex'
 import $ from 'jquery'
+import { Swipe, SwipeItem, Loadmore} from 'mint-ui'
+var obj = {};
+obj[Loadmore.name] = Loadmore;
 
 export default {
 
 	mounted (){
 		var that = this;
+		this.$store.commit('setPrePage', 0);
 		$.ajax({
 			type:"get",
 			url:"/exp/slotlist/slots",
+			data: {
+				prePage: this.$store.state.prePage,
+			},
 			success:function(data){
 				that.$store.commit('setSlotList', data)
 				// console.log(data)
+				if(data&&data.length>0)	{
+					that.$store.commit('setPrePage', that.$store.state.prePage + 1);
+				}
 			}
 		})
 	},
 	methods: {
+		loadBottom: function() {
+	    	var that = this;
+	    	var url = "";
+	    	if(this.$store.state.priceFlag){
+	    		url = "/exp/slotlist/priceasc"
+	    	}else{
+	    		url = "/exp/slotlist/pricedesc"
+	    	}
+	    	$.ajax({
+				type:"get",
+				url: url,
+				data: {
+					prePage: this.$store.state.prePage,
+				},
+				success:function(data){
+					that.$refs.loadmore.onBottomLoaded();
+					// 对store的操作需要调用mutations
+					if(data&&data.length>0)	{
+						console.log(data)
+					that.$store.commit('setPrePage', that.$store.state.prePage + 1);
+					that.$store.commit('setSlotList', that.$store.state.slotList.concat(data));
+					}
+				}
+			})
+	    },
 		isChecked (e) {
 			$('#sure').remove()
 			let span = $('<span class="r" id="sure">v</span>')
@@ -101,12 +138,16 @@ export default {
 			var that = this;
 		},
 		orderByPriceAsc(params) {
+			this.$store.commit('setPrePage', 0);
 			var that = this;
 			console.log(this.$store.state.priceFlag)
 			if(this.$store.state.priceFlag){
 				$.ajax({
 					type:"get",
 					url:"/exp/slotlist/priceasc",
+					data: {
+						prePage: this.$store.state.prePage,
+					},
 					success:function(data){
 						that.$store.commit('setSlotList', data)
 						console.log(data)
@@ -117,6 +158,9 @@ export default {
 				$.ajax({
 					type:"get",
 					url:"/exp/slotlist/pricedesc",
+					data: {
+						prePage: this.$store.state.prePage,
+					},
 					success:function(data){
 						that.$store.commit('setSlotList', data)
 						console.log(data)
@@ -130,7 +174,8 @@ export default {
 			console.log("in")
 		    this.$store.commit('setIsList')   
 		}
-	}
+	},
+	components: obj,
 }
 </script>
 <style scoped>

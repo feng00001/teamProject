@@ -38,14 +38,14 @@
 	<mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="$store.state.allLoaded" ref="loadmore">
 	<section>
 		<ul>
-			<router-link :to="'detail/'+item.shopid" key="item.shopid" tag="li" v-for="item in $store.state.shopqualitylist">
+			<router-link :to="'detail/'+item.el.shopid" key="item.el.shopid" tag="li" v-for="item in $store.state.shopqualitylist">
 				<div class="pic">
-    				<img :src="item.img">
+    				<img :src="item.el.img">
 				</div>
 				<div class="con">
-					<p>{{item.shopname}}</p>
+					<p>{{item.el.shopname}}</p>
 					<p>每人限购200件</p>
-					<span>￥{{item.price}}</span>
+					<span>￥{{item.el.price}}</span>
 					<button>立即抢购</button>
 				</div>
 			</router-link>
@@ -76,13 +76,17 @@ export default {
 		this.$store.commit('setPrePage', 0);
 		$.ajax({
 			method:"get",
-			url:"/exp/shopquality/init",
+			url:"/exp/slotlist/slots",
 			data: {
-				prePage: this.$store.state.prePage
+				prePage: this.$store.state.prePage,
+				specialid: 3
 			},
 			success:function(data){
 				// 对store的操作需要调用mutations
-				that.$store.commit('setShopQualitylist', data)				
+				that.$store.commit('setShopQualitylist', data)	
+				if(data&&data.length>0)	{
+					that.$store.commit('setPrePage', that.$store.state.prePage + 1);
+				}			
 			}
 		})
 		
@@ -112,11 +116,18 @@ export default {
 	methods: {
 		loadBottom: function() {
 	    	var that = this;
+	    	var url = "";
+	    	if(this.$store.state.priceFlag){
+	    		url = "/exp/slotlist/priceasc"
+	    	}else{
+	    		url = "/exp/slotlist/pricedesc"
+	    	}
 	    	$.ajax({
 				type:"get",
-				url:"/exp/shoplife/init",
+				url: url,
 				data: {
-					prePage: this.$store.state.prePage
+					prePage: this.$store.state.prePage,
+					specialid: 3
 				},
 				success:function(data){
 					that.$refs.loadmore.onBottomLoaded();
@@ -130,30 +141,27 @@ export default {
 			})
 	    },
 	    orderByPriceAsc(params) {
+	    	this.$store.commit('setPrePage', 0);
 			var that = this;
-			console.log(this.$store.state.priceFlag)
-			if(this.$store.state.priceFlag){
-				$.ajax({
-					type:"get",
-					url:"/exp/slotlist/priceasc",
-					success:function(data){
-						that.$store.commit('setShopQualitylist', data.el)
-						console.log(data)
-						that.$store.commit('setPriceFlag')
-					}
-				})
-			}else{
-				$.ajax({
-					type:"get",
-					url:"/exp/slotlist/pricedesc",
-					success:function(data){
-						that.$store.commit('setShopQualitylist', data.el)
-						console.log(data)
-						that.$store.commit('setPriceFlag')
-					}
-				})
-			}
-			
+			var url = "";
+	    	if(this.$store.state.priceFlag){
+	    		url = "/exp/slotlist/priceasc"
+	    	}else{
+	    		url = "/exp/slotlist/pricedesc"
+	    	}
+			$.ajax({
+				type:"get",
+				url: url,
+				data: {
+					prePage: this.$store.state.prePage,
+					specialid: 3
+				},
+				success:function(data){
+					that.$store.commit('setShopQualitylist', data)
+					console.log(data.el)
+					that.$store.commit('setPriceFlag')
+				}
+			})
 		}
 	}
 }

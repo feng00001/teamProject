@@ -14,14 +14,20 @@ var util = require('../../util/common');
 //     }
 // })
 
+var everyPage = 10;
+
 module.exports = {
 	selectlist: function (req, res, next) {
 		pool.getConnection(function(err, connection) {
 			// 获取前台页面传过来的参数
 			var param = req.query || req.params;
 			var ret = [];
+			
 			// 建立连接，向表中插入值
-			connection.query($sql.sqlSlotlist01, null, function(err, result) {
+			connection.query($sql.sqlSlotlist01,  [param.specialid || '',param.prePage*everyPage,everyPage], function(err, result) {
+				if(err){
+					console.log(err)
+				}
 				var shoplist = result;
 				if(shoplist.length>0){
 					shoplist.map((item,idx) => {
@@ -56,7 +62,7 @@ module.exports = {
 			// 建立连接，向表中插入值
 			
 			new Promise(function(resolve, reject){
-				connection.query($sql.sqlSlotlist02, null, function(err, result){
+				connection.query($sql.sqlSlotlist02, [param.specialid || '',param.prePage*everyPage,everyPage], function(err, result){
 					resolve({err, result});
 				});
 				
@@ -103,7 +109,7 @@ module.exports = {
 			var ret = [];
 			console.log("desc")
 			new Promise(function(resolve, reject){
-				connection.query($sql.sqlSlotlist03, null, function(err, result){
+				connection.query($sql.sqlSlotlist03,  [param.specialid || '',param.prePage*everyPage,everyPage], function(err, result){
 					resolve({err, result});
 				})
 			}).then(function({err, result}){
