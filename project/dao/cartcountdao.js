@@ -79,5 +79,17 @@ module.exports = {
 				connection.release();
 			})
 		});
+	},
+	delcount: function (req, res, next) {
+		pool.getConnection(function(err, connection) {
+			// 获取前台页面传过来的参数
+			var param = req.query || req.params;
+			// 建立连接，向表中插入值
+			connection.query($sql.sqlCart06, [param.userid,param.shopcarid], function(err, result) {
+				
+				util.jsonWrite(res, result);
+				connection.release();
+			})
+		});
 	}
 };

@@ -2,8 +2,7 @@
 <template>
   <div class="classify">
   	<div id="header">
-  		<input type="text" placeholder="搜索你想找的商品"/>
-      	<img :src="$store.state.classifyImg[1]">
+  		<label><i class="iconfont">&#xe501;</i><input type="text" placeholder="搜索你想找的商品"/></label>
   		<search-nav></search-nav>
   	</div>
   	<div id="content1">
@@ -78,7 +77,14 @@ export default {
       padding:.3rem 0;
       overflow: hidden;
     }
-    
+#header label{
+    	position: relative;
+    }
+#header label i{
+	position: absolute;
+	top:0.2rem;
+	left:0.4rem;
+}
 #header input{
       height: .6rem;
       line-height: .6rem;
@@ -88,7 +94,7 @@ export default {
       border-radius: .1rem;
       width: 65%;
       margin-left: .3rem;
-      padding-left:.3rem;
+      padding-left:.5rem;
       background:#fff;
     }
     #header img{
@@ -116,12 +122,11 @@ export default {
 	}
 	#content1 .left ol li{
 		border-bottom:1px solid #ddd;
-		border-right:1px solid #ddd;
 		height:1rem;
 		line-height:1rem;
 		text-align:center;
 		font-size:14px;
-		width:99%;
+		width:100%;
 	}
 	#content1 .goodsinfo{
 		width: 75%;
@@ -163,6 +168,6 @@ export default {
 	#content1 .left ol li.cur{
 		border-left:.1rem solid red;
 		box-sizing: border-box;
-		/*background:red;*/
+		background:#fff;
 	}
 </style>

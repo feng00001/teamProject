@@ -205,11 +205,11 @@
 		
 
 		<ul>
-			<li v-for="item in $store.state.yourlikelist">
+			<router-link :to="'detail/'+item.shopid" key="item.shopid" tag="li" v-for="item in $store.state.yourlikelist">
 				<img :src="item.img">
 				<p>{{item.shopname}}</p>
 				<span>¥{{item.price}}</span>
-			</li>
+			</router-link>
 		</ul>
 		
 

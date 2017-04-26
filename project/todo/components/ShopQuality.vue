@@ -38,7 +38,7 @@
 	<mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="$store.state.allLoaded" ref="loadmore">
 	<section>
 		<ul>
-			<li v-for="item in $store.state.shopqualitylist">
+			<router-link :to="'detail/'+item.shopid" key="item.shopid" tag="li" v-for="item in $store.state.shopqualitylist">
 				<div class="pic">
     				<img :src="item.img">
 				</div>
@@ -48,7 +48,7 @@
 					<span>￥{{item.price}}</span>
 					<button>立即抢购</button>
 				</div>
-			</li>
+			</router-link>
 		</ul>
 	</section>
 	</mt-loadmore>

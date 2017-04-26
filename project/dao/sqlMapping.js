@@ -46,6 +46,8 @@ var sql = {
 	sqlCart03: 'update shopcar set quantity = quantity+1 where shopcarid=?',
 	sqlCart04: 'select * from shopcar,shop where shopcar.shopid=shop.shopid and userid = ?',
 	sqlCart05: 'update shopcar set quantity = quantity-1 where shopcarid=?',
+	sqlCart06: 'delete from shopcar where userid = ? and shopcarid = ?',
+
 	//cart end
 
 	//detail begin
