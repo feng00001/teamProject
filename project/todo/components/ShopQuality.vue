@@ -16,18 +16,7 @@
 			<li class="active">默认</li>
 			<li>价格<i class="iconfont">&#xe647;</i></li>
 			<li>仅显示有货</li>
-			<li id="special">筛选<i class="iconfont">&#xe610;</i>
-				<ul class="li_list active" style="display:none">
-					<li>全部品牌</li>
-					<li>雷朋</li>
-					<li>
-						<input type="button" value="清空选项" />
-						<input type="button" value="确认" class="focus" />
-						<!-- <button class="focus">确认</button> -->
-						<p class="time"></p>
-					</li>
-				</ul>
-			</li>
+			<li id="special">筛选<i class="iconfont">&#xe610;</i></li>
 		</ul>
 		<div class="pic">
 			<img :src="$store.state.testImg[1]">
