@@ -2,7 +2,7 @@
   <div class="cart">
   	<div id="header">
   		<span class="l">
-        <router-link to="/classify">
+        <router-link to="/slotlist">
   			 &gt;
         </router-link>
   		</span>
