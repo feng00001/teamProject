@@ -69,7 +69,8 @@ export const state = {
   watches: [],
   hots: [],
   buys: [],
-  reportlist: []
+  reportlist: [],
+  isEmptyCart: 'block'
   //韩旭 
 }
 
@@ -115,7 +116,13 @@ export const mutations = {
     state.cur = test
   },
   setCartlist(state, test) {
-    state.cartlist = test
+    console.log(test.length)
+    if(test.length > 0){
+      state.cartlist = test;
+      state.isEmptyCart = 'none'
+    }else{
+      state.isEmptyCart = 'block'
+    }
   },
   setWatches(state, test) {
     var w1 = []
@@ -166,6 +173,8 @@ export const mutations = {
     state.reportlist = test
   },
   //韩旭 end
+
+
   // 王春园 begin
   setMineMsg(state, arg) {
     state.mineMsg = arg;
@@ -175,6 +184,8 @@ export const mutations = {
     state.userinfo = arg;
   },
   // 王春园 end
+
+
   // 高洋用 begin
   setEveryday(state, test) {
     state.everyday = test;
