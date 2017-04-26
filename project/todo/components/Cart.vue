@@ -58,7 +58,7 @@
       <span class="totle">
         合计：
       </span>
-      <button class="r">去结算（9）</button>
+      <router-link to="/apply"><button class="r">去结算（9）</button></router-link>
       <span class="r" ref="totle">
         ￥{{totle}}
       </span>
