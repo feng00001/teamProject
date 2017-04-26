@@ -18,7 +18,7 @@
       <span>后可同步电脑与手机购物车中的商品</span>
       <router-link to="/mine/logon" class="r">&lt;</router-link>
     </div>
-    <div id="cart-content" style="{display:$store.state.isEmptyCart}">
+    <div id="cart-content" :style="{display:$store.state.isEmptyCart}">
       <img :src="$store.state.cartImg">
       <p>购物车快饿扁了／(ToT)／～～</p>
       <p>主人快点给我挑点宝贝吧</p>
@@ -99,6 +99,18 @@ export default {
           $.ajax({
             type: 'get',
             url: '/exp/cartcount/minus',
+            data: {
+              userid: userid,
+              shopcarid: co
+            },
+            success: function(data){
+              that.selall()
+            }
+          })
+        }else{
+          $.ajax({
+            type: 'get',
+            url: '/exp/cartcount/del',
             data: {
               userid: userid,
               shopcarid: co

@@ -20,4 +20,8 @@ router.get('/add', function(req, res, next) {
   	cartcountdao.selectcountadd(req, res, next)
 });
 
+router.get('/del', function(req, res, next) {
+  	cartcountdao.delcount(req, res, next)
+});
+
 module.exports = router;
