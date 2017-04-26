@@ -108,20 +108,6 @@ export default {
           }
         })
       }
-      // else{
-      //   $.ajax({
-      //     type: 'get',
-      //     url: '/exp/cartcount/del',
-      //     data: {
-      //       userid: userid,
-      //       shopcarid: co
-      //     },
-      //     success: function(data){
-      //       that.selall()
-      //     }
-      //   })
-      // }
-      
     },
     add(co) {
       var userid = util.getCookie("user");

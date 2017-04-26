@@ -72,7 +72,7 @@ export const state = {
   buys: [],
   reportlist: [],
   isEmptyCart: 'block',
-  isDisplay: 'con1'
+  isList: 'con1'
   //韩旭 
 }
 
@@ -119,14 +119,6 @@ export const mutations = {
   },
   setCartlist(state, test) {
     state.cartlist = test;
-    // if(test.length > 0){
-    //   console.log(test.length)
-    //   state.cartlist = test;
-    //   state.isEmptyCart = 'none'
-    //   console.log(state.isEmptyCart)
-    // }else{
-    //   state.isEmptyCart = 'block'
-    // }
   },
   setWatches(state, test) {
     var w1 = []
@@ -176,9 +168,8 @@ export const mutations = {
   setReportlist(state, test) {
     state.reportlist = test
   },
-  setIsDisplay(state) {
-     console.log('是否展示：' + state.isDisplay)
-    // state.isDisplay = state.isDisplay === 'con1' ? 'con2' : 'con1';
+  setIsList(state) {
+    state.isList = state.isList === 'con1' ? 'con2' : 'con1';
 
   },
   //韩旭 end

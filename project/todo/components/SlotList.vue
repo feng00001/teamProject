@@ -30,7 +30,7 @@
         		<li>促销</li>
         	</ul>
 		</div>
-		<div id="content1" v-if="$store.state.isDisplay==='con1'">
+		<div id="content1" v-if="$store.state.isList==='con1'">
 			<dl v-for="item in $store.state.slotList">
 				<router-link :to="'/detail/'+item.el.shopid">
 					<dt>
@@ -49,7 +49,7 @@
 			
 			<div id="master" :style="{display:$store.state.isSure}"></div>
 		</div>
-		<div id="content2" v-else="$store.state.isDisplay==='con2'">
+		<div id="content2" v-else="$store.state.isList==='con2'">
 			<ul>
 				<router-link :to="'/detail/'+item.el.shopid" key="item.shopid" tag="li" v-for="item in $store.state.slotList">
 					<div class="pic">
@@ -127,7 +127,8 @@ export default {
 			
 		},
 		switchover() {
-		    this.$store.commit('setIsDisplay')   
+			console.log("in")
+		    this.$store.commit('setIsList')   
 		}
 	}
 }
