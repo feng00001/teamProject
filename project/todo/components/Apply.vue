@@ -33,22 +33,22 @@
             </span>
         </div>
         <div class="false">
-          <div class="mid">
-            <dl>
+          <div class="mid" v-for="item in $store.state.applylist">
+            <dl >
               <dd class="l">
-                 <img style="background:url(https://gw.alicdn.com/bao/uploaded/i1/136781748/TB24ViDo0RopuFjSZFtXXcanpXa_!!136781748.jpg_120x120q50s150.jpg) no-repeat center;background-size:cover;" class="l">
+                 <img :src="item.img" class="l">
               </dd>
               <dt class="l">
-                <p class="l">4/24抢新 限量200件24小时秒发！短袖T恤+松紧系带拼色阔腿裤套装  </p>
-                <span class="l">￥119.00</span>
-                <del class="l">￥110.89</del>
+                <p class="l">{{item.shopname}}</p>
+                <span class="l">￥{{item.price}}</span>
+                <del class="l">￥{{item.price}}</del>
                 <ul class="l detail">
-                   <li class="l">颜色分类:如图</li>   
-                   <li class="l">尺码:s</li>
-                   <li class="l">x1</li>
+                   <!-- <li class="l">颜色分类:如图</li>   
+                   <li class="l">尺码:s</li> -->
+                   <li class="l">x{{item.quantity}}</li>
                  </ul> 
               </dt>
-            </dl>ß
+            </dl>
           </div>
           <ul class="count">
               <li >共1件商品</li>
@@ -63,7 +63,7 @@
               </div>
               <div>
                 <span class="l">运费总计</span>
-                <a href="#" class="r">¥199</a>
+                <a href="#" class="r">¥0</a>
               </div>
         </div>
         <footer>
@@ -89,13 +89,14 @@ export default {
     var userid = util.getCookie("user");
     $.ajax({
       method:"get",
-      url:"/exp/shopquality/init",
+      url:"/exp/apply/",
       data: {
-        prePage: this.$store.state.prePage
+        userid: userid
       },
       success:function(data){
         // 对store的操作需要调用mutations
-        that.$store.commit('setShopQualitylist', data)        
+        console.log(data);
+        that.$store.commit('setApplylist',data)      
       }
     })
 
@@ -204,8 +205,6 @@ export default {
     #apply .pay .fapiao{
         border-bottom: 0;
     }
-    
-    
     #apply footer{
         height: 0.9rem;
         line-height: .9rem;
@@ -232,7 +231,7 @@ export default {
         width: 2.06rem;
     }
     #apply .sum{
-      margin-top: .2rem;
+      margin-top: 1rem;
       width: 7.5rem;
       height: 1.5rem;
       background: #fff;
@@ -257,7 +256,7 @@ export default {
     }
     
     .false .mid{
-      height: 1.4rem;
+      /*height: 1.4rem;*/
       clear: both;
       background:#f5f5f5;
       box-sizing: border-box;
@@ -266,6 +265,7 @@ export default {
     .false .mid dl{
       width: 7.5rem;
       height: 100%;
+     /* margin:.3rem 0;*/
     }
     .false .mid dl dd {
       width: 1.24rem;

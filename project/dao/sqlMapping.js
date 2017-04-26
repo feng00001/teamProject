@@ -55,7 +55,11 @@ var sql = {
 	sqldetail02: 'select * from shop where shopid=?',
 	//detail end
 	// ShopBuy begin
-	sqlShopBuy01: 'select * from shop where specialid = ? limit ?,?'
+	sqlShopBuy01: 'select * from shop where specialid = ? limit ?,?',
 	// ShopBuy end
+
+	//Apply begin
+	sqlApply01: 'select * from shopcar,shop where shopcar.shopid = shop.shopid and userid = ? '
+	//Apply end
 };
 module.exports = sql;
