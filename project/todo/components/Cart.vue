@@ -136,6 +136,7 @@ export default {
         },
         success: function(data){
           that.$store.commit('setCartlist',data)
+          
         }
       })
     }

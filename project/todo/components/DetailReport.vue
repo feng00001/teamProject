@@ -96,14 +96,6 @@
             <button>有图评论(10)</button>
           </div>
         </div>
-
-        <div class="flagship-store">
-          <img :src="$store.state.classifyImg[7]" class="l">
-          <span class="l">赛贝格</span>
-          <router-link to="/slotlist" class="r">
-              <i class="iconfont">&#xe656;</i>
-          </router-link>
-        </div>
         <div class="guess-what-you-like">
           <ul class="type" @touchend='switchover($event)'>
             <li class="every-look special" >大家都在看</li>
