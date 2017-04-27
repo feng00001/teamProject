@@ -24,7 +24,7 @@ module.exports = {
 			var ret = [];
 			
 			// 建立连接，向表中插入值
-			connection.query($sql.sqlSlotlist01,  [param.specialid || '',param.prePage*everyPage,everyPage], function(err, result) {
+			connection.query($sql.sqlSlotlist01,  [param.specialid || '',param.shopname || '',param.prePage*everyPage,everyPage], function(err, result) {
 				if(err){
 					console.log(err)
 				}
@@ -62,7 +62,7 @@ module.exports = {
 			// 建立连接，向表中插入值
 			
 			new Promise(function(resolve, reject){
-				connection.query($sql.sqlSlotlist02, [param.specialid || '',param.prePage*everyPage,everyPage], function(err, result){
+				connection.query($sql.sqlSlotlist02, [param.specialid || '',param.shopname || '',param.prePage*everyPage,everyPage], function(err, result){
 					resolve({err, result});
 				});
 				
@@ -109,7 +109,7 @@ module.exports = {
 			var ret = [];
 			console.log("desc")
 			new Promise(function(resolve, reject){
-				connection.query($sql.sqlSlotlist03,  [param.specialid || '',param.prePage*everyPage,everyPage], function(err, result){
+				connection.query($sql.sqlSlotlist03,  [param.specialid || '',param.shopname || '',param.prePage*everyPage,everyPage], function(err, result){
 					resolve({err, result});
 				})
 			}).then(function({err, result}){

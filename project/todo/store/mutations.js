@@ -44,6 +44,7 @@ export const state = {
   msgphone: null,
   userinfo: {},
   orderlist: [],
+  searchval: "",
   // 王春园用 end
   // 韩旭 begin
   classifyImg: [
@@ -187,6 +188,9 @@ export const mutations = {
   },
   setOrderList(state, arg) {
     state.orderlist = arg
+  },
+  setSearchVal(state, arg) {
+    state.searchval = arg
   },
   // 王春园 end
 

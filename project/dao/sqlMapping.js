@@ -34,9 +34,9 @@ var sql = {
 	sqlClassify03: 'select * from finaltype where subtypeid = ?',
 	// Classify end
 	//slotlist begin
-	sqlSlotlist01: 'select * from shop where specialid like "%" ? "%" order by shopid asc limit ?,?',
-	sqlSlotlist02: 'select * from shop where specialid like "%" ? "%" order by price asc limit ?,?',
-	sqlSlotlist03: 'select * from shop where specialid like "%" ? "%" order by price desc limit ?,?',
+	sqlSlotlist01: 'select * from shop where specialid like "%" ? "%" and shopname like "%" ? "%" order by shopid asc limit ?,?',
+	sqlSlotlist02: 'select * from shop where specialid like "%" ? "%" and shopname like "%" ? "%" order by price asc limit ?,?',
+	sqlSlotlist03: 'select * from shop where specialid like "%" ? "%" and shopname like "%" ? "%" order by price desc limit ?,?',
 	sqlSlotlist04: 'select * from evaluate where shopid = ?',
 
 	//slotlist end
@@ -67,7 +67,11 @@ var sql = {
 
 	// Order begin
 	sqlOrder01: 'select * from myorder where status like "%" ? "%"',
-	sqlOrder02: 'select * from myorder,shoporder,shop where myorder.orderid = shoporder.orderid and shoporder.shopid = shop.shopid and myorder.orderid = ?'
+	sqlOrder02: 'select * from myorder,shoporder,shop where myorder.orderid = shoporder.orderid and shoporder.shopid = shop.shopid and myorder.orderid = ?',
 	// Order end
+
+	// Search begin
+	sqlSearch01: 'select * from shop'
+	// Search end
 };
 module.exports = sql;

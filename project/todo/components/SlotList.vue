@@ -79,11 +79,13 @@ export default {
 	mounted (){
 		var that = this;
 		this.$store.commit('setPrePage', 0);
+		that.$store.commit('setSlotList', [])
 		$.ajax({
 			type:"get",
 			url:"/exp/slotlist/slots",
 			data: {
 				prePage: this.$store.state.prePage,
+				shopname: this.$store.state.searchval
 			},
 			success:function(data){
 				that.$store.commit('setSlotList', data)
@@ -108,6 +110,7 @@ export default {
 				url: url,
 				data: {
 					prePage: this.$store.state.prePage,
+					shopname: this.$store.state.searchval
 				},
 				success:function(data){
 					that.$refs.loadmore.onBottomLoaded();
@@ -147,6 +150,7 @@ export default {
 					url:"/exp/slotlist/priceasc",
 					data: {
 						prePage: this.$store.state.prePage,
+						shopname: this.$store.state.searchval
 					},
 					success:function(data){
 						that.$store.commit('setSlotList', data)
@@ -160,6 +164,7 @@ export default {
 					url:"/exp/slotlist/pricedesc",
 					data: {
 						prePage: this.$store.state.prePage,
+						shopname: this.$store.state.searchval
 					},
 					success:function(data){
 						that.$store.commit('setSlotList', data)

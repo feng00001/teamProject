@@ -19,6 +19,7 @@ const shopquality = require('./expressrouter/shopquality')
 const detail = require('./expressrouter/detail')
 const apply = require('./expressrouter/apply')
 const order = require('./expressrouter/order')
+const search = require('./expressrouter/search')
 
 const app = express()
 app.use(cookieParser())
@@ -63,6 +64,8 @@ app.use('/exp/detail', detail)
 app.use('/exp/apply', apply)
 
 app.use('/exp/order', order)
+
+app.use('/exp/search', search)
 
 app.use(express.static(__dirname))
 

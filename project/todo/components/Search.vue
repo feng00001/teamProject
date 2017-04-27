@@ -4,9 +4,9 @@
 		<div class="txt l">
 			<i class="iconfont l">&#xe501;</i>
 			
-			<input class="ipt l" type="text" placeholder="搜索你想要的商品"/>
+			<input class="ipt l" type="text" placeholder="搜索你想要的商品" ref="searchval"/>
 		 </div>
-		 <div class="search l"><a href="#">搜索</a></div>
+		 <div class="search l"><span @touchend="search">搜索</span></div>
 	</div>
 	
 	<div class="con">
@@ -44,7 +44,10 @@ import { mapMutations, mapActions} from 'vuex'
 
 export default {
   methods: {
-    
+    search() {
+    	this.$store.commit('setSearchVal', this.$refs.searchval.value)
+    	location.href = "#/slotlist"
+    }
   }
 }
 </script>
