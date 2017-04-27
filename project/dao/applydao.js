@@ -11,8 +11,6 @@ module.exports = {
 	selectcount: function (req, res, next) {
 		pool.getConnection(function(err, connection) {
 			// 获取前台页面传过来的参数
-			
-			
 			var param = req.query || req.params;
 			var checkids = param.checkid.split(",")
 			var ret = []
@@ -54,7 +52,9 @@ module.exports = {
 
 			// 建立连接，向表中插入值
 			new Promise(function(resolve, reject){
-				connection.query($sql.sqlApply02, [param.totle,"未付款"], function(err, result) {
+				console.log("ub---ub")
+				console.log("userid:"+req.cookies["user"])
+				connection.query($sql.sqlApply02, [req.cookies["user"],param.totle,"未付款"], function(err, result) {
 					if(err){
 						console.log(err)
 					}
@@ -64,7 +64,7 @@ module.exports = {
 				if(err){
 					console.log(err)
 				}
-				console.log(result)
+				console.log(JSON.stringify(result))
 				orderlist.map(function(element,ids){
 					connection.query($sql.sqlApply03, [result.insertId,element.shopid,element.price,element.quantity], function(err, result) {
 						if(err){

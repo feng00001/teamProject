@@ -16,7 +16,7 @@ module.exports = {
 			// 获取前台页面传过来的参数
 			var param = req.query || req.params;
 			new Promise(function(resolve, reject){
-				connection.query($sql.sqlOrder01, [param.status || ''], function(err, result){
+				connection.query($sql.sqlOrder01, [req.cookies["user"], param.status || ''], function(err, result){
 					if(err){
 						console.log(err)
 					}
