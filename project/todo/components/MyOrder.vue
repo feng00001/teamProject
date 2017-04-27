@@ -33,6 +33,15 @@ import Payment from './Payment.vue'
 import Send from './Send.vue'
 import Receive from './Receive.vue'
 import Evaluate from './Evaluate.vue'
+var obj = {
+  AllReport,
+  Payment,
+  Send,
+  Receive,
+  Evaluate
+};
+
+
 
 export default {
 	// 页面加载完成后调用，
@@ -55,15 +64,12 @@ export default {
       }else{
         this.$store.commit('setIsPlay', 'commence')
       }
-      
     },
 		...mapActions([
 		  
 		])
 	},
-	components: {
-    AllReport
-  }
+	components: obj
 }
 </script>
 

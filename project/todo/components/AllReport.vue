@@ -47,6 +47,7 @@ export default {
   name: 'all-report',
   mounted() {
     var that = this;
+    that.$store.commit('setOrderList', [])
     $.ajax({
       type: "get",
       url: "/exp/order/init",
