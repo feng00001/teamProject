@@ -1,6 +1,4 @@
-
-
-<template><!-- 全部 -->
+<template>
   <div class="send">
       <div class="false" v-for="item in $store.state.orderlist">
           <div class="top">
@@ -9,7 +7,7 @@
             <i class="iconfont l">&#xe656;</i>
             <span class="r">{{item.order.status}}</span>
           </div>
-          <div class="mid">
+          <div class="mid" v-for="shopitem in item.shoplist">
             <dl>
               <dd class="l">
                  <img :src="shopitem.img" class="l">
@@ -28,7 +26,7 @@
           </div>
           <ul class="count">
               <li >共{{item.shoplist.length}}件商品</li>
-              <li >合计:${{item.order.price}}</li>
+              <li >合计:￥{{item.order.price}}</li>
               <li >(含运费 ￥0.00)</li>
             </ul>
           <div class="bot">
@@ -71,12 +69,12 @@ export default {
 .send {
   background:#f5f5f5;
   width: 7.5rem;
+  margin-top: 2.2rem;
 }
 .false{
   width: 7.5rem;
-  height:4rem;
   background: #fff; 
-  margin-top: 2.2rem;
+  margin-bottom: .3rem;
   padding:.2rem 0;
   overflow-x:hidden;
   box-sizing: border-box;
