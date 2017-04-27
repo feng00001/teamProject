@@ -107,6 +107,7 @@ export default {
  mounted (){
     var that = this;
     var userid = util.getCookie("user");
+    var orderid = 0;
     $.ajax({
       method:"get",
       url:"/exp/apply/",
@@ -131,7 +132,7 @@ export default {
           totle: that.totle
         },
         success: function(data){
-
+          orderid = data;
         }
       })
     })
@@ -143,9 +144,20 @@ export default {
       $('.mask2').css({
         display:'block'
       })
-      setTimeout(function(){
-        location.href='http://localhost:8080/todo/#/myorder'
-      },3000)
+      $.ajax({
+        type: "get",
+        url: "/exp/apply/pay",
+        data: {
+          totle: that.totle,
+          orderid: orderid
+        },
+        success: function(data){
+          setTimeout(function(){
+            location.href='http://localhost:8080/todo/#/myorder'
+          },3000)
+        }
+      })
+      
     })
   },
    computed: {

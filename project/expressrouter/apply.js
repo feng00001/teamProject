@@ -13,4 +13,9 @@ router.get('/doorder', function(req, res, next) {
   	applydao.setOrder(req, res, next)
 });
 
+/* GET 支付. */
+router.get('/pay', function(req, res, next) {
+  	applydao.updateOrder(req, res, next)
+});
+
 module.exports = router;

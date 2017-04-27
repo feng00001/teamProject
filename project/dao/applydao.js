@@ -52,12 +52,11 @@ module.exports = {
 
 			// 建立连接，向表中插入值
 			new Promise(function(resolve, reject){
-				console.log("ub---ub")
-				console.log("userid:"+req.cookies["user"])
 				connection.query($sql.sqlApply02, [req.cookies["user"],param.totle,"未付款"], function(err, result) {
 					if(err){
 						console.log(err)
 					}
+					util.jsonWrite(res, result.insertId);
 					resolve({err, result});
 				});
 			}).then(function({err, result}){
@@ -74,10 +73,34 @@ module.exports = {
 				})
 				return;
 			}).then(function(){
-				util.jsonWrite(res, ret);
+				orderlist.map(function(element,ids){
+					connection.query($sql.sqlApply04, [element.shopcarid], function(err, result) {
+						if(err){
+							console.log(err)
+						}
+					});
+				});
+				return;
+			}).then(function(){
 				// 释放连接 
 				connection.release();
 			})
+		});
+	},
+	updateOrder: function(req, res, next){
+		console.log("here")
+		pool.getConnection(function(err, connection) {
+			if(err){
+				console.log(err)
+			}
+			// 获取前台页面传过来的参数
+			var param = req.query || req.params;
+			console.log("orderid:"+param.orderid)
+			connection.query($sql.sqlApply05, ["待发货",param.orderid], function(err, result) {
+				if(err){
+					console.log(err)
+				}
+			});
 		});
 	}
 };

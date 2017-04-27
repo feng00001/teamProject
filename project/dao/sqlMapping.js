@@ -63,6 +63,8 @@ var sql = {
 	sqlApply01: 'select * from shopcar,shop where shopcar.shopcarid = ? and shopcar.shopid = shop.shopid and userid = ? ',
 	sqlApply02: 'insert into myorder (userid,price,status) values (?,?,?)',
 	sqlApply03: 'insert into shoporder (orderid,shopid,price,quantity) values (?,?,?,?)',
+	sqlApply04: 'delete from shopcar where shopcarid = ?',
+	sqlApply05: 'update myorder set status=? where orderid = ?',
 	//Apply end
 
 	// Order begin

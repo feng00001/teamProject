@@ -1,6 +1,7 @@
 var filterpath = [
 	'/myself',
-	'/setting'
+	'/setting',
+	'/apply/'
 ]
 
 export default filterpath;
