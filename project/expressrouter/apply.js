@@ -8,5 +8,9 @@ router.get('/', function(req, res, next) {
   	applydao.selectcount(req, res, next)
 });
 
+/* GET 提交订单. */
+router.get('/doorder', function(req, res, next) {
+  	applydao.setOrder(req, res, next)
+});
 
 module.exports = router;

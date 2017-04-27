@@ -60,7 +60,14 @@ var sql = {
 	// ShopBuy end
 
 	//Apply begin
-	sqlApply01: 'select * from shopcar,shop where shopcar.shopcarid = ? and shopcar.shopid = shop.shopid and userid = ? '
+	sqlApply01: 'select * from shopcar,shop where shopcar.shopcarid = ? and shopcar.shopid = shop.shopid and userid = ? ',
+	sqlApply02: 'insert into myorder (price,status) values (?,?)',
+	sqlApply03: 'insert into shoporder (orderid,shopid,price,quantity) values (?,?,?,?)',
 	//Apply end
+
+	// Order begin
+	sqlOrder01: 'select * from myorder where status like "%" ? "%"',
+	sqlOrder02: 'select * from myorder,shoporder,shop where myorder.orderid = shoporder.orderid and shoporder.shopid = shop.shopid and myorder.orderid = ?'
+	// Order end
 };
 module.exports = sql;

@@ -33,6 +33,7 @@ export const state = {
   shoplifelist: [],
   shopqualitylist: [],
   applylist: [],
+  orderactive: 1,
   // 高洋用 end
   // 王春园用 begin
   userphone: 'assets/imgs/userphone.png',
@@ -42,6 +43,7 @@ export const state = {
   password: null,
   msgphone: null,
   userinfo: {},
+  orderlist: [],
   // 王春园用 end
   // 韩旭 begin
   classifyImg: [
@@ -171,7 +173,6 @@ export const mutations = {
   },
   setIsList(state) {
     state.isList = state.isList === 'con1' ? 'con2' : 'con1';
-
   },
   //韩旭 end
 
@@ -183,6 +184,9 @@ export const mutations = {
   setUserinfo(state, arg) {
     console.log("a:"+arg)
     state.userinfo = arg;
+  },
+  setOrderList(state, arg) {
+    state.orderlist = arg
   },
   // 王春园 end
 
@@ -211,6 +215,9 @@ export const mutations = {
   },
    setApplylist(state, test) {
     state.applylist = test
+  },
+  setOrderActive(state, test) {
+    state.orderactive = test
   }
   // 高洋用 end
 }

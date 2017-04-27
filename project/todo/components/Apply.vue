@@ -128,7 +128,7 @@ export default {
         type: "get",
         url: "/exp/apply/doorder",
         data: {
-          
+          totle: that.totle
         },
         success: function(data){
 

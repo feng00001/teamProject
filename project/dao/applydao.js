@@ -18,11 +18,12 @@ module.exports = {
 			var ret = []
 
 			function cb (arg) {
-				console.log(arg[0])
 				ret.push(arg[0])
 			}
 
 			function end () {
+				// ！！！只有shopcarid能用！！！因为数量可以改变
+				req.session.orderlist = ret;
 				util.jsonWrite(res, ret);
 				// 释放连接 
 				connection.release();
@@ -43,40 +44,40 @@ module.exports = {
 					}
 				});
 			})
-			
+		});
+	},
+	setOrder: function(req, res, next) {
+		pool.getConnection(function(err, connection) {
+			// 获取前台页面传过来的参数
+			var param = req.query || req.params;
+			var orderlist = req.session.orderlist;
 
-			
-
-			// new Promise(function(resolve, reject){
-				
-			// }).then(function(result){
-			// 	console.log(result)
-			// 	ret.push(result[0])
-			// },function(){
-				
-			// })
-
-			// promise.then(function(){
-			// 	// var ret = []
-			// 	var ret = checkids.map(function(checkid,ids){
-			// 		// 建立连接，向表中插入值
-			// 		connection.query($sql.sqlApply01, [checkid, param.userid], function(err, result) {
-			// 			if(err){
-			// 				console.log(err)
-			// 			}
-			// 			r = result[0]
-			// 		});
-			// 		return r
-			// 	})
-			// 	return ret;
-			// }).then(function(ret){
-			// 	console.log("in")
-			// 	console.log(ret)
-			// 	// 以json形式，把操作结果返回给前台页面
-			// 	util.jsonWrite(res, ret);
-			// 	// 释放连接 
-			// 	connection.release();
-			// })
+			// 建立连接，向表中插入值
+			new Promise(function(resolve, reject){
+				connection.query($sql.sqlApply02, [param.totle,"未付款"], function(err, result) {
+					if(err){
+						console.log(err)
+					}
+					resolve({err, result});
+				});
+			}).then(function({err, result}){
+				if(err){
+					console.log(err)
+				}
+				console.log(result)
+				orderlist.map(function(element,ids){
+					connection.query($sql.sqlApply03, [result.insertId,element.shopid,element.price,element.quantity], function(err, result) {
+						if(err){
+							console.log(err)
+						}
+					});
+				})
+				return;
+			}).then(function(){
+				util.jsonWrite(res, ret);
+				// 释放连接 
+				connection.release();
+			})
 		});
 	}
 };

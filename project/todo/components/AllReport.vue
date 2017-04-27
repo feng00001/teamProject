@@ -1,21 +1,21 @@
 <template><!-- 全部 -->
   <div class="all-report">
-      <div class="false">
+      <div class="false" v-for="item in $store.state.orderlist">
           <div class="top">
             <i class="iconfont l">&#xe607;</i>
             <h3 class="l">店铺名</h3>
             <i class="iconfont l">&#xe656;</i>
-            <span class="r">等待买家付款</span>
+            <span class="r">{{item.order.status}}</span>
           </div>
-          <div class="mid">
+          <div class="mid" v-for="shopitem in item.shoplist">
             <dl>
               <dd class="l">
-                 <img style="background:url(https://gw.alicdn.com/bao/uploaded/i1/136781748/TB24ViDo0RopuFjSZFtXXcanpXa_!!136781748.jpg_120x120q50s150.jpg) no-repeat center;background-size:cover;" class="l">
+                 <img :src="shopitem.img" class="l">
               </dd>
               <dt class="l">
-                <p class="l">4/24抢新 限量200件24小时秒发！短袖T恤+松紧系带拼色阔腿裤套装  </p>
-                <span class="l">￥119.00</span>
-                <del class="l">￥110.89</del>
+                <p class="l">{{shopitem.shopname}}  </p>
+                <span class="l">￥{{shopitem.price}}</span>
+                <del class="l">￥{{shopitem.price}}</del>
                 <ul class="l detail">
                    <li class="l">颜色分类:如图</li>   
                    <li class="l">尺码:s</li>
@@ -25,8 +25,8 @@
             </dl>
           </div>
           <ul class="count">
-              <li >共1件商品</li>
-              <li >合计:$119.00</li>
+              <li >共{{item.shoplist.length}}件商品</li>
+              <li >合计:${{item.order.price}}</li>
               <li >(含运费 ￥0.00)</li>
             </ul>
           <div class="bot">
@@ -41,9 +41,20 @@
 
 <script>
 import { mapMutations, mapActions} from 'vuex'
+import $ from 'jquery'
 
 export default {
   name: 'all-report',
+  mounted() {
+    var that = this;
+    $.ajax({
+      type: "get",
+      url: "/exp/order/init",
+      success: function(data){
+        that.$store.commit('setOrderList', data)  
+      }
+    })
+  },
   methods: {
     
   }
