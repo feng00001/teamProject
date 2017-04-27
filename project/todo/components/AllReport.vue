@@ -26,7 +26,7 @@
           </div>
           <ul class="count">
               <li >共{{item.shoplist.length}}件商品</li>
-              <li >合计:${{item.order.price}}</li>
+              <li >合计:￥{{item.order.price}}</li>
               <li >(含运费 ￥0.00)</li>
             </ul>
           <div class="bot">
@@ -65,14 +65,14 @@ export default {
 .all-report {
   background:#f5f5f5;
   width: 7.5rem;
+  margin-top:2.2rem;
 }
 .false{
   width: 7.5rem;
-  height:4rem;
   background: #fff; 
-  margin-top: 2.2rem;
   padding:.2rem 0;
   overflow-x:hidden;
+  margin-bottom:.3rem;
   box-sizing: border-box;
 }
 .false .top{

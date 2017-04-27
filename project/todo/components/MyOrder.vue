@@ -54,15 +54,15 @@ export default {
       $('.active').removeClass('active');
       $(e.target).addClass('active')
       if(e.target.className.indexOf('all') !== -1){
-        this.$store.commit('setIsPlay', 'all')
+        this.$store.commit('setIsDisplay', 'all')
       }else if(e.target.className.indexOf('payment') !== -1){
-        this.$store.commit('setIsPlay', 'payment')
+        this.$store.commit('setIsDisplay', 'payment')
       }else if(e.target.className.indexOf('send') !== -1){
-        this.$store.commit('setIsPlay', 'send')
+        this.$store.commit('setIsDisplay', 'send')
       }else if(e.target.className.indexOf('receive') !== -1){
-        this.$store.commit('setIsPlay', 'receive')
+        this.$store.commit('setIsDisplay', 'receive')
       }else{
-        this.$store.commit('setIsPlay', 'commence')
+        this.$store.commit('setIsDisplay', 'commence')
       }
     },
 		...mapActions([
@@ -77,6 +77,7 @@ export default {
 .order-detail{
 	display: flex;
 	flex-direction:column;
+  margin-bottom:2.2rem;
 }
 #header{
     height: 2rem;
