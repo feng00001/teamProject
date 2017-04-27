@@ -118,7 +118,7 @@ const router = new Router({
       component: MyOrder
     },
     {
-      path: '/apply',
+      path: '/apply/:checkid?',
       name: 'Apply',
       component: Apply
     },

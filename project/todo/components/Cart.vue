@@ -28,7 +28,7 @@
       <ul class="all">
         <li class="list" v-for="item in $store.state.cartlist">
           <div class="left">
-            <input type="checkbox" checked/>
+            <input type="checkbox" checked ref="checkshop" :value="item.shopcarid" class="checkshop"/>
           </div>
           <div class="center">
             <img :src="item.img">
@@ -58,7 +58,9 @@
       <span class="totle">
         合计：
       </span>
-      <router-link to="/apply"><button class="r">去结算（9）</button></router-link>
+      <!-- <router-link to="/apply"> -->
+        <button class="r" @touchend="apply">去结算（9）</button>
+      <!-- </router-link> -->
       <span class="r" ref="totle">
         ￥{{totle}}
       </span>
@@ -139,6 +141,17 @@ export default {
 
         }
       })
+    },
+    apply() {
+      var param = ""
+      $(".checkshop:checked").each(function(ids,element){
+        if(ids===$(".checkshop:checked").length-1){
+          param = param + element.value
+        }else{
+          param = param + element.value + ","
+        }
+      })
+      location.href="#/apply/"+param
     }
   },
   components: {

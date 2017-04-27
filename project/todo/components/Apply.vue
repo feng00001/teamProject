@@ -111,7 +111,8 @@ export default {
       method:"get",
       url:"/exp/apply/",
       data: {
-        userid: userid
+        userid: userid,
+        checkid: this.$route.params.checkid
       },
       success:function(data){
         // 对store的操作需要调用mutations

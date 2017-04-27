@@ -60,7 +60,7 @@ var sql = {
 	// ShopBuy end
 
 	//Apply begin
-	sqlApply01: 'select * from shopcar,shop where shopcar.shopid = shop.shopid and userid = ? '
+	sqlApply01: 'select * from shopcar,shop where shopcar.shopcarid = ? and shopcar.shopid = shop.shopid and userid = ? '
 	//Apply end
 };
 module.exports = sql;
