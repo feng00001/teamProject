@@ -36,6 +36,12 @@
             <button>付款</button>
           </div>   
       </div>
+      <div class="mask">
+          <div class="success">
+              <img :src="$store.state.testImg[14]">
+              <p>支付成功</p>
+          </div>
+      </div>
   </div>
 </template>
 
@@ -59,6 +65,14 @@ export default {
         that.$store.commit('setOrderList', data)  
       }
     })
+    $('.money').click(function(){
+        $('.mask').css('display','block')
+        $('.success').css('display','block')
+        setTimeout(function(){
+            $('.mask').css('display','none')
+            $('.success').css('display','none')
+          },2000)
+      })
   },
   methods: {
     
@@ -170,5 +184,39 @@ export default {
   border-radius: .05rem;
   color: #333;
   border:.02rem solid #ccc;
+}
+.mask{
+  width: 7.5rem;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: #000;
+  opacity: .7;
+  display: none;
+}
+.mask .success{
+  width: 6rem;
+  height: 4rem;
+  background: #fff;
+  position: fixed;
+  top:50%;
+  margin-top: -2rem;
+  left: 50%;
+  margin-left: -3rem;
+  display: none;
+  border-radius: 10px;
+}
+.mask .success img{
+  width: 3rem;
+  height: 2.5rem;
+  margin-left: 1.5rem;
+}
+.mask .success p{
+  width: 100%;
+  text-align: center;
+  line-height: 1.5rem;
+  font-size: 18px;
+  color: #e6133c;
 }
 </style>

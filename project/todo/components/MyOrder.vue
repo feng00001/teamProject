@@ -9,8 +9,8 @@
       </div>
       <ul @touchend='switchover($event)'>
         <li class="l all active">全部</li>
-        <li class="l payment">代付款</li>
-        <li class="l send">代发货</li>
+        <li class="l payment">待付款</li>
+        <li class="l send">待发货</li>
         <li class="l receive">待收货</li>
         <li class="l evaluate">待评价</li>
         
