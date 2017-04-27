@@ -2,7 +2,9 @@
 <template>
   <div class="classify">
   	<div id="header">
-  		<label><i class="iconfont">&#xe501;</i><input type="text" placeholder="搜索你想找的商品"/></label>
+  		<label><i class="iconfont">&#xe501;</i>
+		<router-link to="/search" tag="input" type="text" active-class="special"placeholder="搜索你想找的商品"></router-link>
+  		</label>
   		<search-nav></search-nav>
   	</div>
   	<div id="content1">
