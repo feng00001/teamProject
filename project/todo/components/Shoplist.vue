@@ -160,7 +160,7 @@
 			<a href="#/shoplife" class="l">
 				<img  alt="" class="one">
 			</a>
-			<a href="#/shopleft" class="l">
+			<a href="#/shoplife" class="l">
 				<img  alt="" class="two">
 			</a>
 		</div>
