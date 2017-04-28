@@ -64,18 +64,19 @@ export default {
 <style scoped>
 .receive {
   background:#f5f5f5;
-  width: 7.5rem;
+  width: 100%;
   margin-top:2.2rem;
 }
 .false{
-  width: 7.5rem;
+  width: 100%;
   background: #fff; 
-  margin-bottom: .3rem;
   padding:.2rem 0;
   overflow-x:hidden;
+  margin-bottom:.3rem;
   box-sizing: border-box;
 }
 .false .top{
+  width: 100%;
   height: .7rem;
   line-height: .7rem;
 } 
@@ -95,15 +96,18 @@ export default {
   margin-right: .2rem;
 }
 .false .mid{
+  width: 100%;
   height: 1.4rem;
   clear: both;
   background:#f5f5f5;
   box-sizing: border-box;
   padding:.1rem .2rem;
+  margin-bottom: .1rem;
 }
 .false .mid dl{
-  width: 7.5rem;
+  width: 100%;
   height: 100%;
+  display: flex;
 }
 .false .mid dl dd {
   width: 1.24rem;
@@ -120,14 +124,18 @@ export default {
   padding-left: .2rem;
   font-size: 12px;
   line-height: .33rem;
+  flex: 1;
 }
 .false .mid dl dt p{
-  width: 4.2rem;
-  height: .66rem;
-
+  width: 100%;
+  height: .5rem;
+  line-height: .5rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .false .mid dl dt span,.false .mid dl dt del{
-  width: 1.5rem;
+  width: 35%;
   height: .3rem;
   margin-left: .1rem;
 
@@ -135,7 +143,6 @@ export default {
 .false .mid dl dt .detail{
   width: 100%;
   height: .3rem;
-  margin-top: .1rem;
 }
 .false .count{
   height: .7rem;
@@ -143,7 +150,6 @@ export default {
   line-height: .7rem;
   border-bottom: .02rem solid #ccc;
   box-sizing: border-box;
-  padding-left: 1rem;
   text-align: center;
 }
 .false .count li{
@@ -156,15 +162,17 @@ export default {
   width: 100%;
   clear: both;
   line-height: 1rem;
-  padding-left:1rem;
+  margin-left:.5rem;
   box-sizing: border-box;
 }
 .false .bot button{
-  width: 1.5rem;
+  width: 22%;
   height: .6rem;
   background: #fff;
   border-radius: .05rem;
   color: #333;
+
   border:.02rem solid #ccc;
 }
+
 </style>

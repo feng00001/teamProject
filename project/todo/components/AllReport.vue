@@ -118,6 +118,7 @@ export default {
   background:#f5f5f5;
   box-sizing: border-box;
   padding:.1rem .2rem;
+  margin-bottom: .1rem;
 }
 .false .mid dl{
   width: 100%;
