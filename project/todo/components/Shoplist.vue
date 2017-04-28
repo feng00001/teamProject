@@ -15,12 +15,12 @@
     		<input class="l" type="text" placeholder="搜索你要的商品">
     	</router-link>
     	
-    	<a href="" class="list l">
+    	<router-link to="/classify" tag="div" active-class="special" class="list l ">
     		<i class="iconfont">&#xe657;</i>
-    	</a>
-    	<a href="" class="card l">
+    	</router-link>
+    	<router-link to="/cart" tag="div" active-class="special" class="card l ">
     		<i class="iconfont">&#xe62a;</i>	
-    	</a>
+    	</router-link>
     </header>
     <mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="$store.state.allLoaded" ref="loadmore">
     <div id="slide">
@@ -398,6 +398,7 @@ $('.list li').click(()=>{
     margin-left: 0.1rem;
     display: inline;
     color: #e6133c;
+    margin-top:.1rem;
 }
 .shopList header .list i,.shopList header .card i{
 	font-size: .48rem;
@@ -406,7 +407,8 @@ $('.list li').click(()=>{
 	padding: 0 0.2rem;
     font-size: 0.18rem;
     font-family: "iconfont";
-    margin-left: 0.1rem;
+    margin-left: .1rem;
+    margin-top:.1rem;
     display: inline;
     color: #e6133c;
 }
