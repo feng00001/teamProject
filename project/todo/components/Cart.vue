@@ -10,8 +10,9 @@
   			购物车（0）
   		</span>
   		<span class="r">
-  			...
+  			<search-nav></search-nav>
   		</span>
+      
   	</div>
   	<div id="login">
       <router-link to="/mine/logon">登陆</router-link>
@@ -73,6 +74,8 @@
 <script>
 import $ from 'jquery'
 import BottomNav from './BottomNav.vue'
+import SearchNav from './SearchNav.vue'
+
 import { mapMutations, mapActions} from 'vuex'
 import util from '../../../util/common.js'
 
@@ -156,7 +159,8 @@ export default {
     }
   },
   components: {
-  	BottomNav
+  	BottomNav,
+    SearchNav
   }
 }
 </script>
@@ -169,6 +173,9 @@ export default {
 	    border-bottom: .05rem solid #eeeeee;
 	    padding:0 .3rem;
 	}
+  #header span.r{
+    line-height: .1rem;
+  }
   #login {
       height: .8rem;
       padding: 0 .5rem;

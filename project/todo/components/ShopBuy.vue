@@ -11,30 +11,7 @@
 	</header>
 	<search-nav></search-nav>
 	<mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="$store.state.allLoaded" ref="loadmore">
-	<!-- <nav>
-		<ul>
-			<li>
-				<p>00:00</p>
-				<p>已开抢</p>
-			</li>
-			<li>
-				<p>06:00</p>
-				<p>已开抢</p>
-			</li>
-			<li>
-				<p>10:00</p>
-				<p>已开抢</p>
-			</li>
-			<li>
-				<p>15:00</p>
-				<p>已开抢</p>
-			</li>
-			<li>
-				<p>21:00</p>
-				<p>已开抢</p>
-			</li>
-		</ul>
-	</nav> -->
+	
 	<section>
 		<ul>
 			<router-link :to="'detail/'+item.shopid" key="item.shopid" tag="li" v-for="item in $store.state.shopbuylist">
