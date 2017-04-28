@@ -120,7 +120,7 @@
 		<div class="news_left l">
 			<router-link to="shopbuy" tag="a" active-class="special" >
 				<img  alt="">
-			</router-link>s
+			</router-link>
 		</div>
 		<div class="news_right l">
 			<span>
