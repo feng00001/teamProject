@@ -159,7 +159,7 @@ export default {
         },
         success: function(data){
           setTimeout(function(){
-            location.href='http://localhost:8080/todo/#/myorder'
+            location.href='#/myorder'
           },3000)
         }
       })
