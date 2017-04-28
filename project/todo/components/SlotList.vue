@@ -2,7 +2,7 @@
 	<div class="slotlist">
 		<div id="header">
 			<div class="first">
-				<router-link to="/classify" class="l">&gt;</router-link>
+				<router-link to="/classify" class="l"><i class="iconfont">&#x3484;</i></router-link>
 				<div class="search l">
 					<i class="iconfont">&#xe501;</i>
 					<input type="text" placeholder="查找你喜欢的商品"/>
