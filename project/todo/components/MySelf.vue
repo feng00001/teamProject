@@ -325,6 +325,7 @@ export default {
 		padding: 0 0.3rem;
 		background: #fff;
 		border-bottom: 0.03rem solid #eeeeee;
+		margin-bottom: 1.2rem;
 	}
 	.container .myset ul {
 
