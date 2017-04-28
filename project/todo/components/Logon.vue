@@ -19,14 +19,14 @@
         </div>
         <div class="formgroup">
             <label><span>密码</span></label>
-            <input type="text" placeholder="请输入密码" ref="password"/>
+            <input type="password" placeholder="请输入密码" ref="password"/>
         </div>
     </div>
-    <div class="setoption">
+    <!-- <div class="setoption">
         <input type="checkbox" class="checkbox" />
         <span>两周内免登陆</span>
         <a class="forget" href="javascript:;">忘记密码？</a>
-    </div>
+    </div> -->
     <div class="btngroup">
         <button @click="checkuser">登录</button>
     </div>
@@ -146,7 +146,7 @@ export default {
         height: 1rem;
         border: 0;
     }
-    .container .setoption {
+    /*.container .setoption {
         width: 7.5rem;
         height: 1rem;
         line-height: 1rem;
@@ -163,12 +163,13 @@ export default {
         float: right;
         padding-right: 0.7rem;
         color: #000;
-    }
+    }*/
     .container .btngroup {
         width: 7.5rem;
         height: 1rem;
         padding: 0 0.2rem;
         line-height: 1rem;
+        margin-top: .4rem;
     }
     .container .btngroup button {
         background: #e6133c;

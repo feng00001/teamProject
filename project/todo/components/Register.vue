@@ -28,7 +28,7 @@
     <div class="inputtext">
         <div class="formgroup">
             <label><span>设置密码</span></label>
-            <input type="text" placeholder="6-20位数字，字母组合" ref="password" v-model="$store.state.password"/>
+            <input type="password" placeholder="6-20位数字，字母组合" ref="password" v-model="$store.state.password"/>
         </div>
     </div>
     <div class="setoption">
