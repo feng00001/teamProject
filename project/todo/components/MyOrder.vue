@@ -8,11 +8,11 @@
         <span>订单管理</span>
       </div>
       <ul @touchend='switchover($event)'>
-        <li class="l all active">全部</li>
-        <li class="l payment">待付款</li>
-        <li class="l send">待发货</li>
-        <li class="l receive">待收货</li>
-        <li class="l evaluate">待评价</li>
+        <li class=" all active">全部</li>
+        <li class=" payment">待付款</li>
+        <li class=" send">待发货</li>
+        <li class=" receive">待收货</li>
+        <li class=" evaluate">待评价</li>
       </ul>
     </div>
     <all-report v-if="$store.state.isDisplay==='all'"></all-report>
@@ -88,7 +88,7 @@ export default {
 }
 #header .top{
   height: 1rem;
-  width: 7.5rem;
+  width: 100%;
   line-height: 1rem;
   border-bottom: .02rem solid #ccc;
 }  
@@ -98,10 +98,13 @@ export default {
   font-size: 16px;
   display: inline-block;
 }
-#header ul li {
+#header ul {
   text-align: center;
-  padding:0 .3rem;
+}
+#header ul li {
+  padding:0 .2rem;
   line-height:1rem;
+  display: inline-block;
   box-sizing: border-box;
 }
 .active{
