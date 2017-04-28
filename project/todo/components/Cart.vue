@@ -68,6 +68,7 @@
       
     </div>
     <bottom-nav></bottom-nav>
+    <main><router-link to="/shopList" class="l" tag="p">请选购</router-link></main>
   </div>
 </template>
 
@@ -160,7 +161,9 @@ export default {
         })
         location.href="#/apply/"+param
       }else{
-        alert('并没有东西去结算')
+        $('main').css({
+          display: 'block'
+        })
       }
       
     }
@@ -173,6 +176,25 @@ export default {
 </script>
 
 <style scoped>
+main{
+  position: fixed;
+  
+  color:#fff;
+  display: none;
+}
+main p {
+  width:80%;
+  height:40px;
+  line-height:40px;
+  position: fixed;
+  top:50%;
+  left: 15%;
+  margin-top: -20px;
+  font-size: 30px;
+  border-radius: 10px;
+  text-align: center;
+  background: #000
+}
 	#header {
 		  text-align: center;
 	    line-height: .8rem;
