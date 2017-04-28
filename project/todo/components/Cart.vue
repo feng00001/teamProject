@@ -3,7 +3,7 @@
   	<div id="header">
   		<span class="l">
         <router-link to="/slotlist">
-  			 &gt;
+  			<i class="iconfont">&#x3484;</i>
         </router-link>
   		</span>
   		<span>
@@ -16,7 +16,7 @@
   	<div id="login">
       <router-link to="/mine/logon">登陆</router-link>
       <span>后可同步电脑与手机购物车中的商品</span>
-      <router-link to="/mine/logon" class="r">&lt;</router-link>
+      <router-link to="/mine/logon" class="r iconfont">&#xe656;</router-link>
     </div>
     <div id="cart-content" v-if="$store.state.cartlist.length===0">
       <img :src="$store.state.cartImg">
