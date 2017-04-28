@@ -24,7 +24,7 @@ export const state = {
             'assets/imgs/shopList/n5.png','assets/imgs/shopList/n6.png',
             'assets/imgs/shopList/n7.png','assets/imgs/shopList/n8.png',
             'assets/imgs/shopList/n9.png','assets/imgs/shopList/n10.png',
-            'assets/imgs/shopList/timg.jpg'],
+            'assets/imgs/shopList/timg.jpg','assets/imgs/shopList/bg.jpg'],
   prePage: 0,
   everyday: [],
   yourlikelist: [],
