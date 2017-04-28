@@ -12,7 +12,6 @@ router.get('/createcode', function(req, res, next) {
     var {img,str} = makeCapcha();
     req.session.checkcode = str;
     res.setHeader('Content-Type', 'image/bmp');
-    console.log()
     res.end(img.getFileData());
 });
 
