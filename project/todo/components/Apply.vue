@@ -390,7 +390,6 @@ export default {
   margin-top: .3rem;
   line-height: .7rem;
   box-sizing: border-box;
-  padding-left: 1.5rem;
   text-align: center;
   background: #fff;
 }
@@ -449,7 +448,7 @@ export default {
   background: #e6133c;
   border:0;
   color: #fff;
-  margin-top: 1rem;
+  margin-top: .3rem;
   border-radius: 5px;
 }
 #apply .success{

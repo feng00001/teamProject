@@ -315,7 +315,7 @@ export default {
 		padding:.2rem 0;
 		border-top:0.005rem solid #eee;
 		border-bottom:0.005rem solid #eee;
-		height:.6rem;
+		height:1rem;
 	}
 	#header .classify li{
 		float:left;
@@ -324,7 +324,7 @@ export default {
 		border-radius: .03rem;
 		text-align: center;
 		line-height:.6rem;
-		margin:0 .35rem;
+		margin:0 .3rem;
 		border-radius: .03rem;
 		    box-sizing: border-box;
 	}
