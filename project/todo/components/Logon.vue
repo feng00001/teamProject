@@ -84,6 +84,7 @@ export default {
 
     .container {
         width: 7.5rem;
+        overflow-x: hidden;
     }
     .container nav {
         
