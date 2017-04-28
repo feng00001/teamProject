@@ -119,18 +119,18 @@
 	<div id="news">
 		<div class="news_left l">
 			<router-link to="shopbuy" tag="a" active-class="special" >
-				<img  alt="">
+				<img  :src="$store.state.testImg[16]">
 			</router-link>
 		</div>
 		<div class="news_right l">
 			<span>
 				<router-link to="shoplife" tag="a" active-class="special" >
-					<img  alt="" class="tp">
+					<img  :src="$store.state.testImg[17]" />
 				</router-link>
 			</span>
-			<span>
-				<router-link to="ShopQuality" tag="a" active-class="special" >
-					<img  alt="" class="bt">
+			<span style="border-bottom:0;">
+				<router-link to="ShopQuality" tag="a" active-class="special" style="border-bottom:0;" >
+					<img  :src="$store.state.testImg[18]"/>
 				</router-link>
 			</span>
 		</div>
@@ -158,21 +158,21 @@
 		</div>
 		<div class="life_tp">
 			<a href="#/shoplife" class="l">
-				<img  alt="" class="one">
+				<img  :src="$store.state.testImg[19]" class="one"/>
 			</a>
 			<a href="#/shoplife" class="l">
-				<img  alt="" class="two">
+				<img  :src="$store.state.testImg[20]" class="two"/>
 			</a>
 		</div>
 		<div class="life_bt">
 			<a href="#/shoplife" class="l">
-				<img  alt="" class="one">
+				<img  :src="$store.state.testImg[21]" class="one"/>
 			</a>
 			<a href="#/shoplife" class="l">
-				<img  alt="" class="two">
+				<img  :src="$store.state.testImg[22]" class="two"/>
 			</a>
 			<a href="#/shoplife" class="l">
-				<img  alt="" class="three">
+				<img  :src="$store.state.testImg[23]" class="three"/>
 			</a>
 		</div>
 	</div>
@@ -182,18 +182,18 @@
 		</div>
 		<div class="spe_tp">
 			<a href="#/ShopQuality" class="l">
-				<img class="one" alt="">
+				<img class="one" :src="$store.state.testImg[24]">
 			</a>
 			<a href="#/ShopQuality" class="l">
-				<img class="two" alt="">
+				<img class="two" :src="$store.state.testImg[25]">
 			</a>
 			<a href="#/ShopQuality" class="l">
-				<img class="three" alt="">
+				<img class="three" :src="$store.state.testImg[26]">
 			</a>
 		</div>
 		<div class="spe_bt">
 			<router-link to="slotlist" tag="a" active-class="special" >
-			<img >
+			<img class="three" :src="$store.state.testImg[27]">
 			</router-link>
 		</div>
 	</div>
@@ -478,36 +478,24 @@ $('.list li').click(()=>{
 .shopList #news .news_left{
 	box-sizing: border-box;
 	width: 2.9rem;
-	height: 4.6rem;
+	height: 4.58rem;
 	border-right: 0.02rem solid #ccc;
 }
 .shopList #news .news_left img{
 	width: 2.88rem;
 	height: 4.55rem;
-	background: url(http://img22.iblimg.com/market-2/images/content/1331891831.jpg) no-repeat center;
-	background-size: cover;
 }
-.shopList #news .news_right span{
+.shopList #news .news_right span,.shopList #news .news_right span a{
 	display: block;
 	width: 4.6rem;
-	height: 2.28rem;
+	height: 2.27rem;
 	box-sizing: border-box;
 	border-bottom: 0.02rem solid #ccc;
 }
-.shopList #news .news_right span img.tp{
+
+.shopList #news .news_right span img{
 	width: 4.58rem;
 	height: 2.26rem;
-	background: url(http://img22.iblimg.com/market-2/images/content/730613966.jpg) no-repeat center;
-	background-size: cover;
-}
-.shopList #news .news_right span img.bt{
-	width: 4.58rem;
-	height: 2.26rem;
-	background: url(http://img22.iblimg.com/market-2/images/content/1492018109.jpg) no-repeat center;
-	background-size: cover;
-}
-.shopList #news .news_right span:first-child{
-	border:0;
 }
 .shopList #buy{
 	height: 3.6rem;
@@ -599,25 +587,15 @@ $('.list li').click(()=>{
 .shopList #life .life_tp a{
 	display: inline-block;
 	width: 3.74rem;
-	height: 2.52rem;
+	height: 2.47rem;
 	border-right: 0.02rem solid #ccc;
 }
-.shopList #life .life_tp img.one{
+.shopList #life .life_tp img{
 	width: 3.72rem;
-	height: 2.52rem;
-	background: url(http://img22.iblimg.com/market-2/images/content/730613966.jpg) no-repeat center;
-	background-size: cover;
-	box-sizing: border-box;
-}
-.shopList #life .life_tp img.two{
-	width: 3.72rem;
-	height: 2.52rem;
-	background: url(http://img22.iblimg.com/market-2/images/content/1993378220.jpg) no-repeat center;
-	background-size: cover;
-	box-sizing: border-box;
+	height: 2.45rem;
 }
 .shopList #life .life_tp a:last-child,.shopList #life .life_bt a:last-child{
-	border: 0;
+	border-right: 0;
 }
 .shopList #life .life_bt{
 	height: 2.44rem;
@@ -633,22 +611,16 @@ $('.list li').click(()=>{
 	width: 2.47rem;
 	height: 2.44rem;
 	box-sizing: border-box;
-	background: url(http://img23.iblimg.com/market-2/images/content/1784240540.jpg) no-repeat center;
-	background-size: cover;
 }
 .shopList #life .life_bt img.two{
 	width: 2.47rem;
 	height: 2.44rem;
 	box-sizing: border-box;
-	background: url(http://img23.iblimg.com/market-2/images/content/1265473904.jpg) no-repeat center;
-	background-size: cover;
 }
 .shopList #life .life_bt img.three{
 	width: 2.47rem;
 	height: 2.44rem;
 	box-sizing: border-box;
-	background: url(http://img22.iblimg.com/market-2/images/content/181306820.jpg) no-repeat center;
-	background-size: cover;
 }
 .shopList #special{
 	width: 7.5rem;
@@ -679,39 +651,18 @@ $('.list li').click(()=>{
 	box-sizing: border-box;
 	border-right: 0.02rem solid #ccc;
 }
-.shopList #special .spe_tp img.one{
-	width: 2.5rem;
+.shopList #special .spe_tp img{
+	width: 2.4rem;
 	height: 2.44rem;
-	box-sizing: border-box;
-	background: url(http://img22.iblimg.com/market-2/images/content/1753109583.jpg) no-repeat center;
-	background-size: cover;
-}
-.shopList #special .spe_tp img.two{
-	width: 2.5rem;
-	height: 2.44rem;
-	box-sizing: border-box;
-	background: url(http://img23.iblimg.com/market-2/images/content/1138844193.jpg) no-repeat center;
-	background-size: cover;
-}
-.shopList #special .spe_tp img.three{
-	width: 2.5rem;
-	height: 2.44rem;
-	box-sizing: border-box;
-	background: url(http://img22.iblimg.com/market-2/images/content/829696241.jpg) no-repeat center;
-	background-size: cover;
 }
 .shopList #special .spe_tp  a:last-child{
 	border: 0;
 }
-.shopList #special .spe_bt{
-	margin-top: -.1rem;
-}
+
 .shopList #special .spe_bt img{
 	width: 7.5rem;
 	height: 2.54rem;
 	border:0;
-	background: url(http://img23.iblimg.com/market-2/images/content/1623108742.jpg) no-repeat center;
-	background-size: cover;
 }
 .shopList  #slide2{
 	height: 2.3rem;
