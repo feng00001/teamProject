@@ -326,6 +326,7 @@ export default {
 		line-height:.6rem;
 		margin:0 .35rem;
 		border-radius: .03rem;
+		    box-sizing: border-box;
 	}
 	#content1{
 		margin-top:3.5rem;
