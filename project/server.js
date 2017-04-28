@@ -23,8 +23,18 @@ const search = require('./expressrouter/search')
 
 const app = express()
 app.use(cookieParser())
+// app.use(session({
+// 	secret: 'nsessionid'
+// }));
 app.use(session({
-	secret: 'nsessionid'
+    secret: 'nsessionid',
+    key: 'nsessionid',
+    cookie: {
+        secret: true,
+        expires: false
+    },
+    resave: true,
+    saveUninitialized: true
 }));
 
 const compiler = webpack(WebpackConfig)
