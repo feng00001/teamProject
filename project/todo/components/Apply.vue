@@ -14,7 +14,7 @@
         <span class="l"></span>
         <p>送达时间</p>
         <div class="time_r ">
-        尽快送达 | 预计<span id="time">00.00</span>
+        尽快送达 | 预计<span id="time">30.00</span>
         </div>
     </div>
     <div class="pay">

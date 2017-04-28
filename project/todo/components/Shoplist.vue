@@ -546,7 +546,7 @@ $('.list li').click(()=>{
 	border:0;
 }
 .shopList #buy ul li img{
-	width: 2rem;
+	width: 1.9rem;
 	height: 2rem;
 }
 .shopList #buy ul li p{
@@ -586,12 +586,12 @@ $('.list li').click(()=>{
 }
 .shopList #life .life_tp a{
 	display: inline-block;
-	width: 3.74rem;
+	width: 49%;
 	height: 2.47rem;
 	border-right: 0.02rem solid #ccc;
 }
 .shopList #life .life_tp img{
-	width: 3.72rem;
+	width: 100%;
 	height: 2.45rem;
 }
 .shopList #life .life_tp a:last-child,.shopList #life .life_bt a:last-child{
