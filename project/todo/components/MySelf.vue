@@ -241,6 +241,7 @@ export default {
 	.container .head .store .collect p {
 		font-size: 0.2rem;
 		color: #fff;
+		line-height: .4rem
 	}
 	.container .mymenu {
 		padding: 0 0.3rem;

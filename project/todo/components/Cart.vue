@@ -15,8 +15,8 @@
       
   	</div>
   	<div id="login">
-      <router-link to="/mine/logon">登陆</router-link>
-      <span>后可同步电脑与手机购物车中的商品</span>
+      <router-link to="/mine/logon" class="login">登陆后可同步电脑与手机购物车中的商品</router-link>
+      
       <router-link to="/mine/logon" class="r iconfont">&#xe656;</router-link>
     </div>
     <div id="cart-content" v-if="$store.state.cartlist.length===0">
@@ -68,6 +68,7 @@
       
     </div>
     <bottom-nav></bottom-nav>
+    <main><router-link to="/shopList" class="l" tag="p">请选购</router-link></main>
   </div>
 </template>
 
@@ -84,7 +85,8 @@ export default {
     var userid = util.getCookie("user");
     var that = this
     this.selall()
-
+    console.log($('.login').html() )
+    $('.login').html('欢迎选购')
   },
   computed: {
     totle: function() {
@@ -147,15 +149,23 @@ export default {
       })
     },
     apply() {
-      var param = ""
-      $(".checkshop:checked").each(function(ids,element){
-        if(ids===$(".checkshop:checked").length-1){
-          param = param + element.value
-        }else{
-          param = param + element.value + ","
-        }
-      })
-      location.href="#/apply/"+param
+      console.log($('.list'))
+      if($('.list').length>0){
+        var param = ""
+        $(".checkshop:checked").each(function(ids,element){
+          if(ids===$(".checkshop:checked").length-1){
+            param = param + element.value
+          }else{
+            param = param + element.value + ","
+          }
+        })
+        location.href="#/apply/"+param
+      }else{
+        $('main').css({
+          display: 'block'
+        })
+      }
+      
     }
   },
   components: {
@@ -166,6 +176,25 @@ export default {
 </script>
 
 <style scoped>
+main{
+  position: fixed;
+  
+  color:#fff;
+  display: none;
+}
+main p {
+  width:80%;
+  height:40px;
+  line-height:40px;
+  position: fixed;
+  top:50%;
+  left: 15%;
+  margin-top: -20px;
+  font-size: 30px;
+  border-radius: 10px;
+  text-align: center;
+  background: #000
+}
 	#header {
 		  text-align: center;
 	    line-height: .8rem;
