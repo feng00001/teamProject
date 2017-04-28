@@ -43,7 +43,7 @@ import util from '../../../util/common.js'
 export default {
 	// 页面加载完成后调用，
 	mounted (){
-		
+		document.documentElement.scrollTop = 0
 	},
 	methods: {
     switchover(e) {

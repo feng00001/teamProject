@@ -207,10 +207,9 @@ export default {
       background:'red'
     })
     var that = this
-    that.$store.commit('setReportlist', [])
-    var str=location.href
-    var str1 = str.match(/detail.*/)
-    var shopid = str1[0].match(/\d.*/)[0] 
+    that.$store.commit('setReportlist', []) 
+   
+    var shopid = this.$route.params.shopId
     $.ajax({
       type:"get",
       url:"/exp/detail/report",
