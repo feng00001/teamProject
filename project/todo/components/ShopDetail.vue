@@ -27,6 +27,7 @@
   			<li class="l" v-on:touchend="fly2cart">加入购物车</li>
   		</ul>
   	</div>
+    <main><router-link to="/mine/logon" class="l" tag="p">please sign up</router-link></main>
   </div>
 </template>
 
@@ -66,7 +67,10 @@ export default {
       var shopid = str1[0].match(/\d.*/)[0]
       var userid = util.getCookie("user")
       if(userid === null){
-        alert('please sign up')
+        $('main').css({
+          display: 'block'
+        })
+        
       }else{
         console.log(userid)
         $.ajax({
@@ -114,6 +118,27 @@ export default {
 </script>
 
 <style scoped>
+main{
+  position: fixed;
+  background: rgba(0,0,0,.6);
+  width:100%;
+  height:100%;
+  color:#fff;
+  display: none;
+}
+main p {
+  width:80%;
+  height:40px;
+  line-height:40px;
+  position: fixed;
+  top:50%;
+  left: 15%;
+  margin-top: -20px;
+  font-size: 30px;
+  border-radius: 10px;
+  text-align: center;
+  background: #000
+}
 .shop-detail {
 	display: flex;
 	flex-direction:column;
