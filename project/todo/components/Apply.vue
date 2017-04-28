@@ -108,6 +108,7 @@ export default {
     var that = this;
     var userid = util.getCookie("user");
     var orderid = 0;
+    console.log("c:"+this.$route.params.checkid)
     $.ajax({
       method:"get",
       url:"/exp/apply/",
@@ -125,11 +126,16 @@ export default {
       $('.payDetail').css({
         display:'block'
       });
+      var item = that.$store.state.applylist[0]
+      console.log(item.shopid+'---'+item.price+'---'+item.quantity)
       $.ajax({
         type: "get",
         url: "/exp/apply/doorder",
         data: {
-          totle: that.totle
+          totle: that.totle,
+          shopid: item.shopid,
+          price: item.price,
+          quantity: item.quantity
         },
         success: function(data){
           orderid = data;

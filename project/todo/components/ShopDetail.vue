@@ -23,7 +23,7 @@
     <parameter v-else="$store.state.isPaly==='parameter'"></parameter>
   	<div id="footer">
   		<ul>
-  			<router-link to="/mine/logon" class="l" tag="li">立即购买</router-link>
+        <li class="l" @touchend="buynow">立即购买</li>
   			<li class="l" v-on:touchend="fly2cart">加入购物车</li>
   		</ul>
   	</div>
@@ -81,6 +81,23 @@ export default {
           }
         })
       }
+    },
+    buynow() {
+      var that = this;
+      var str=location.href
+      var str1 = str.match(/detail.*/)
+      var shopid = str1[0].match(/\d.*/)[0]
+      $.ajax({
+        type:"get",
+        url:"/exp/apply/buynow",
+        data: {
+          shopid: shopid
+        },
+        success:function(data){
+          that.$store.commit('setApplylist',data)
+          location.href="#/apply"
+        }
+      })
     },
 		...mapActions([
 		  

@@ -14,6 +14,11 @@ router.get('/doorder', function(req, res, next) {
 });
 
 /* GET 支付. */
+router.get('/buynow', function(req, res, next) {
+  	applydao.buynow(req, res, next)
+});
+
+/* GET 支付. */
 router.get('/pay', function(req, res, next) {
   	applydao.updateOrder(req, res, next)
 });

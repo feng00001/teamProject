@@ -12,7 +12,6 @@ module.exports = {
 		pool.getConnection(function(err, connection) {
 			// 获取前台页面传过来的参数
 			var param = req.query || req.params;
-			var checkids = param.checkid.split(",")
 			var ret = []
 
 			function cb (arg) {
@@ -23,25 +22,49 @@ module.exports = {
 				// ！！！只有shopcarid能用！！！因为数量可以改变
 				req.session.orderlist = ret;
 				util.jsonWrite(res, ret);
+				console.log(JSON.stringify(ret))
 				// 释放连接 
 				connection.release();
 			}
-			
-			// var ret = []
-			checkids.map(function(checkid,ids){
-				// 建立连接，向表中插入值
-				connection.query($sql.sqlApply01, [checkid, param.userid], function(err, result) {
-					if(err){
-						console.log(err)
-					}
-					if(ids===checkids.length-1){
-						cb(result);
-						end ()
-					}else{
-						cb(result);
-					}
-				});
-			})
+			if(param.checkid){
+				var checkids = param.checkid.split(",")
+				if(checkids && checkids.length>0){
+					checkids.map(function(checkid,ids){
+						// 建立连接，向表中插入值
+						connection.query($sql.sqlApply01, [checkid, req.cookies["user"]], function(err, result) {
+							if(err){
+								console.log(err)
+							}
+							console.log(result)
+							if(ids===checkids.length-1){
+								cb(result);
+								end()
+							}else{
+								cb(result);
+							}
+						});
+					})
+				}
+			}
+		});
+	},
+	buynow: function(req, res, next){
+		req.session.orderlist = [];
+		pool.getConnection(function(err, connection) {
+			if(err){
+				console.log(err)
+			}
+			// 获取前台页面传过来的参数
+			var param = req.query || req.params;
+			connection.query($sql.sqldetail02, [param.shopid], function(err, result) {
+				if(err){
+					console.log(err)
+				}
+				
+				result[0].quantity = 1
+				util.jsonWrite(res, result);
+				connection.release();
+			});
 		});
 	},
 	setOrder: function(req, res, next) {
@@ -60,18 +83,30 @@ module.exports = {
 					resolve({err, result});
 				});
 			}).then(function({err, result}){
+				console.log("ffffff")
 				if(err){
 					console.log(err)
 				}
-				console.log(JSON.stringify(result))
-				orderlist.map(function(element,ids){
-					connection.query($sql.sqlApply03, [result.insertId,element.shopid,element.price,element.quantity], function(err, result) {
+				if(orderlist && orderlist.length>0){
+					console.log("whyyyyy")
+					orderlist.map(function(element,ids){
+						connection.query($sql.sqlApply03, [result.insertId,element.shopid,element.price,element.quantity], function(err, result) {
+							if(err){
+								console.log(err)
+							}
+						});
+					})
+					return;
+				}else{
+					console.log("00000"+param.shopid+'---'+param.price+'---'+param.quantity)
+					connection.query($sql.sqlApply03, [result.insertId,param.shopid,param.price,param.quantity], function(err, result) {
 						if(err){
 							console.log(err)
 						}
 					});
-				})
-				return;
+					return;
+				}
+				
 			}).then(function(){
 				orderlist.map(function(element,ids){
 					connection.query($sql.sqlApply04, [element.shopcarid], function(err, result) {
@@ -100,6 +135,7 @@ module.exports = {
 				if(err){
 					console.log(err)
 				}
+				util.jsonWrite(res, "OK");
 			});
 		});
 	}

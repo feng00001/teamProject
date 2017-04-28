@@ -80,7 +80,6 @@ module.exports = {
 					}
 					
 					ret[0].imgs = result
-					console.log(JSON.stringify(ret))
 					util.jsonWrite(res, ret);				
 					// 释放连接 
 					connection.release();

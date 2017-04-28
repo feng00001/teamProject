@@ -13,7 +13,6 @@
         <li class="l send">待发货</li>
         <li class="l receive">待收货</li>
         <li class="l evaluate">待评价</li>
-        
       </ul>
     </div>
     <all-report v-if="$store.state.isDisplay==='all'"></all-report>
