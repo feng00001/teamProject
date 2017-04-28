@@ -7,7 +7,7 @@
         </router-link>
   		</span>
   		<span>
-  			购物车（0）
+  			购物车
   		</span>
   		<span class="r">
   			<search-nav></search-nav>
@@ -15,9 +15,9 @@
       
   	</div>
   	<div id="login">
-      <router-link to="/mine/logon" class="login">登陆后可同步电脑与手机购物车中的商品</router-link>
+      <router-link to="/myself" class="login">登陆后可同步电脑与手机购物车中的商品</router-link>
       
-      <router-link to="/mine/logon" class="r iconfont">&#xe656;</router-link>
+      <router-link to="/myself" class="r iconfont">&#xe656;</router-link>
     </div>
     <div id="cart-content" v-if="$store.state.cartlist.length===0">
       <img :src="$store.state.cartImg">
@@ -86,7 +86,7 @@ export default {
     var that = this
     this.selall()
     console.log($('.login').html() )
-    $('.login').html('欢迎选购')
+    $('.login').html('个人信息')
   },
   computed: {
     totle: function() {
