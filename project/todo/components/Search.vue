@@ -1,9 +1,9 @@
 <template>
 <div>
 	<div class="head">
+		<router-link tag="i" class="iconfont l" to="/shopList"  active-class="special">&#x3484;</router-link>
 		<div class="txt l">
 			<i class="iconfont l">&#xe501;</i>
-			
 			<input class="ipt l" type="text" placeholder="搜索你想要的商品" ref="searchval"/>
 		 </div>
 		 <div class="search l"><span @touchend="search">搜索</span></div>
@@ -56,9 +56,11 @@ export default {
 	height:.83rem;
 	background:#f4f4f4;
 	padding-top:.07rem;
+	width: 7.5rem;
+	line-height: .73rem;
 }
 .head .txt{
-	width:6rem;
+	width:5.8rem;
 	height:.73rem;
 	border:1px solid #ccc;
 	margin-left:.18rem;
@@ -79,7 +81,7 @@ export default {
 	outline: none;
 }
 .head .search{
-	width:.78rem;
+	width:.7rem;
 	height:.58rem;
 	line-height:.68rem;
 	font-size:14px;
@@ -90,7 +92,8 @@ export default {
 }
 .con .history{
 	padding:.1rem;
-	width:100%;
+	width:7.5rem;
+	box-sizing: border-box;
 	height:100%;
 	background:#eee;
 }
@@ -119,7 +122,8 @@ export default {
 }
 .con .hot{
 	padding:.1rem;
-	width:100%;
+	width:7.5rem;
+	box-sizing: border-box;
 	height:100%;
 	background:#eee;
 }
