@@ -746,8 +746,11 @@ $('.list li').click(()=>{
 	height: 3.5rem;
 }
 .shopList #like ul li p{
-	height: .6rem;
-	width: 3.5rem;
+	height: .5rem;
+	overflow: hidden;
+	width: 3.2rem;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 	padding: .1rem .15rem;
 }
 .shopList #like ul li span{
