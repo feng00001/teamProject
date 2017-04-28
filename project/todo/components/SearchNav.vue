@@ -9,7 +9,7 @@
           <router-link to="/shopList" tag="li" active-class="special"><i class="iconfont">&#xe632;</i><b>首页</b></router-link>
           <router-link to="/classify" tag="li" active-class="special"><i class="iconfont">&#xe501;</i><b>搜索</b></router-link>
           <router-link to="/classify" tag="li" active-class="special"><i class="iconfont">&#xe657;</i><b>分类</b></router-link>
-          <router-link to="/order" tag="li" active-class="special"><i class="iconfont">&#xe62a;</i><b>购物车</b></router-link>
+          <router-link to="/cart" tag="li" active-class="special"><i class="iconfont">&#xe62a;</i><b>购物车</b></router-link>
           <router-link to="/mine" tag="li" active-class="special"><i class="iconfont">&#xe6a3;</i><b>我的</b></router-link>
         </ul>
       </span>
