@@ -28,7 +28,7 @@
       <ul class="all">
         <li class="list" v-for="item in $store.state.cartlist">
           <div class="left">
-            <input type="checkbox" checked ref="checkshop" :value="item.shopcarid" class="checkshop"/>
+            <input type="checkbox" checked v-model="$store.state.isChecked" ref="checkshop" :value="item.shopcarid" class="checkshop"/>
           </div>
           <div class="center">
             <img :src="item.img">
@@ -54,12 +54,12 @@
       </ul>
     </div>
     <div class="footer">
-      <input type="checkbox" checked/>全选 
+      <input type="checkbox" checked v-model="$store.state.isChecked" ref="checkall" />全选 
       <span class="totle">
         合计：
       </span>
       <!-- <router-link to="/apply"> -->
-        <button class="r" @touchend="apply">去结算（9）</button>
+        <button class="r" @touchend="apply">去结算</button>
       <!-- </router-link> -->
       <span class="r" ref="totle">
         ￥{{totle}}
@@ -81,6 +81,7 @@ export default {
     var userid = util.getCookie("user");
     var that = this
     this.selall()
+
   },
   computed: {
     totle: function() {
@@ -138,7 +139,7 @@ export default {
         success: function(data){
           console.log(data)
           that.$store.commit('setCartlist',data)
-
+       
         }
       })
     },

@@ -15,107 +15,123 @@
     		<input class="l" type="text" placeholder="搜索你要的商品">
     	</router-link>
     	
-    	<a href="" class="list l">
+    	<router-link to="/classify" tag="div" active-class="special" class="list l ">
     		<i class="iconfont">&#xe657;</i>
-    	</a>
-    	<a href="" class="card l">
+    	</router-link>
+    	<router-link to="/cart" tag="div" active-class="special" class="card l ">
     		<i class="iconfont">&#xe62a;</i>	
-    	</a>
+    	</router-link>
     </header>
     <mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="$store.state.allLoaded" ref="loadmore">
     <div id="slide">
 	    <mt-swipe :auto="4000" >
 	    	<mt-swipe-item>
-				<!-- <img :src="$store.state.testImg[1]"> -->
-				<img  style="background:url(http://img23.iblimg.com/market-2/images/content/1985932398.jpg) no-repeat center;background-size:cover">
+				<router-link to="/slotlist" tag="a" active-class="special" >
+					<img  style="background:url(http://img23.iblimg.com/market-2/images/content/1985932398.jpg) no-repeat center;background-size:cover">
+				</router-link>
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/791602993.jpg) no-repeat center ;background-size:cover">
+	    		<router-link to="/slotlist" tag="a" active-class="special" >
+					<img  style="background:url(http://img22.iblimg.com/market-2/images/content/791602993.jpg) no-repeat center ;background-size:cover">
+				</router-link>
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/791602993.jpg) no-repeat center;background-size:cover">
+	    		<router-link to="/slotlist" tag="a" active-class="special" >
+					<img  style="background:url(http://img23.iblimg.com/market-2/images/content/175575644.jpg) no-repeat center;background-size:cover">
+				</router-link>
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/1913242316.jpg) no-repeat center;background-size:cover">
+				<router-link to="/slotlist" tag="a" active-class="special" >
+					<img  style="background:url(http://img23.iblimg.com/market-2/images/content/1659314251.jpg) no-repeat center;background-size:cover">
+				</router-link>
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img  style="background:url(http://img23.iblimg.com/market-2/images/content/531205495.jpg) no-repeat center;background-size:cover">
+	    		<router-link to="/slotlist" tag="a" active-class="special" >
+					<img  style="background:url(http://img23.iblimg.com/market-2/images/content/531205495.jpg) no-repeat center;background-size:cover">
+				</router-link>
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/1758104514.jpg) no-repeat center;background-size:cover">
+	    		<router-link to="/slotlist" tag="a" active-class="special" >
+					<img  style="background:url(http://img22.iblimg.com/market-2/images/content/1758104514.jpg) no-repeat center;background-size:cover">
+				</router-link>
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
+	    		<router-link to="/slotlist" tag="a" active-class="special" >
+					<img  style="background:url(http://img22.iblimg.com/market-2/images/content/784170849.jpg) no-repeat center;background-size:cover">
+				</router-link>
+	    	</mt-swipe-item>
+	    	<mt-swipe-item>
+	    		<router-link to="/slotlist" tag="a" active-class="special" >
+					<img  style="background:url(http://img23.iblimg.com/market-2/images/content/2026052681.jpg) no-repeat center;background-size:cover">
+				</router-link>
+	    	</mt-swipe-item>
+	    	<mt-swipe-item>
+	    		<router-link to="/slotlist" tag="a" active-class="special" >
 				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/784170849.jpg) no-repeat center;background-size:cover">
+				</router-link>
 	    	</mt-swipe-item>
-	    	<mt-swipe-item>
-				<img  style="background:url(http://img23.iblimg.com/market-2/images/content/2026052681.jpg) no-repeat center;background-size:cover">
-	    	</mt-swipe-item>
-	    	<mt-swipe-item>
-				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/784170849.jpg) no-repeat center;background-size:cover">
-	    	</mt-swipe-item>
-
 	    </mt-swipe>
     </div>
     <div id="nav">
         <ul class="list" >
-          <li>
+          <router-link to="/slotlist" tag="li" active-class="special" >
             <img :src="$store.state.testImg[2]">
             <p>逛百联</p>
-          </li>
-          <li>
+          </router-link>
+          <router-link to="/slotlist" tag="li" active-class="special" >
             <img :src="$store.state.testImg[5]">
             <p>第一医药</p>
-          </li>
-          <li>
+          </router-link>
+          <router-link to="/slotlist" tag="li" active-class="special" >
             <img :src="$store.state.testImg[6]">
             <p>礼品卡</p>
-          </li>
-          <li>
+          </router-link>
+          <router-link to="/slotlist" tag="li" active-class="special" >
             <img :src="$store.state.testImg[7]">
             <p>电器城</p>
-          </li>
-          <li>
+          </router-link>
+          <router-link to="/slotlist" tag="li" active-class="special" >
             <img :src="$store.state.testImg[8]">
             <p>特色中国</p>
-          </li>
-          <li>
+          </router-link>
+          <router-link to="/slotlist" tag="li" active-class="special" >
             <img :src="$store.state.testImg[9]">
             <p>充值缴费</p>
-          </li>
-          <li>
+          </router-link>
+          <router-link to="/slotlist" tag="li" active-class="special" >
             <img :src="$store.state.testImg[10]">
             <p>停车</p>
-          </li>
-          <li>
+          </router-link>
+          <router-link to="/slotlist" tag="li" active-class="special" >
             <img :src="$store.state.testImg[11]">
             <p>免费领</p>
-          </li>
-          <li>
+          </router-link>
+          <router-link to="/slotlist" tag="li" active-class="special" >
             <img :src="$store.state.testImg[12]">
             <p>领券中心</p>
-          </li>
-          <li>
+          </router-link>
+          <router-link to="/slotlist" tag="li" active-class="special" >
             <img :src="$store.state.testImg[13]">
             <p>精选篮筐</p>
-          </li>
+          </router-link>
         </ul>
     </div>
 	<div id="news">
 		<div class="news_left l">
-			<a href="#">
+			<router-link to="shopbuy" tag="a" active-class="special" >
 				<img  alt="">
-			</a>
+			</router-link>s
 		</div>
 		<div class="news_right l">
 			<span>
-				<a href="#">
+				<router-link to="shoplife" tag="a" active-class="special" >
 					<img  alt="" class="tp">
-				</a>
+				</router-link>
 			</span>
 			<span>
-				<a href="#">
+				<router-link to="ShopQuality" tag="a" active-class="special" >
 					<img  alt="" class="bt">
-				</a>
+				</router-link>
 			</span>
 		</div>
 	</div>
@@ -142,7 +158,6 @@
 		</div>
 		<div class="life_tp">
 			<a href="#/shoplife" class="l">
-				<!-- <img :src="$store.state.testImg[1]"> -->
 				<img  alt="" class="one">
 			</a>
 			<a href="#/shopleft" class="l">
@@ -150,13 +165,13 @@
 			</a>
 		</div>
 		<div class="life_bt">
-			<a href="#/shopleft" class="l">
+			<a href="#/shoplife" class="l">
 				<img  alt="" class="one">
 			</a>
-			<a href="#/shopleft" class="l">
+			<a href="#/shoplife" class="l">
 				<img  alt="" class="two">
 			</a>
-			<a href="#/shopleft" class="l">
+			<a href="#/shoplife" class="l">
 				<img  alt="" class="three">
 			</a>
 		</div>
@@ -177,30 +192,40 @@
 			</a>
 		</div>
 		<div class="spe_bt">
+			<router-link to="slotlist" tag="a" active-class="special" >
 			<img >
+			</router-link>
 		</div>
 	</div>
 	<div id="slide2">
     	<mt-swipe :auto="4000" class="flyaway">
 	    	<mt-swipe-item>
-				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/791602993.jpg) no-repeat center">
+	    		<router-link to="/slotlist" tag="a" active-class="special" >
+					<img  style="background:url(http://img23.iblimg.com/market-2/images/content/980739799.jpg) no-repeat center;background-size:cover">
+				</router-link>
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/791602993.jpg) no-repeat center">
+	    		<router-link to="/slotlist" tag="a" active-class="special" >
+					<img  style="background:url(http://img22.iblimg.com/market-2/images/content/1651037525.jpg) no-repeat center;background-size:cover">
+				</router-link>
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/791602993.jpg) no-repeat center">
+	    		<router-link to="/slotlist" tag="a" active-class="special" >
+					<img  style="background:url(http://img22.iblimg.com/market-2/images/content/1920847427.jpg) no-repeat center;background-size:cover">
+				</router-link>
 	    	</mt-swipe-item>
 	    	<mt-swipe-item>
-				<img  style="background:url(http://img22.iblimg.com/market-2/images/content/791602993.jpg) no-repeat center">
+	    		<router-link to="/slotlist" tag="a" active-class="special" >
+					<img  style="background:url(http://img22.iblimg.com/market-2/images/content/1008473067.jpg) no-repeat center;background-size:cover">
+				</router-link>
 	    	</mt-swipe-item>
 	    </mt-swipe>
     </div>
 	<div id="like">
 		<div class="top">
 			<h1 class="l">猜你喜欢</h1>
-			<a href="#" class="r">登录之后，更加准确</a>
-			<i class="iconfont r">&#xe6a3;</i>
+			<!-- <router-link to="/logon" tag="a" active-class="special" class="r">登录之后，更加准确</router-link>
+			<i class="iconfont r">&#xe6a3;</i> -->
 		</div>
 		
 		
@@ -218,8 +243,8 @@
 	<footer>
 		<div class="login">
 			<i class="l iconfont">&#xe6a3;</i>
-			<a href="" class="l">登录</a>
-			<a href="" class="l">注册</a>
+			<router-link to="/mine/logon" tag="a" active-class="special" class="l">登录</router-link>
+			<router-link to="/register" tag="a" active-class="special" class="l">注册</router-link>
 		</div>
 		<div class="bottom">
 			<ul>
@@ -398,6 +423,7 @@ $('.list li').click(()=>{
     margin-left: 0.1rem;
     display: inline;
     color: #e6133c;
+    margin-top:.1rem;
 }
 .shopList header .list i,.shopList header .card i{
 	font-size: .48rem;
@@ -406,7 +432,8 @@ $('.list li').click(()=>{
 	padding: 0 0.2rem;
     font-size: 0.18rem;
     font-family: "iconfont";
-    margin-left: 0.1rem;
+    margin-left: .1rem;
+    margin-top:.1rem;
     display: inline;
     color: #e6133c;
 }
@@ -746,8 +773,11 @@ $('.list li').click(()=>{
 	height: 3.5rem;
 }
 .shopList #like ul li p{
-	height: .6rem;
-	width: 3.5rem;
+	height: .5rem;
+	overflow: hidden;
+	width: 3.2rem;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 	padding: .1rem .15rem;
 }
 .shopList #like ul li span{

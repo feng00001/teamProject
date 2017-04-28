@@ -76,7 +76,8 @@ export const state = {
   buys: [],
   reportlist: {},
   isEmptyCart: 'block',
-  isList: 'con1'
+  isList: 'con1',
+  isChecked: 'checked'
   //韩旭 
 }
 
