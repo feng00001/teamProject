@@ -33,7 +33,7 @@
             <button>更多</button>
             <button>朋友代付</button>
             <button>取消订单</button>
-            <button class="money">付款</button>
+            <button v-if="item.order.status==='未付款'" class="money">付款</button>
           </div>   
       </div>
       <div class="mask">
@@ -42,7 +42,6 @@
               <p>支付成功</p>
           </div>
       </div>
-       
   </div>
 </template>
 

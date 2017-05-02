@@ -536,6 +536,15 @@ $('.list li').click(()=>{
 	border-top:.02rem solid #ccc;
 	border-bottom:.02rem solid #ccc;
 }
+.shopList #buy .scroll ul li{
+
+}
+.shopList #buy .scroll ul li p{
+	font-size: 0.1rem;
+	line-height: 0.35rem;
+	padding: 0.05rem;
+	font-family: 'Arial'
+}
 .shopList #buy ul li{
 	display: inline-block;
 	width:2rem;

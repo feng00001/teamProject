@@ -52,7 +52,7 @@ export default {
   }
 }
 </script>
-<style type="text/css">
+<style type="text/css" scoped>
 .head{
 	height:.83rem;
 	background:#f4f4f4;

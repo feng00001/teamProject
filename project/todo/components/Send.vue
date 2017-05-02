@@ -33,7 +33,6 @@
             <button>更多</button>
             <button>朋友代付</button>
             <button>取消订单</button>
-            <button>付款</button>
           </div>   
       </div>
   </div>
