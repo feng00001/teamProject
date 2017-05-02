@@ -2,9 +2,12 @@
   <div class="cart">
   	<div id="header">
   		<span class="l">
-        <router-link to="/slotlist">
+        <div class="l" @click="$router.go(-1)">
+          <i class="iconfont">&#x3484;</i>
+        </div>
+        <!-- <router-link to="/slotlist">
   			<i class="iconfont">&#x3484;</i>
-        </router-link>
+        </router-link> -->
   		</span>
   		<span>
   			购物车
