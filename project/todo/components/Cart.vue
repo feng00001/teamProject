@@ -32,7 +32,7 @@
       <ul class="all">
         <li class="list" v-for="item in $store.state.cartlist">
           <div class="left">
-            <input type="checkbox" checked v-model="$store.state.isChecked" ref="checkshop" :value="item.shopcarid" class="checkshop"/>
+            <input type="checkbox" checked ref="checkshop" :value="item.shopcarid" class="checkshop"/>
           </div>
           <div class="center">
             <img :src="item.img">
@@ -58,7 +58,7 @@
       </ul>
     </div>
     <div class="footer">
-      <input type="checkbox" checked v-model="$store.state.isChecked" ref="checkall" />全选 
+      <input type="checkbox" checked ref="checkall" @click="checkall"/>全选 
       <span class="totle">
         合计：
       </span>
@@ -88,8 +88,9 @@ export default {
     var userid = util.getCookie("user");
     var that = this
     this.selall()
-    console.log($('.login').html() )
+    console.log($('.login').html())
     $('.login').html('个人信息')
+    
   },
   computed: {
     totle: function() {
@@ -103,6 +104,16 @@ export default {
     }
   },
   methods: {
+    checkall() {
+      console.log("111")
+      // 控制全选或取消 begin
+      var checkall = this.$refs.checkall
+      var checkshop = this.$refs.checkshop
+      checkshop.map(function(element,ids){
+        element.checked = checkall.checked
+      })
+      // 控制全选或取消 end
+    },
     minus(co,e) {
       var userid = util.getCookie("user");
       var that = this;
@@ -152,7 +163,6 @@ export default {
       })
     },
     apply() {
-      console.log($('.list'))
       if($('.list').length>0){
         var param = ""
         $(".checkshop:checked").each(function(ids,element){
