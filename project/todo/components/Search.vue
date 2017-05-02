@@ -1,7 +1,8 @@
 <template>
 <div>
 	<div class="head">
-		<router-link tag="i" class="iconfont l" to="/shopList"  active-class="special">&#x3484;</router-link>
+		<i class="iconfont l back" @click="$router.go(-1)">&#x3484;</i>
+		<!-- <router-link tag="i" class="iconfont l" to="/shopList"  active-class="special">&#x3484;</router-link> -->
 		<div class="txt l">
 			<i class="iconfont l">&#xe501;</i>
 			<input class="ipt l" type="text" placeholder="搜索你想要的商品" ref="searchval"/>
@@ -85,7 +86,7 @@ export default {
 	height:.58rem;
 	line-height:.68rem;
 	font-size:14px;
-	margin-left:.5rem
+	margin-left:.2rem
 }
 .con{
 	background:#eee;
@@ -145,5 +146,8 @@ export default {
 	margin-left:.2rem;
 	background:#fff;
 	margin-bottom:.2rem;
+}
+.back{
+	margin-left: 0.2rem;
 }
 </style>

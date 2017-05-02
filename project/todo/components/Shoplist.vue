@@ -242,9 +242,9 @@
 	</div>
 	<footer>
 		<div class="login">
-			<i class="l iconfont">&#xe6a3;</i>
+			<!-- <i class="l iconfont">&#xe6a3;</i>
 			<router-link to="/mine/logon" tag="a" active-class="special" class="l">登录</router-link>
-			<router-link to="/register" tag="a" active-class="special" class="l">注册</router-link>
+			<router-link to="/register" tag="a" active-class="special" class="l">注册</router-link> -->
 		</div>
 		<div class="bottom">
 			<ul>

@@ -2,16 +2,16 @@
 	<div class="slotlist">
 		<div id="header">
 			<div class="first">
-				<div class="l" @click="$router.go(-1)">
+				<div class="l back" @click="$router.go(-1)">
 					<i class="iconfont">&#x3484;</i>
 				</div>
 				<!-- <router-link to="/classify" class="l" @click="$router.go(-1)"><i class="iconfont">&#x3484;</i></router-link> -->
-				<div class="search l">
+				<router-link to="/search" tag="div" active-class="special" class="search l ">
 					<i class="iconfont">&#xe501;</i>
 					<input type="text" placeholder="查找你喜欢的商品" />
 					<img :src="$store.state.slotListImg" class="no">
-				</div>
-	        	<i class="r iconfont" @touchend="switchover">&#xe628;</i>
+				</router-link>
+	        	<i class="r iconfont view" @touchend="switchover">&#xe628;</i>
 			</div>
 			
         	<ul class="nav">
@@ -431,5 +431,11 @@ export default {
     outline: none;
     text-align: center;
     background: #ff5d7d;
+}
+.back{
+	line-height:0.7rem;
+}
+.view{
+	margin-left: 0.4rem;
 }
 </style>
