@@ -33,7 +33,7 @@
             <button>更多</button>
             <button>朋友代付</button>
             <button>取消订单</button>
-            <button v-if="item.order.status==='未付款'" class="money">付款</button>
+            <button @click="pay(item.order.orderid,item.order.price)" v-if="item.order.status==='未付款'" class="money">付款</button>
           </div>   
       </div>
       <div class="mask">
@@ -71,7 +71,23 @@ export default {
       })
   },
   methods: {
-
+    pay(orderid,totle){
+      console.log({orderid,totle})
+      $.ajax({
+        type: "get",
+        url: "/exp/apply/pay",
+        data: {
+          totle: totle,
+          orderid: orderid
+        },
+        success: function(data){
+          $(".mask").show();
+          setTimeout(function(){
+            location.reload()
+          },3000)
+        }
+      })
+    }
   }
 
 }
@@ -195,8 +211,8 @@ export default {
   position: fixed;
   left: 0;
   bottom: 0;
-  background: #000;
-  opacity: .7;
+  background: #eeeeee;
+  opacity: 1;
   display: none;
 }
 .mask .success{
@@ -208,7 +224,6 @@ export default {
   margin-top: -2rem;
   left: 50%;
   margin-left: -3rem;
-  display: none;
   border-radius: 10px;
 }
 .mask .success img{

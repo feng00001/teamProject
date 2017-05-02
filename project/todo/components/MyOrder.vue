@@ -4,7 +4,9 @@
   <div class="order-detail">
     <div id="header">
       <div class="top">
-        <router-link to="/classify" class="l" tag="a"><i class="iconfont">&#x3484;</i></router-link>
+        <div class="l back" @click="$router.go(-1)">
+          <i class="iconfont">&#x3484;</i>
+        </div>
         <span>订单管理</span>
       </div>
       <ul @touchend='switchover($event)'>
@@ -94,7 +96,7 @@ export default {
 }  
 #header .top span{
   text-align: center;
-  width: 7rem;
+  width: 6.5rem;
   font-size: 16px;
   display: inline-block;
 }
@@ -109,5 +111,8 @@ export default {
 }
 .active{
   border-bottom: .05rem solid #f60;
+}
+.back{
+  margin-left: .2rem;
 }
 </style>

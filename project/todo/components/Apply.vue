@@ -77,7 +77,7 @@
         <ul class="user">
           <li>
             <span class="l">账号</span>
-            <i class="r">18811119999</i>
+            <i class="r">15241470870</i>
           </li>
           <li>
             <span class="l">需付款</span>
@@ -104,7 +104,7 @@ export default {
   name: 'payment',
   methods: {
   },
- mounted (){
+  mounted (){
     var that = this;
     var userid = util.getCookie("user");
     var orderid = 0;
@@ -127,7 +127,6 @@ export default {
         display:'block'
       });
       var item = that.$store.state.applylist[0]
-      console.log(item.shopid+'---'+item.price+'---'+item.quantity)
       $.ajax({
         type: "get",
         url: "/exp/apply/doorder",
@@ -166,7 +165,7 @@ export default {
       
     })
   },
-   computed: {
+  computed: {
     totle: function() {
       var ret = 0
       this.$store.state.applylist.map((el,idx) => {
