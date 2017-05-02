@@ -9,9 +9,9 @@ var sql = {
 
 	// Mine begin
 	// 根据用户名和密码查询，用于查询用户名和密码是否匹配
-	sqlMine01: 'select * from users where username = ? and password = ? and type = ?',
+	sqlMine01: 'select * from users where username = ? and password = md5(?) and type = ?',
 	// 注册用户
-	sqlMine02: 'insert into users(username,password,type) values (?,?,?)',
+	sqlMine02: 'insert into users(username,password,type) values (?,md5(?),?)',
 	// 检查用户是否存在,用于检查账户是否已经存在
 	sqlMine03: 'select * from users where username = ? and type = ?',
 	// 根据用户Id查询

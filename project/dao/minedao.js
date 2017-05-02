@@ -14,6 +14,9 @@ module.exports = {
 			var param = req.query || req.params;
 			// 建立连接，向表中插入值
 			connection.query($sql.sqlMine01, [param.username, param.password, 0], function(err, result) {
+				if(err){
+					console.log(err)
+				}
 				var ret = "您的账户或密码不正确";
 				// 如果查询结果无数据，则表示用户名不重复
 				if(result && result.length===1){

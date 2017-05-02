@@ -105,7 +105,6 @@ export default {
   },
   methods: {
     checkall() {
-      console.log("111")
       // 控制全选或取消 begin
       var checkall = this.$refs.checkall
       var checkshop = this.$refs.checkshop
