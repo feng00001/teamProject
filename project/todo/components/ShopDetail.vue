@@ -4,7 +4,10 @@
   <div class="shop-detail">
     <div id="header">
       <ul @touchend='switchover($event)'>
-        <router-link to="/slotlist" class="l" tag="li"><i class="iconfont">&#x3484;</i></router-link>
+        <li class="l" @click="$router.go(-1)">
+          <i class="iconfont">&#x3484;</i>
+        </li>
+        <!-- <router-link to="/slotlist" class="l" tag="li"><i class="iconfont">&#x3484;</i></router-link> -->
         <li class="l store">商品</li>
         <li class="l detail">详情</li>
         <li class="l parameter">参数</li>
