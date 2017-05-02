@@ -82,7 +82,7 @@ export default {
 	mounted (){
 		var that = this;
 		this.$store.commit('setPrePage', 0);
-		that.$store.commit('setSlotList', [])
+		this.$store.commit('setSlotList', [])
 		$.ajax({
 			type:"get",
 			url:"/exp/slotlist/slots",

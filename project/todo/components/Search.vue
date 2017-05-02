@@ -7,33 +7,33 @@
 			<i class="iconfont l">&#xe501;</i>
 			<input class="ipt l" type="text" placeholder="搜索你想要的商品" ref="searchval"/>
 		 </div>
-		 <div class="search l"><span @touchend="search">搜索</span></div>
+		 <div class="search l"><span @touchend="search()">搜索</span></div>
 	</div>
 	
 	<div class="con">
 		<div class="history">
 			<h5><i class="iconfont">&#xe63c;</i>最近搜索</h5>
 				<ul class="ul-1">
-					<li><a href="#">金龙鱼</a></li>
-					<li><a href="#">金龙鱼</a></li>
-					<li><a href="#">金龙鱼</a></li>
-					<li><a href="#">金龙鱼</a></li>
+					<li><span href="#" @touchend="search('慕斯蛋糕')">慕斯蛋糕</span></li>
+					<li><span href="#" @touchend="search('手持吸尘器')">手持吸尘器</span></li>
+					<li><span href="#" @touchend="search('百味斋')">百味斋</span></li>
+					<li><span href="#" @touchend="search('安佳')">安佳</span></li>
 				</ul>
 		</div>
 		<div class="hot">
 			<h5><i class="iconfont">&#xe628;</i>热门搜索</h5>
-				<a href="#">金龙鱼</a>
-				<a href="#">金龙鱼</a>
-				<a href="#">金龙鱼</a>
-				<a href="#">金龙鱼</a>
-				<a href="#">大米</a>
-				<a href="#">空气加湿器</a>
-				<a href="#">金龙鱼</a>
-				<a href="#">金龙鱼</a>
-				<a href="#">金龙鱼</a>
-				<a href="#">金龙鱼</a>
-				<a href="#">大米</a>
-				<a href="#">空气加湿器</a>
+				<span href="#" @touchend="search('伊利')">伊利</span>
+				<span href="#" @touchend="search('花王')">花王</span>
+				<span href="#" @touchend="search('百联')">百联</span>
+				<span href="#" @touchend="search('饼干')">饼干</span>
+				<span href="#" @touchend="search('牛奶')">牛奶</span>
+				<span href="#" @touchend="search('油')">油</span>
+				<span href="#" @touchend="search('板鞋')">板鞋</span>
+				<span href="#" @touchend="search('SWAROVSKI')">SWAROVSKI</span>
+				<span href="#" @touchend="search('三文鱼')">三文鱼</span>
+				<span href="#" @touchend="search('夏普')">夏普</span>
+				<span href="#" @touchend="search('西门子')">西门子</span>
+				<span href="#" @touchend="search('亚马逊')">亚马逊</span>
 		</div>
 	</div>
 </div>
@@ -45,8 +45,15 @@ import { mapMutations, mapActions} from 'vuex'
 
 export default {
   methods: {
-    search() {
-    	this.$store.commit('setSearchVal', this.$refs.searchval.value)
+    search(value) {
+    	var searchval = ""
+    	if(value){
+    		searchval = value
+    	}else{
+    		searchval = this.$refs.searchval.value
+    		console.log(searchval)
+    	}
+    	this.$store.commit('setSearchVal', searchval)
     	location.href = "#/slotlist"
     }
   }
@@ -139,7 +146,7 @@ export default {
 	font-weight: 100;
 	margin-right:.1rem;
 }
-.con .hot a{
+.con .hot span{
 	padding:.1rem .2rem;
 	border:1px solid #ccc;
 	float:left;
