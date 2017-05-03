@@ -65,9 +65,10 @@ export default {
     fly2cart(e) {
 
       this.$refs.count.innerText++
-      var str=location.href
-      var str1 = str.match(/detail.*/)
-      var shopid = str1[0].match(/\d.*/)[0]
+      // var str=location.href
+      // var str1 = str.match(/detail.*/)
+      // var shopid = str1[0].match(/\d.*/)[0]
+      var shopid = this.$route.params.shopId
       var userid = util.getCookie("user")
       if(userid === null){
         $('main').css({
@@ -91,9 +92,10 @@ export default {
     },
     buynow() {
       var that = this;
-      var str=location.href
-      var str1 = str.match(/detail.*/)
-      var shopid = str1[0].match(/\d.*/)[0]
+      // var str=location.href
+      // var str1 = str.match(/detail.*/)
+      // var shopid = str1[0].match(/\d.*/)[0]
+      var shopid = this.$route.params.shopId
       $.ajax({
         type:"get",
         url:"/exp/apply/buynow",

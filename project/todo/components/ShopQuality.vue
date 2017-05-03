@@ -20,7 +20,6 @@
 		</ul>
 		<div class="pic">
 			<img :src="$store.state.testImg[1]">
-			<span class="time">11天</span>
 			<button>领优惠券，享更多优惠</button>
 		</div>
 	</nav>

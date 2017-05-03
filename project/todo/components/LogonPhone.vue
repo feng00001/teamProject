@@ -23,10 +23,6 @@
             <button @click="getshortmsg" ref="getphonecode">获取短信验证码</button>
         </div>
     </div>
-    <div class="setoption">
-        <input type="checkbox" class="checkbox" />
-        <span>两周内免登陆</span>
-    </div>
     <div class="btngroup">
         <button @click="logonphone">登录</button>
     </div>
@@ -229,6 +225,7 @@ export default {
         height: 1rem;
         padding: 0 0.2rem;
         line-height: 1rem;
+        margin-top: .3rem;
     }
     .container .btngroup button {
         background: #e6133c;

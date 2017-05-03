@@ -194,11 +194,11 @@ export default {
 	#header{
 		position: fixed;
 		background: #fff;
-		z-index: 2
+		z-index: 2;
+		width:100%;
 	}
 	#master{
 		position: fixed;
-	    margin-top: 3.5rem;
 	    background: rgba(0,0,0,0.6);
 	    height: 100%;
 	    width: 100%;
@@ -300,7 +300,7 @@ export default {
 	#header .nav li.l:nth-of-type(1) .one{
 		position: absolute;
 		padding:0 .3rem;
-		width:6.9rem;
+		width:400%;
 		text-align: left;
 		background: #fff;
 	}
