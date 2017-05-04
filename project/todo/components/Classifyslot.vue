@@ -1,14 +1,12 @@
-<!-- <style src="todomvc-app-css/index.css"></style> -->
-
 <template>
   <div>
-  	<h1>Discover</h1>
-    
+  		<router-view></router-view>
   </div>
 </template>
 
 <script>
 import { mapMutations, mapActions} from 'vuex'
+
 
 export default {
   methods: {
@@ -16,3 +14,6 @@ export default {
   }
 }
 </script>
+<style type="text/css">
+	
+</style>
