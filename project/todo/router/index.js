@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+<<<<<<< HEAD
 import util from '../../../util/common.js'
 import filterpaths from './filterpath.js'
 import Home from '../components/Home.vue'
@@ -7,7 +8,13 @@ import Classify from '../components/Classify.vue'
 import Classifyslot from '../components/Classifyslot.vue'
 import SlotList from '../components/SlotList.vue'
 import Cart from '../components/Cart.vue'
+=======
+import Home from '../components/Home.vue'
+import Classify from '../components/Classify.vue'
+import Order from '../components/Order.vue'
+>>>>>>> d97d9b98803b432e1cc21eff6279a90782774142
 import Mine from '../components/Mine.vue'
+import Search from '../components/Search.vue'
 import ShopList from '../components/Shoplist.vue'
 import ShopDetail from '../components/ShopDetail.vue'
 import ShopBuy from '../components/ShopBuy.vue'
@@ -45,6 +52,7 @@ const router = new Router({
       ]
     },
     {
+<<<<<<< HEAD
       path: '/classifyslot',
       name: 'Classifyslot',
       component: Classifyslot,
@@ -66,11 +74,27 @@ const router = new Router({
       path: '/cart',
       name: 'Cart',
       component: Cart
+=======
+      path: '/classify',
+      name: 'Classify',
+      component: Classify
+    },
+    {
+      path: '/order',
+      name: 'Order',
+      component: Order
+>>>>>>> d97d9b98803b432e1cc21eff6279a90782774142
+    },
+    {
+      path: '/search',
+      name: 'Search',
+      component: Search,
     },
     {
       path: '/mine',
       name: 'Mine',
       component: Mine,
+<<<<<<< HEAD
       redirect:'/mine/logon',
       children: [{
         path: '/mine/logon',
@@ -126,6 +150,8 @@ const router = new Router({
       path: '/search',
       name: 'Search',
       component: Search
+=======
+>>>>>>> d97d9b98803b432e1cc21eff6279a90782774142
     },
     {
       path: '*',

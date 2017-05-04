@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 <div class="container">
 	
 	<div class="head">
@@ -14,6 +15,12 @@
 	<router-view></router-view>
 	</transition>
 </div>
+=======
+  <div>
+  	<h1>Mine</h1>
+    <bottom-nav></bottom-nav>
+  </div>
+>>>>>>> d97d9b98803b432e1cc21eff6279a90782774142
 </template>
 
 <script>
@@ -21,6 +28,7 @@ import BottomNav from './BottomNav.vue'
 import { mapMutations, mapActions} from 'vuex'
 
 export default {
+<<<<<<< HEAD
 	mounted() {
 		this.$store.commit('setMineMsg',null)
 	},
@@ -30,6 +38,14 @@ export default {
 	components: {
 		BottomNav
 	}
+=======
+  methods: {
+    
+  },
+  components: {
+  	BottomNav
+  }
+>>>>>>> d97d9b98803b432e1cc21eff6279a90782774142
 }
 </script>
 <style scoped>

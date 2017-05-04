@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 <style type="text/css" src="mint-ui/lib/style.css"></style>
 
+=======
+>>>>>>> d97d9b98803b432e1cc21eff6279a90782774142
 <template>
   <div class="shop-detail">
     <div id="header">

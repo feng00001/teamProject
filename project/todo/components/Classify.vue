@@ -2,6 +2,7 @@
 <template>
   <div class="classify">
   	<div id="header">
+<<<<<<< HEAD
   		<label><i class="iconfont">&#xe501;</i>
 		<router-link to="/search" tag="input" type="text" active-class="special"placeholder="搜索你想找的商品"></router-link>
   		</label>
@@ -11,10 +12,48 @@
 			<div class="left">
 				<ol>
 					<li v-for="item in $store.state.typelist" @touchend="changeUl(item.typeid)" :class="{cur:$store.state.cur===item.typeid}">{{item.typename}}</li>
+=======
+  		<input type="text" placeholder="搜索你想找的商品"/>
+  		<img :src="$store.state.classifyImg[1]">
+  		<span>
+  			<p>...</p>
+  			<ul>
+  				<li>首页</li>
+  				<li>搜索</li>
+  				<li>分类</li>
+  				<li>购物车</li>
+  				<li>我的</li>
+  			</ul>
+  		</span>
+  	</div>
+  	<div id="content1">
+			 <div class="left">
+				<ol>
+					<li>百联进口</li>
+					<li>生鲜食品</li>
+					<li>食品粮油</li>
+					<li>酒水冲印</li>
+					<li>美容护理</li>
+					<li>母婴专区</li>
+					<li>家居餐厨</li>
+					<li>厨卫清洁</li>
+					<li>精品服装</li>
+					<li>鞋靴箱包</li>
+					<li>腕表视频</li>
+					<li>手机数码</li>
+					<li>电脑办公</li>
+					<li>家用电器</li>
+					<li>运动户外</li>
+					<li>汽车用品</li>
+					<li>营养保健</li>
+					<li>图书音像</li>
+					<li>生活服务</li>
+>>>>>>> d97d9b98803b432e1cc21eff6279a90782774142
 					
 				</ol>
 			</div>
 			<div class="goodsinfo">
+<<<<<<< HEAD
 				<div v-for="item in $store.state.subtypelist">
 					<p class="nav">{{item.subtypename}}</p>
 					<ul>
@@ -24,6 +63,306 @@
 			        	</router-link>
 					</ul>
 				</div>
+=======
+				<p class="nav">进口美容护理</p>
+				<ul>
+					<li>
+						<img :src="$store.state.classifyImg[0]"/>
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img :src="$store.state.classifyImg[0]"/>
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img :src="$store.state.classifyImg[0]"/>
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img :src="$store.state.classifyImg[0]"/>
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img :src="$store.state.classifyImg[0]"/>
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img :src="$store.state.classifyImg[0]"/>
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img :src="$store.state.classifyImg[0]"/>
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img :src="$store.state.classifyImg[0]"/>
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img :src="$store.state.classifyImg[0]"/>
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img :src="$store.state.classifyImg[0]"/>
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img :src="$store.state.classifyImg[0]"/>
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img :src="$store.state.classifyImg[0]"/>
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img :src="$store.state.classifyImg[0]"/>
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img :src="$store.state.classifyImg[0]"/>
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img :src="$store.state.classifyImg[0]"/>
+						<p>进口乳液／面霜</p>
+					</li>
+				</ul>
+				<p class="nav">进口食品</p>
+				<ul>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+				</ul>
+				<p class="nav">进口乳品 酒水 冲饮</p>
+				<ul>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+				</ul>
+				<p class="nav">进口母婴</p>
+				<ul>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+				</ul>
+				<p class="nav">进口3c家电</p>
+				<ul>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+				</ul>
+				<p class="nav">进口家居生活</p>
+				<ul>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+					<li>
+						<img />
+						<p>进口乳液／面霜</p>
+					</li>
+				</ul>
+>>>>>>> d97d9b98803b432e1cc21eff6279a90782774142
 			</div>
 			<bottom-nav></bottom-nav>
 		</div>
@@ -33,11 +372,15 @@
 
 <script>
 import BottomNav from './BottomNav.vue'
+<<<<<<< HEAD
 import SearchNav from './SearchNav.vue'
+=======
+>>>>>>> d97d9b98803b432e1cc21eff6279a90782774142
 import {mapMutations, mapActions} from 'vuex'
 import $ from 'jquery'
 
 export default {
+<<<<<<< HEAD
 	mounted(){
 		var that = this
 		$.ajax({
@@ -71,10 +414,19 @@ export default {
 		BottomNav,
 		SearchNav
 	}
+=======
+  methods: {
+    
+  },
+  components: {
+  	BottomNav
+  }
+>>>>>>> d97d9b98803b432e1cc21eff6279a90782774142
 }
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 #header{
       padding:.3rem 0;
       overflow: hidden;
@@ -115,6 +467,53 @@ export default {
 	#content1 .left{
 		width: 25%;
 	    background: #eee;
+=======
+    #header{
+    	height:.8rem;
+    }
+    #header input{
+    	margin-top: .1rem;
+	    height: .6rem;
+	    line-height: .6rem;
+	    border-bottom: 1px solid #ddd;
+	    float: left;
+	    background: #f4f4f4;
+	    border-radius: .1rem;
+	    width: 65%;
+	    margin-left: .3rem;
+	    padding-left:.3rem
+    }
+    #header img{
+    	position: absolute;
+    	left:0.25rem;
+    	top:.3rem;
+    }
+    #header span{
+    	position: absolute;
+    	right:0.35rem;
+    	top:.1rem;
+    	font-size:38px;
+    }
+    #header span ul{
+    	position: absolute;
+    	width:6.5rem;
+    	left:-6.5rem;
+    }
+    #header span ul li{
+    	float:left;
+    }
+	#content1{
+		display: flex;
+		flex-direction: row;
+		background: green;
+		width:100%;
+		overflow: auto;
+		height: 12rem;
+	}
+	#content1 .left{
+		width: 20%;
+	    background: red;
+>>>>>>> d97d9b98803b432e1cc21eff6279a90782774142
 	    overflow: auto;
 	}
 	#content1 .left ol{
@@ -123,6 +522,7 @@ export default {
 		flex-direction: column;
 	}
 	#content1 .left ol li{
+<<<<<<< HEAD
 		border-bottom:1px solid #ddd;
 		height:1rem;
 		line-height:1rem;
@@ -133,10 +533,23 @@ export default {
 	#content1 .goodsinfo{
 		width: 75%;
 	    background: #fff;
+=======
+		border-bottom:1px solid yellow;
+		height:1rem;
+		line-height:1rem;
+		text-align:center;
+		font-size:18px;
+		width:100%;
+	}
+	#content1 .goodsinfo{
+		width: 80%;
+	    background: yellow;
+>>>>>>> d97d9b98803b432e1cc21eff6279a90782774142
 	    overflow: auto;
 	}
 	
 	#content1 .goodsinfo ul{
+<<<<<<< HEAD
 		width: 99%;
 	    display: flex;
 	    flex-direction: row;
@@ -146,6 +559,17 @@ export default {
 	#content1 .goodsinfo ul li{
 		height:2rem;
 		width:1.7rem;
+=======
+		width:100%;
+		display: flex;
+		flex-direction: row;
+    	flex-wrap: wrap;
+	}
+	#content1 .goodsinfo ul li{
+		height:2rem;
+		width:1.5rem;
+		padding-left:.3rem;
+>>>>>>> d97d9b98803b432e1cc21eff6279a90782774142
 	}
 	#content1 .goodsinfo ul li img{
 		padding:.2rem;
@@ -153,10 +577,16 @@ export default {
     	height: .9rem;
 	}
 	#content1 .goodsinfo ul li p{
+<<<<<<< HEAD
 		width: 1.7rem;
     	height: .7rem;
     	line-height: .7rem;
     	font-size:12px;
+=======
+		width: 1.5rem;
+    	height: .7rem;
+    	line-height: .7rem;
+>>>>>>> d97d9b98803b432e1cc21eff6279a90782774142
 	}
 	#content1 .goodsinfo p.nav{
 		margin: .1rem 0;
@@ -167,9 +597,12 @@ export default {
 	    font-size: 16px;
 	    border-left: 2px solid red;
 	}
+<<<<<<< HEAD
 	#content1 .left ol li.cur{
 		border-left:.1rem solid red;
 		box-sizing: border-box;
 		background:#fff;
 	}
+=======
+>>>>>>> d97d9b98803b432e1cc21eff6279a90782774142
 </style>

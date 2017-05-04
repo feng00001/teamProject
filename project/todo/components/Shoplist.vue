@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style type="text/css" src="mint-ui/lib/style.css"></style>
 
 <template>
@@ -262,6 +263,17 @@
 		</div>
 	</footer>
 	</mt-loadmore>
+=======
+<template>
+  <div>
+  	<h1>Shoplist</h1>
+  	<input type="text" ref="ipt"/>
+  	<button @click="searchByName">Search</button>
+  	<button @click="insertVal">Insert</button>
+    <ul>
+    	<li v-for="item in $store.state.shoplist"><a :href="'#/detail/'+item.shopid">{{item.shopname}}</a><span @click="deleteById(item.shopid)">删除</span></li>
+    </ul>
+>>>>>>> d97d9b98803b432e1cc21eff6279a90782774142
     <bottom-nav></bottom-nav>
   </div>
   <!-- </mt-loadmore> -->
@@ -332,9 +344,21 @@ export default {
 					}
 				}
 			})
+<<<<<<< HEAD
 	    }
 
 	}
+=======
+		},
+		// 不需要传递参数的时候可以使用结构赋值，否则没必要用
+		...mapActions([
+		  
+		])
+	},
+    components: {
+  	  BottomNav
+    }
+>>>>>>> d97d9b98803b432e1cc21eff6279a90782774142
 }
 window.onscroll=function(){
 var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
